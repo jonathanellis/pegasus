@@ -1,0 +1,34 @@
+<!--
+ 
+    PEGASUS SAMPLE 2
+    
+    This sample is for an iPad view which displays a label on a scroll view
+    along with a series of 3 images.
+
+    Copyright 2012 Jonathan Ellis
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<scrollview frame="{{0,0},{768,1024}}" contentSize="{768,2048}" backgroundColor="gray">
+
+    <label frame="{{10, 10}, {748, 50}}" font="system-bold 30" text="Pegasus Sample 2" textAlignment="center" backgroundColor="clear" />
+
+    <imageview frame="{{10,60}, {278,173}}" image="dinosaur.png" />
+
+    <imageview frame="{{10,300}, {293,360}}" image="gameboy.png" />
+
+    <imageview frame="{{10,750}, {381,400}}" image="soldier.png" />
+
+</scrollview>

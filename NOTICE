@@ -1,0 +1,8 @@
+	Pegasus
+   	Copyright 2012 Jonathan Ellis
+	
+	XML parsing support is provided by the TouchXML library package,
+	which is open source software written by Jonathan Wight, licensed
+	under the Simplified BSD License. The original software is available
+	from
+		https://github.com/TouchCode/TouchXML
