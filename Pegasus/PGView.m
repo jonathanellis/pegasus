@@ -23,10 +23,18 @@
 
 @synthesize view;
 
++ (PGView *)viewWithString:(NSString *)string {
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    return [self viewWithData:data];
+}
+
 + (PGView *)viewWithContentsOfFile:(NSString *)file {
-    NSData *xmlData = [NSData dataWithContentsOfFile:file];
-    CXMLDocument *doc = [[CXMLDocument alloc] initWithData:xmlData options:0 error:nil];
-    
+    NSData *data = [NSData dataWithContentsOfFile:file];
+    return [self viewWithData:data];
+}
+
++ (PGView *)viewWithData:(NSData *)data {
+    CXMLDocument *doc = [[CXMLDocument alloc] initWithData:data options:0 error:nil];
     CXMLElement *rootElement = doc.rootElement;
     
     PGView *view = [PGView viewWithElement:rootElement];

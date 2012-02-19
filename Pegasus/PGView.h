@@ -32,7 +32,10 @@
 
 @property (nonatomic, strong) UIView *view;
 
++ (PGView *)viewWithString:(NSString *)string;
 + (PGView *)viewWithContentsOfFile:(NSString *)file;
++ (PGView *)viewWithData:(NSData *)data;
+
 + (PGView *)viewWithElement:(CXMLElement *)element;
 
 - (id)initWithElement:(CXMLElement *)element;
