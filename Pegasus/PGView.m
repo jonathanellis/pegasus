@@ -82,32 +82,24 @@
                 
         for (CXMLNode *attribute in element.attributes) {
             NSString *propertyName = attribute.name;
-            NSString *propertyValue = attribute.stringValue;
+            NSString *propertyValue = attribute.stringValue;       
+            NSString *propertyType = [properties objectForKey:propertyName];
             
+            // Convert to lowercase if not a string/virtual:         
+            if (![propertyType isEqualToString:@"NSString"] && ![propertyType isEqualToString:@"#"]) {
+                propertyValue = [propertyValue lowercaseString];
+            }
             
-            if ([propertyName isEqualToString:@"id"]) { // Special case: id
-                __id = [propertyValue lowercaseString];
-            } else if ([propertyName isEqualToString:@"tag"]) { // Special case: tag(s)
-                tags = [[propertyValue lowercaseString] componentsSeparatedByString:@" "];
-            } else { // All other attributes
-            
-                NSString *propertyType = [properties objectForKey:propertyName];
-                
-                // Convert to lowercase if not a string/virtual:
-                if (![propertyType isEqualToString:@"NSString"]) {
-                    propertyValue = [propertyValue lowercaseString];
-                }
-                
-                if (!propertyType) {
-                    NSLog(@"Pegasus Error: No attribute '%@' on class %@. Ignoring!", propertyName, NSStringFromClass([self class]));
+            if (!propertyType) {
+                NSLog(@"Pegasus Error: No attribute '%@' on class %@. Ignoring!", propertyName, NSStringFromClass([self class]));
+            } else {
+                if ([propertyType isEqualToString:@"#"]) { // Virtual property
+                    [self setValue:propertyValue forVirtualProperty:propertyName];
                 } else {
-                    if ([propertyType isEqualToString:@"#"]) { // Virtual property
-                        [self setValue:propertyValue forVirtualProperty:propertyName];
-                    } else {
-                        [self setValue:propertyValue ofType:propertyType forProperty:propertyName];
-                    }
+                    [self setValue:propertyValue ofType:propertyType forProperty:propertyName];
                 }
             }
+
         }
         
         // Subviews:
@@ -183,6 +175,8 @@
 
 + (NSDictionary *)properties {
     return [NSDictionary dictionaryWithObjectsAndKeys:
+            @"#", @"id",
+            @"#", @"tag",
             @"UIColor", @"backgroundColor",
             @"BOOL", @"hidden",
             @"float", @"alpha",
@@ -209,7 +203,11 @@
 }
 
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName {
-    // No virtual properties
+    if ([propertyName isEqualToString:@"id"]) { // Special case: id
+        __id = [string lowercaseString];
+    } else if ([propertyName isEqualToString:@"tag"]) { // Special case: tag(s)
+        tags = [[string lowercaseString] componentsSeparatedByString:@" "];
+    }
 }
 
 

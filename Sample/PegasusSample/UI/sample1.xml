@@ -34,6 +34,6 @@
     
 	<textfield frame="{{40,200}, {240,27}}" placeholder="Enter text" borderStyle="rounded-rect" />
     
-	<button frame="{{140,250}, {20,40}}" title="OK" /> <!-- Buttons are currently (temporarily) limited, you cannot set type! -->
+	<button frame="{{140,250}, {30,40}}" title="OK" /> <!-- Buttons are currently (temporarily) limited, you cannot set type! -->
 
 </view>
