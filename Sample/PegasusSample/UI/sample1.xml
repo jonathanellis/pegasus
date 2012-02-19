@@ -26,11 +26,11 @@
 	
     <scrollview frame="{{100,40}, {100,100}}" contentSize="{278,173}">
         
-        <imageview frame="{{0,0}, {278,173}}" image="dinosaur.png" />
+        <imageview id="picture" frame="{{0,0}, {278,173}}" image="dinosaur.png" />
     
     </scrollview>
     
-    <label frame="{{40,160}, {240, 27}}" text="Which part of the dinosaur do you see?" adjustsFontSizeToFitWidth="yes" backgroundColor="clear" textColor="white" />
+    <label id="prompt" frame="{{40,160}, {240, 27}}" text="Which part of the dinosaur do you see?" adjustsFontSizeToFitWidth="yes" backgroundColor="clear" textColor="white" />
     
 	<textfield frame="{{40,200}, {240,27}}" placeholder="Enter text" borderStyle="rounded-rect" />
     
