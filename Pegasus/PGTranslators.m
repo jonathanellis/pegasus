@@ -88,27 +88,11 @@
 }
 
 + (CGAffineTransform)affineTransformWithString:(NSString *)string {
-    NSArray *components = [self componentsForTuple:string];
-    
-    float a = [[components objectAtIndex:0] floatValue];
-    float b = [[components objectAtIndex:1] floatValue];
-    float c = [[components objectAtIndex:2] floatValue];
-    float d = [[components objectAtIndex:3] floatValue];
-    float tx = [[components objectAtIndex:4] floatValue];
-    float ty = [[components objectAtIndex:5] floatValue];
-    
-    return CGAffineTransformMake(a, b, c, d, tx, ty);
+    return CGAffineTransformFromString(string);
 }
 
 + (UIEdgeInsets)edgeInsetsWithString:(NSString *)string {
-    NSArray *components = [self componentsForTuple:string];
-    
-    float top = [[components objectAtIndex:0] floatValue];
-    float left = [[components objectAtIndex:1] floatValue];
-    float bottom = [[components objectAtIndex:2] floatValue];
-    float right = [[components objectAtIndex:3] floatValue];    
-
-    return UIEdgeInsetsMake(top, left, bottom, right);
+    return UIEdgeInsetsFromString(string);
 }
 
 #pragma mark - Translators (Enums)

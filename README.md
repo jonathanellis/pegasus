@@ -1,22 +1,20 @@
 # Pegasus
 
-Pegasus is a lightweight framework that allows you to build user interfaces for your iOS projects in XML rather than in Interface Builder or programatically in Objective-C.
+Pegasus is a lightweight open-source framework for Cocoa Touch that lets you write your UI code in XML instead of Objective-C or using Interface Builder.
 
-# Getting Started
+## Getting Started
 
-See http://jona.than.biz/projects/pegasus for the project page.
+[Consult the Wiki](https://github.com/jonathanellis/pegasus/wiki) for instructions on installation & getting started.
 
-Consult the Sample application in *Sample* and read the documents found in the *Documentation* folder
-
-# Sample Application
+## Sample Application
 
 This framework comes with a sample application showing how to use Pegasus, which can be found in the *Sample* folder.
 
-# Report Issues/Bugs
+## Report Issues/Bugs
 
 Please report any bugs or issues at http://jona.than.biz/projects/pegasus.
 
-# License Agreements
+## License Agreements
 
 Copyright 2012 Jonathan Ellis
 

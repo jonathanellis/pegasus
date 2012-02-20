@@ -1,5 +1,5 @@
 //
-//  Pegasus.h
+//  PGLayout.h
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -17,29 +17,13 @@
 //  limitations under the License.
 //
 
-// Vendor
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
-// Third Party
-#import "TouchXML.h"
+@interface PGLayout : NSObject {
+    NSMutableArray *views;
+}
 
-// Categories
-#import "NSObject+Invocation.h"
-#import "UIColor+HexString.h"
+- (void)addViewsToSuperview:(UIView *)superview;
+- (void)addView:(UIView *)view;
 
-// Framework
-#import "PGAdapter.h"
-#import "PGTranslators.h"
-
-// Views
-#import "PGView.h"
-#import "PGLabel.h"
-#import "PGImageView.h"
-#import "PGTextField.h"
-#import "PGButton.h"
-#import "PGScrollView.h"
-
-// Layouts
-#import "PGLayout.h"
-#import "PGLinearLayout.h"
+@end

@@ -102,13 +102,15 @@
 
         }
         
+        if (!layout) layout = [[PGLayout alloc] init];
+        
         // Subviews:
         for (CXMLElement *childElement in element.children) {
             if ([childElement isKindOfClass:[CXMLElement class]]) {
                 PGView *subview = [PGView viewWithElement:childElement];
                 
                 if (subview) {
-                    [view addSubview:subview.view];
+                    [layout addView:subview.view];
                     [subviews addObject:subview];
                 } else {
                     NSLog(@"Pegasus Error: No corresponding class for tag '%@'. Ignoring!", childElement.name);
@@ -116,6 +118,8 @@
 
             }
         }
+        
+        [layout addViewsToSuperview:view];
         
     }
     return self;
@@ -147,7 +151,7 @@
 }
 
 - (UIView *)findViewWithID:(NSString *)viewID {    
-    if ([__id isEqualToString:viewID]) return self.view;
+    if ([_id isEqualToString:viewID]) return self.view;
     
     for (PGView *subview in subviews) {
         UIView *result = [subview findViewWithID:viewID];
@@ -177,6 +181,9 @@
     return [NSDictionary dictionaryWithObjectsAndKeys:
             @"#", @"id",
             @"#", @"tag",
+            @"#", @"layout",
+            @"#", @"size",
+            @"#", @"origin",
             @"UIColor", @"backgroundColor",
             @"BOOL", @"hidden",
             @"float", @"alpha",
@@ -203,10 +210,34 @@
 }
 
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName {
-    if ([propertyName isEqualToString:@"id"]) { // Special case: id
-        __id = [string lowercaseString];
-    } else if ([propertyName isEqualToString:@"tag"]) { // Special case: tag(s)
+    if ([propertyName isEqualToString:@"id"]) {
+        _id = [string lowercaseString];
+    } else if ([propertyName isEqualToString:@"tag"]) {
         tags = [[string lowercaseString] componentsSeparatedByString:@" "];
+    } else if ([propertyName isEqualToString:@"layout"]) {
+        NSArray *components = [string componentsSeparatedByString:@" "];
+        NSString *layoutName = [components objectAtIndex:0];
+        if ([layoutName isEqualToString:@"linear"]) {
+            layout = [[PGLinearLayout alloc] init];
+            NSString *orientation = [components objectAtIndex:1];
+            if ([orientation isEqualToString:@"horizontal"]) {
+                ((PGLinearLayout *)layout).orientation = PGLinearLayoutOrientationHorizontal;
+            } else if ([orientation isEqualToString:@"vertical"]) {
+                ((PGLinearLayout *)layout).orientation = PGLinearLayoutOrientationVertical;
+            }
+            if ([components count] > 2) {
+                ((PGLinearLayout *)layout).padding = [[components objectAtIndex:2] intValue];
+            }
+        }
+        
+    } else if ([propertyName isEqualToString:@"size"]) {
+        CGRect frame = view.frame;
+        frame.size = CGSizeFromString(string);
+        view.frame = frame;
+    } else if ([propertyName isEqualToString:@"origin"]) {
+        CGRect frame = view.frame;
+        frame.origin = CGPointFromString(string);
+        view.frame = frame;
     }
 }
 

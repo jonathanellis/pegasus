@@ -1,5 +1,5 @@
 //
-//  Pegasus.h
+//  PGLinearLayout.h
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -17,29 +17,19 @@
 //  limitations under the License.
 //
 
-// Vendor
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
-// Third Party
-#import "TouchXML.h"
-
-// Categories
-#import "NSObject+Invocation.h"
-#import "UIColor+HexString.h"
-
-// Framework
-#import "PGAdapter.h"
-#import "PGTranslators.h"
-
-// Views
-#import "PGView.h"
-#import "PGLabel.h"
-#import "PGImageView.h"
-#import "PGTextField.h"
-#import "PGButton.h"
-#import "PGScrollView.h"
-
-// Layouts
 #import "PGLayout.h"
-#import "PGLinearLayout.h"
+
+typedef enum {
+    PGLinearLayoutOrientationHorizontal = 100,
+    PGLinearLayoutOrientationVertical = 200
+} PGLinearLayoutOrientation;
+
+@interface PGLinearLayout : PGLayout {
+    PGLinearLayoutOrientation orientation;
+    int padding;
+}
+
+@property (nonatomic, assign) PGLinearLayoutOrientation orientation;
+@property (nonatomic, assign) int padding;
+
+@end

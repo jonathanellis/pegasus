@@ -21,10 +21,13 @@
 
 #import "PGAdapter.h"
 
+@class PGLayout;
+
 @interface PGView : NSObject <PGAdapter> {
     
-    NSString *__id;
+    NSString *_id;
     NSArray *tags;
+    PGLayout *layout;
     
     UIView *view;
     NSMutableArray *subviews;
