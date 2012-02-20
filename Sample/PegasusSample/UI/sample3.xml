@@ -2,8 +2,8 @@
  
     PEGASUS SAMPLE 3
 
-    This sample is for an iPhone view which displays an image, label,
-    textfield and button.
+    This sample is for an iPhone view which shows a series of views in a horizontal linear
+    view and then one view below.
 
     Copyright 2012 Jonathan Ellis
 
@@ -24,10 +24,10 @@
 
 <view frame="{{0,0},{320,460}}" backgroundColor="blue">
 
-	<view layout="linear horizontal 10">
-		<label size="{100,100}" text="Green" textAlignment="center" backgroundColor="green" />
-		<label size="{100,100}" text="Red" textAlignment="center" backgroundColor="red" />
-		<label size="{100,100}" text="Orange" textAlignment="center" backgroundColor="orange" />    
+	<view origin="{0,11}" layout="linear horizontal 11">
+		<label size="{92,92}" text="Green" textAlignment="center" backgroundColor="green" />
+		<label size="{92,92}" text="Red" textAlignment="center" backgroundColor="red" />
+		<label size="{92,92}" text="Orange" textAlignment="center" backgroundColor="orange" />    
 	</view>
 	
 	<label frame="{{0,110}, {320, 100}}" text="White" textAlignment="center" backgroundColor="white" />    

@@ -21,6 +21,19 @@
 
 @implementation PGLayout
 
+@synthesize size;
+
++ (PGLayout *)layoutWithString:(NSString *)string {
+    PGLayout *result;
+    NSArray *components = [string componentsSeparatedByString:@" "];
+    NSString *layoutName = [components objectAtIndex:0];
+    
+    if ([layoutName isEqualToString:@"linear"]) result = [[PGLinearLayout alloc] initWithString:string];
+    else if ([layoutName isEqualToString:@"grid"]) result = [[PGGridLayout alloc] initWithString:string];
+    
+    return result;
+}
+
 - (id)init {
     if (self = [super init]) {
         views = [NSMutableArray array];
@@ -37,5 +50,6 @@
 - (void)addView:(UIView *)view {
     [views addObject:view];
 }
+
 
 @end

@@ -1,0 +1,36 @@
+<!--
+ 
+ PEGASUS SAMPLE 4
+ 
+ This sample is for an iPad view demonstrating the grid layout (9x9).
+ 
+ Copyright 2012 Jonathan Ellis
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ 
+ -->
+
+
+<view frame="{{0,0},{768,1004}}" backgroundColor="white" layout="grid {3,3} {50,10}">
+    
+    <label text="1" textAlignment="center" backgroundColor="green" />
+    <label text="2" textAlignment="center" backgroundColor="red" />
+    <label text="3" textAlignment="center" backgroundColor="orange" />
+    <label text="4" textAlignment="center" backgroundColor="blue" />
+    <label text="5" textAlignment="center" backgroundColor="purple" />
+    <label text="6" textAlignment="center" backgroundColor="magenta" />
+    <label text="7" textAlignment="center" backgroundColor="cyan" />
+    <label text="8" textAlignment="center" backgroundColor="yellow" />
+    <label text="9" textAlignment="center" backgroundColor="brown" />
+
+</view>

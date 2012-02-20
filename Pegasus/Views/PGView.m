@@ -102,7 +102,9 @@
 
         }
         
+        // Finalize layout:
         if (!layout) layout = [[PGLayout alloc] init];
+        layout.size = view.frame.size;
         
         // Subviews:
         for (CXMLElement *childElement in element.children) {
@@ -119,6 +121,7 @@
             }
         }
         
+        // Add views according to layout:
         [layout addViewsToSuperview:view];
         
     }
@@ -215,21 +218,7 @@
     } else if ([propertyName isEqualToString:@"tag"]) {
         tags = [[string lowercaseString] componentsSeparatedByString:@" "];
     } else if ([propertyName isEqualToString:@"layout"]) {
-        NSArray *components = [string componentsSeparatedByString:@" "];
-        NSString *layoutName = [components objectAtIndex:0];
-        if ([layoutName isEqualToString:@"linear"]) {
-            layout = [[PGLinearLayout alloc] init];
-            NSString *orientation = [components objectAtIndex:1];
-            if ([orientation isEqualToString:@"horizontal"]) {
-                ((PGLinearLayout *)layout).orientation = PGLinearLayoutOrientationHorizontal;
-            } else if ([orientation isEqualToString:@"vertical"]) {
-                ((PGLinearLayout *)layout).orientation = PGLinearLayoutOrientationVertical;
-            }
-            if ([components count] > 2) {
-                ((PGLinearLayout *)layout).padding = [[components objectAtIndex:2] intValue];
-            }
-        }
-        
+        layout = [PGLayout layoutWithString:string];
     } else if ([propertyName isEqualToString:@"size"]) {
         CGRect frame = view.frame;
         frame.size = CGSizeFromString(string);

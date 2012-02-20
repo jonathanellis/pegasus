@@ -37,6 +37,8 @@
 		84786DD714EAC19E00FA6043 /* soldier.png in Resources */ = {isa = PBXBuildFile; fileRef = 84786DD414EAC19E00FA6043 /* soldier.png */; };
 		84C70D9C14F28A810051C13D /* PGLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C70D9914F28A810051C13D /* PGLayout.m */; };
 		84C70D9D14F28A810051C13D /* PGLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C70D9B14F28A810051C13D /* PGLinearLayout.m */; };
+		84C70DA414F297860051C13D /* PGGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C70DA314F297860051C13D /* PGGridLayout.m */; };
+		84C70DA714F299DD0051C13D /* sample4.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84C70DA614F299DD0051C13D /* sample4.xml */; };
 		FC1E563414F1B1FF007D9C1B /* PGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1E562714F1B1FF007D9C1B /* PGButton.m */; };
 		FC1E563514F1B1FF007D9C1B /* PGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1E562914F1B1FF007D9C1B /* PGImageView.m */; };
 		FC1E563614F1B1FF007D9C1B /* PGLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1E562B14F1B1FF007D9C1B /* PGLabel.m */; };
@@ -105,6 +107,9 @@
 		84C70D9914F28A810051C13D /* PGLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGLayout.m; path = Layouts/PGLayout.m; sourceTree = "<group>"; };
 		84C70D9A14F28A810051C13D /* PGLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGLinearLayout.h; path = Layouts/PGLinearLayout.h; sourceTree = "<group>"; };
 		84C70D9B14F28A810051C13D /* PGLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGLinearLayout.m; path = Layouts/PGLinearLayout.m; sourceTree = "<group>"; };
+		84C70DA214F297860051C13D /* PGGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGGridLayout.h; path = Layouts/PGGridLayout.h; sourceTree = "<group>"; };
+		84C70DA314F297860051C13D /* PGGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGGridLayout.m; path = Layouts/PGGridLayout.m; sourceTree = "<group>"; };
+		84C70DA614F299DD0051C13D /* sample4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sample4.xml; sourceTree = "<group>"; };
 		FC1E562614F1B1FF007D9C1B /* PGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGButton.h; path = Views/PGButton.h; sourceTree = "<group>"; };
 		FC1E562714F1B1FF007D9C1B /* PGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGButton.m; path = Views/PGButton.m; sourceTree = "<group>"; };
 		FC1E562814F1B1FF007D9C1B /* PGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGImageView.h; path = Views/PGImageView.h; sourceTree = "<group>"; };
@@ -266,6 +271,7 @@
 				84542DCE14EAB62C0085FFFA /* sample1.xml */,
 				84542DCF14EAB62C0085FFFA /* sample2.xml */,
 				FC1E564514F1BEE0007D9C1B /* sample3.xml */,
+				84C70DA614F299DD0051C13D /* sample4.xml */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -310,6 +316,8 @@
 				84C70D9914F28A810051C13D /* PGLayout.m */,
 				84C70D9A14F28A810051C13D /* PGLinearLayout.h */,
 				84C70D9B14F28A810051C13D /* PGLinearLayout.m */,
+				84C70DA214F297860051C13D /* PGGridLayout.h */,
+				84C70DA314F297860051C13D /* PGGridLayout.m */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -371,6 +379,7 @@
 				84786DD614EAC19E00FA6043 /* gameboy.png in Resources */,
 				84786DD714EAC19E00FA6043 /* soldier.png in Resources */,
 				FC1E564614F1BEE0007D9C1B /* sample3.xml in Resources */,
+				84C70DA714F299DD0051C13D /* sample4.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +419,7 @@
 				FC1E563E14F1B265007D9C1B /* PGView.m in Sources */,
 				84C70D9C14F28A810051C13D /* PGLayout.m in Sources */,
 				84C70D9D14F28A810051C13D /* PGLinearLayout.m in Sources */,
+				84C70DA414F297860051C13D /* PGGridLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

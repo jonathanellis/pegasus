@@ -34,7 +34,7 @@
     [super viewDidLoad];
     
     
-    int sample = 1; // *** change this to 2 or 3 for other samples ***
+    int sample = 1; // *** change this to 2, 3 or 4 for other samples ***
     
     // Here, we load the XML file (from the UI group):
     NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"sample%d.xml", sample]];

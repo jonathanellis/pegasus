@@ -21,25 +21,35 @@
 
 @implementation PGLinearLayout
 
-@synthesize orientation;
-@synthesize padding;
+- (id)initWithString:(NSString *)string {
+    if (self = [super init]) {
+        NSArray *components = [string componentsSeparatedByString:@" "];
+        NSString *orientationStr = [components objectAtIndex:1];
+        if ([orientationStr isEqualToString:@"horizontal"]) {
+            orientation = PGLinearLayoutOrientationHorizontal;
+        } else if ([orientationStr isEqualToString:@"vertical"]) {
+            orientation = PGLinearLayoutOrientationVertical;
+        }
+        if ([components count] > 2) {
+            padding = [[components objectAtIndex:2] intValue];
+        }
+    }
+    return self;
+}
 
 - (void)addView:(UIView *)view {
     
     CGRect frame = view.frame;
     
-    if ([views count] == 0) {
-        frame.origin = CGPointZero;
-    } else {
-        UIView *lastView = [views lastObject];
-        CGPoint origin;
-        if (orientation == PGLinearLayoutOrientationHorizontal) {
-            origin.x = lastView.frame.origin.x + lastView.frame.size.width + padding;
-        } else { // PGLinearLayoutOrientationVertical
-            origin.y = lastView.frame.origin.y + lastView.frame.size.height + padding;
-        }
-        frame.origin = origin;
+    UIView *lastView = [views lastObject];
+    CGPoint origin;
+    if (orientation == PGLinearLayoutOrientationHorizontal) {
+        origin.x = lastView.frame.origin.x + lastView.frame.size.width + padding;
+    } else { // PGLinearLayoutOrientationVertical
+        origin.y = lastView.frame.origin.y + lastView.frame.size.height + padding;
     }
+    frame.origin = origin;
+
     
     view.frame = frame;
     [super addView:view];

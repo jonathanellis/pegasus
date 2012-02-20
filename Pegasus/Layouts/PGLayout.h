@@ -21,8 +21,12 @@
 
 @interface PGLayout : NSObject {
     NSMutableArray *views;
+    CGSize size;
 }
 
+@property (nonatomic, assign) CGSize size;
+
++ (PGLayout *)layoutWithString:(NSString *)string;
 - (void)addViewsToSuperview:(UIView *)superview;
 - (void)addView:(UIView *)view;
 

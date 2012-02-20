@@ -1,6 +1,6 @@
 //
-//  Pegasus.h
-//  Pegasus
+//  PGGridLayout.h
+//  PegasusSample
 //
 //  Copyright 2012 Jonathan Ellis
 //
@@ -17,30 +17,15 @@
 //  limitations under the License.
 //
 
-// Vendor
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
-// Third Party
-#import "TouchXML.h"
-
-// Categories
-#import "NSObject+Invocation.h"
-#import "UIColor+HexString.h"
-
-// Framework
-#import "PGAdapter.h"
-#import "PGTranslators.h"
-
-// Views
-#import "PGView.h"
-#import "PGLabel.h"
-#import "PGImageView.h"
-#import "PGTextField.h"
-#import "PGButton.h"
-#import "PGScrollView.h"
-
-// Layouts
 #import "PGLayout.h"
-#import "PGLinearLayout.h"
-#import "PGGridLayout.h"
+
+@interface PGGridLayout : PGLayout {
+    int rows;
+    int cols;
+    int rowPadding;
+    int colPadding;
+}
+
+- (id)initWithString:(NSString *)string;
+
+@end

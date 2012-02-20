@@ -29,7 +29,6 @@ typedef enum {
     int padding;
 }
 
-@property (nonatomic, assign) PGLinearLayoutOrientation orientation;
-@property (nonatomic, assign) int padding;
+- (id)initWithString:(NSString *)string;
 
 @end
