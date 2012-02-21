@@ -46,6 +46,7 @@
 }
 
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)property {
+    [super setValue:string forVirtualProperty:property];
     
     UIButton *button = (UIButton *)view;
     
