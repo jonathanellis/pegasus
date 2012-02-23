@@ -30,6 +30,7 @@
     
     if ([layoutName isEqualToString:@"linear"]) result = [[PGLinearLayout alloc] initWithString:string];
     else if ([layoutName isEqualToString:@"grid"]) result = [[PGGridLayout alloc] initWithString:string];
+    else if ([layoutName isEqualToString:@"center"]) result = [[PGCenterLayout alloc] initWithString:string];
     
     return result;
 }

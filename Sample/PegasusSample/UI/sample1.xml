@@ -3,7 +3,8 @@
     PEGASUS SAMPLE 2
 
     This sample is for an iPhone view which displays an image, label,
-    textfield and button.
+    textfield and button using the center vertical layout which
+    automatically centers views vertically.
 
     Copyright 2012 Jonathan Ellis
 
@@ -22,18 +23,18 @@
  -->
 
 
-<view frame="{{0,0},{320,460}}" backgroundColor="#a36800">
+<view frame="{{0,0},{320,460}}" layout="center vertical 20" backgroundColor="#a36800">
 	
-    <scrollview frame="{{100,40}, {100,100}}" contentSize="{278,173}">
+    <scrollview size="{100,100}" contentSize="{278,173}">
         
-        <imageview id="picture" frame="{{0,0}, {278,173}}" image="dinosaur.png" />
+        <imageview id="picture" size="{278,173}" image="dinosaur.png" />
     
     </scrollview>
     
-    <label id="prompt" frame="{{40,160}, {240, 27}}" text="Which part of the dinosaur do you see?" adjustsFontSizeToFitWidth="yes" backgroundColor="clear" textColor="white" />
+    <label id="prompt" size="{240, 27}" text="Which part of the dinosaur do you see?" adjustsFontSizeToFitWidth="yes" backgroundColor="clear" textColor="white" />
     
-	<textfield frame="{{40,200}, {240,27}}" placeholder="Enter text" borderStyle="rounded-rect" />
+	<textfield size="{240,27}" placeholder="Enter text" borderStyle="rounded-rect" />
     
-	<button frame="{{140,250}, {30,40}}" title="OK" /> <!-- Buttons are currently (temporarily) limited, you cannot set type! -->
+	<button size="{30,40}" title="OK" /> <!-- Buttons are currently (temporarily) limited, you cannot set type! -->
 
 </view>

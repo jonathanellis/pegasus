@@ -44,3 +44,4 @@
 #import "PGLayout.h"
 #import "PGLinearLayout.h"
 #import "PGGridLayout.h"
+#import "PGCenterLayout.h"

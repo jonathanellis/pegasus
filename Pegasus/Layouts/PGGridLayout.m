@@ -1,6 +1,6 @@
 //
 //  PGGridLayout.m
-//  PegasusSample
+//  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
 //

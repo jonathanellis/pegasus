@@ -1,5 +1,5 @@
 //
-//  PGGridLayout.h
+//  PGCenterLayout.h
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -19,11 +19,14 @@
 
 #import "PGLayout.h"
 
-@interface PGGridLayout : PGLayout {
-    int rows;
-    int cols;
-    int rowPadding;
-    int colPadding;
+typedef enum {
+    PGCenterLayoutOrientationHorizontal = 100,
+    PGCenterLayoutOrientationVertical = 200
+} PGCenterLayoutOrientation;
+
+@interface PGCenterLayout : PGLayout {
+    int padding;
+    PGCenterLayoutOrientation orientation;
 }
 
 - (id)initWithString:(NSString *)string;

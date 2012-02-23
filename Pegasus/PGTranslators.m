@@ -76,14 +76,17 @@
 #pragma mark - Translators (Structs)
 
 + (CGRect)rectWithString:(NSString *)string {
+    if ([string isEqualToString:@"fullscreen"]) return [[UIScreen mainScreen] bounds];
     return CGRectFromString(string);
 }
 
 + (CGSize)sizeWithString:(NSString *)string {
+    if ([string isEqualToString:@"fullscreen"]) return [[UIScreen mainScreen] bounds].size;
     return CGSizeFromString(string);
 }
 
 + (CGPoint)pointWithString:(NSString *)string {
+    if ([string isEqualToString:@"origin"]) return CGPointZero;
     return CGPointFromString(string);
 }
 
