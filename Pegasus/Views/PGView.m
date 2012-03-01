@@ -40,7 +40,7 @@
     PGView *view = [PGView viewWithElement:rootElement];
     if (view) return view;
     
-    NSLog(@"Pegasus Error: No corresponding class for root tag '%@'. Ignoring and returning nil!", rootElement.name);
+    NSLog(@"Pegasus Error: No corresponding class for root element '%@'. Ignoring and returning nil!", rootElement.name);
     return nil;
 }
 
@@ -55,6 +55,8 @@
                              @"PGButton",
                              @"PGSwitch",
                              @"PGProgressView",
+                             @"PGTableView",
+                             @"PGTableViewCell",
                              nil];
     
     // Search for class matching the tag name
@@ -112,10 +114,9 @@
                 PGView *subview = [PGView viewWithElement:childElement];
                 
                 if (subview) {
-                    [layout addView:subview.view];
-                    [subviews addObject:subview];
+                    [self addSubview:subview];
                 } else {
-                    NSLog(@"Pegasus Error: No corresponding class for tag '%@'. Ignoring!", childElement.name);
+                    NSLog(@"Pegasus Error: No corresponding class for element '%@'. Ignoring!", childElement.name);
                 }
 
             }
@@ -228,6 +229,11 @@
         frame.origin = CGPointFromString(string);
         view.frame = frame;
     }
+}
+
+- (void)addSubview:(PGView *)subview {
+    [layout addView:subview.view];
+    [subviews addObject:subview];
 }
 
 

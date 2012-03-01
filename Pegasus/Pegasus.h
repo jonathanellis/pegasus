@@ -39,6 +39,10 @@
 #import "PGTextField.h"
 #import "PGButton.h"
 #import "PGScrollView.h"
+#import "PGProgressView.h"
+#import "PGSwitch.h"
+#import "PGTableView.h"
+#import "PGTableViewCell.h"
 
 // Layouts
 #import "PGLayout.h"

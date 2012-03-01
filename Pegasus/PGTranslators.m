@@ -44,6 +44,7 @@
     if ([type isEqualToString:@"UITextFieldViewMode"]) return @selector(textFieldViewModeWithString:);
     if ([type isEqualToString:@"UIScrollViewIndicatorStyle"]) return @selector(scrollViewIndicatorStyleWithString:);
     if ([type isEqualToString:@"UIProgressViewStyle"]) return @selector(progressViewStyleWithString:);
+    if ([type isEqualToString:@"UITableViewCellSeparatorStyle"]) return @selector(tableViewCellSeparatorStyleWithString:);
     
     // Objects:
     if ([type isEqualToString:@"NSString"]) return @selector(stringWithString:);
@@ -178,6 +179,13 @@
 + (UIProgressViewStyle)progressViewStyleWithString:(NSString *)string {
     if ([string isEqualToString:@"default"]) return UIProgressViewStyleDefault;
     if ([string isEqualToString:@"bar"]) return UIProgressViewStyleBar;
+    return 0;
+}
+
++ (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyleWithString:(NSString *)string {
+    if ([string isEqualToString:@"none"]) return UITableViewCellSeparatorStyleNone;
+    if ([string isEqualToString:@"single-line"]) return UITableViewCellSeparatorStyleSingleLine;
+    if ([string isEqualToString:@"single-line-etched"]) return UITableViewCellSeparatorStyleSingleLineEtched;
     return 0;
 }
 

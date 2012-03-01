@@ -1,5 +1,5 @@
 //
-//  PGAdapter.h
+//  PGTableViewCell.h
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -17,18 +17,8 @@
 //  limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#import "PGView.h"
 
-@class PGView;
-
-@protocol PGAdapter <NSObject>
-
-+ (NSString *)name;
-+ (NSDictionary *)properties;
-+ (Class)underlyingClass;
-
-@optional
-- (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName;
-- (void)addSubview:(PGView *)subview;
+@interface PGTableViewCell : PGView
 
 @end

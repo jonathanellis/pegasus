@@ -23,6 +23,36 @@
 
 + (SEL)translatorForType:(NSString *)type;
 
+#pragma mark - Translators (Primitives)
++ (int)intWithString:(NSString *)string;
++ (double)doubleWithString:(NSString *)string;
++ (float)floatWithString:(NSString *)string;
++ (BOOL)boolWithString:(NSString *)string;
+
+#pragma mark - Translators (Structs)
++ (CGRect)rectWithString:(NSString *)string;
++ (CGSize)sizeWithString:(NSString *)string;
++ (CGPoint)pointWithString:(NSString *)string;
++ (CGAffineTransform)affineTransformWithString:(NSString *)string;
++ (UIEdgeInsets)edgeInsetsWithString:(NSString *)string;
+
+#pragma mark - Translators (Enums)
++ (UITextAlignment)textAlignmentWithString:(NSString *)string;
++ (UITextBorderStyle)textBorderStyleWithString:(NSString *)string;
++ (UIViewAutoresizing)autoresizingWithString:(NSString *)string;
++ (UIViewContentMode)contentModeWithString:(NSString *)string;
++ (UILineBreakMode)lineBreakModeWithString:(NSString *)string;
++ (UITextFieldViewMode)textFieldViewModeFromString:(NSString *)string;
++ (UIScrollViewIndicatorStyle)scrollViewIndicatorStyleWithString:(NSString *)string;
++ (UIProgressViewStyle)progressViewStyleWithString:(NSString *)string;
++ (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyleWithString:(NSString *)string;
+
+#pragma mark - Translators (Objects)
++ (NSString *)stringWithString:(NSString *)string;
++ (UIColor *)colorWithString:(NSString *)string;
++ (UIImage *)imageWithString:(NSString *)string;
++ (UIFont *)fontWithString:(NSString *)string;
+
 + (NSArray *)componentsForTuple:(NSString *)string;
 
 @end
