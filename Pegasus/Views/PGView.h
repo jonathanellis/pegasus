@@ -26,7 +26,7 @@
 @interface PGView : NSObject <PGAdapter> {
     
     NSString *_id;
-    NSArray *tags;
+    NSArray *groups;
     PGLayout *layout;
     
     UIView *view;
@@ -47,7 +47,7 @@
 - (SEL)selectorForProperty:(NSString *)propertyName;
 
 - (UIView *)findViewWithID:(NSString *)viewID;
-- (NSArray *)findViewsWithTag:(NSString *)subviewTag;
+- (NSArray *)findViewsInGroup:(NSString *)subviewGroup;
 
 
 @end

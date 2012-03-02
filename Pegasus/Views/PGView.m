@@ -170,12 +170,12 @@
     return nil;
 }
 
-- (NSArray *)findViewsWithTag:(NSString *)subviewTag {
+- (NSArray *)findViewsInGroup:(NSString *)subviewGroup {
     NSMutableArray *result = [NSMutableArray array];
-    if ([tags containsObject:subviewTag]) [result addObject:self.view];
+    if ([groups containsObject:subviewGroup]) [result addObject:self.view];
 
     for (PGView *subview in subviews) {
-        [result addObjectsFromArray:[subview findViewsWithTag:subviewTag]];
+        [result addObjectsFromArray:[subview findViewsInGroup:subviewGroup]];
     }
     
     return result;
@@ -194,7 +194,7 @@
 + (NSDictionary *)properties {
     return [NSDictionary dictionaryWithObjectsAndKeys:
             @"#", @"id",
-            @"#", @"tag",
+            @"#", @"group",
             @"#", @"layout",
             @"#", @"size",
             @"#", @"origin",
@@ -216,6 +216,7 @@
             @"UIViewContentMode", @"contentMode",
             @"CGRect", @"contentStretch",
             @"float", @"contentScaleFactor",
+            @"int", @"tag",
             nil];
 }
 
@@ -223,8 +224,8 @@
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName {
     if ([propertyName isEqualToString:@"id"]) {
         _id = [string lowercaseString];
-    } else if ([propertyName isEqualToString:@"tag"]) {
-        tags = [[string lowercaseString] componentsSeparatedByString:@" "];
+    } else if ([propertyName isEqualToString:@"group"]) {
+        groups = [[string lowercaseString] componentsSeparatedByString:@" "];
     } else if ([propertyName isEqualToString:@"layout"]) {
         layout = [PGLayout layoutWithString:string];
     } else if ([propertyName isEqualToString:@"size"]) {
