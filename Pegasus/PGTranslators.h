@@ -45,7 +45,9 @@
 + (UITextFieldViewMode)textFieldViewModeFromString:(NSString *)string;
 + (UIScrollViewIndicatorStyle)scrollViewIndicatorStyleWithString:(NSString *)string;
 + (UIProgressViewStyle)progressViewStyleWithString:(NSString *)string;
++ (UITableViewStyle)tableViewStyleWithString:(NSString *)string;
 + (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyleWithString:(NSString *)string;
++ (UIButtonType)buttonTypeWithString:(NSString *)string;
 
 #pragma mark - Translators (Objects)
 + (NSString *)stringWithString:(NSString *)string;

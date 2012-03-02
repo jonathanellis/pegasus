@@ -21,6 +21,12 @@
 
 @implementation PGButton
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    NSString *buttonTypeStr = [attributes objectForKey:@"buttonType"];
+    UIButtonType buttonType = [PGTranslators buttonTypeWithString:buttonTypeStr];      
+    return [UIButton buttonWithType:buttonType];
+}
+
 + (NSString *)name {
     return @"button";
 }
@@ -28,6 +34,7 @@
 + (NSDictionary *)properties {
     
     NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                      @"*", @"buttonType",
                                       @"#", @"title",
                                       @"#", @"backgroundImage",
                                       @"UIColor", @"tintColor",
@@ -39,10 +46,6 @@
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
-}
-
-+ (Class)underlyingClass {
-    return [UIButton class];
 }
 
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)property {

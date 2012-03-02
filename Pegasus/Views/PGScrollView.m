@@ -21,6 +21,10 @@
 
 @implementation PGScrollView
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UIScrollView alloc] init];
+}
+
 + (NSString *)name {
     return @"scrollview";
 }
@@ -55,10 +59,6 @@
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
-}
-
-+ (Class)underlyingClass {
-    return [UIScrollView class];
 }
 
 @end

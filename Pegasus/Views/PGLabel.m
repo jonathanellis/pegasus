@@ -21,6 +21,10 @@
 
 @implementation PGLabel
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UILabel alloc] init];
+}
+
 + (NSString *)name {
     return @"label";
 }
@@ -47,10 +51,6 @@
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
-}
-
-+ (Class)underlyingClass {
-    return [UILabel class];
 }
 
 @end

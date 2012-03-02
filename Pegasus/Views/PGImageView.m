@@ -21,6 +21,10 @@
 
 @implementation PGImageView
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UIImageView alloc] init];
+}
+
 + (NSString *)name {
     return @"imageview";
 }
@@ -37,8 +41,5 @@
     return properties;
 }
 
-+ (Class)underlyingClass {
-    return [UIImageView class];
-}
 
 @end

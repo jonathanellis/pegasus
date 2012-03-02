@@ -21,6 +21,12 @@
 
 @implementation PGTableView
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    NSString *tableViewStyleStr = [attributes objectForKey:@"style"];
+    UITableViewStyle tableViewStyle = [PGTranslators tableViewStyleWithString:tableViewStyleStr];      
+    return [[UITableView alloc] initWithFrame:CGRectZero style:tableViewStyle];
+}
+
 + (NSString *)name {
     return @"tableview";
 }
@@ -28,6 +34,7 @@
 + (NSDictionary *)properties {
     
     NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                      @"*", @"style",
                                       @"float", @"rowHeight",
                                       @"UITableViewCellSeparatorStyle", @"separatorStyle", 
                                       @"UITextAlignment", @"textAlignment",
@@ -48,10 +55,6 @@
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
-}
-
-+ (Class)underlyingClass {
-    return [UITableView class];
 }
 
 - (void)addSubview:(PGView *)subview {

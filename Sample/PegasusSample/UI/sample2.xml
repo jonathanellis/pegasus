@@ -2,7 +2,7 @@
  
     PEGASUS SAMPLE 2
     
-    This sample is for an iPad view which displays a label on a scroll view
+    This sample is for a view which displays a label on a scroll view
     along with a series of 3 images.
 
     Copyright 2012 Jonathan Ellis
@@ -21,7 +21,7 @@
 
 -->
 
-<scrollview frame="{{0,0},{768,1024}}" contentSize="{768,2048}" backgroundColor="gray">
+<scrollview frame="fullscreen" contentSize="{768,2048}" backgroundColor="gray">
 
     <label frame="{{10, 10}, {748, 50}}" font="system-bold 30" text="Pegasus Sample 2" textAlignment="center" backgroundColor="clear" />
 

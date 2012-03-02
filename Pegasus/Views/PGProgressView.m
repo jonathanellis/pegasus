@@ -21,6 +21,10 @@
 
 @implementation PGProgressView
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UIProgressView alloc] init];
+}
+
 + (NSString *)name {
     return @"progressview";
 }
@@ -39,10 +43,6 @@
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
-}
-
-+ (Class)underlyingClass {
-    return [UIProgressView class];
 }
 
 @end

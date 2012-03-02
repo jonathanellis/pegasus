@@ -21,6 +21,10 @@
 
 @implementation PGSwitch
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UISwitch alloc] init];
+}
+
 + (NSString *)name {
     return @"switch";
 }
@@ -37,8 +41,5 @@
     return properties;
 }
 
-+ (Class)underlyingClass {
-    return [UISwitch class];
-}
 
 @end

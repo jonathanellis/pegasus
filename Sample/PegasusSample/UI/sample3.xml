@@ -2,7 +2,7 @@
  
     PEGASUS SAMPLE 3
 
-    This sample is for an iPhone view which shows a series of views in a horizontal linear
+    This sample is for a view which shows a series of views in a horizontal linear
     view and then one view below.
 
     Copyright 2012 Jonathan Ellis
@@ -22,7 +22,7 @@
  -->
 
 
-<view frame="{{0,0},{320,460}}" backgroundColor="blue">
+<view frame="fullscreen" backgroundColor="blue">
 
 	<view origin="{0,11}" layout="linear horizontal 11">
 		<label size="{92,92}" text="Green" textAlignment="center" backgroundColor="green" />

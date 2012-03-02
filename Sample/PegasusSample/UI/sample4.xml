@@ -2,7 +2,7 @@
  
     PEGASUS SAMPLE 4
 
-    This sample is for an iPad view demonstrating the grid layout (9x9).
+    This sample is for an (iPad) view demonstrating the grid layout (9x9).
 
     Copyright 2012 Jonathan Ellis
 
@@ -21,7 +21,7 @@
  -->
 
 
-<view frame="{{0,0},{768,1004}}" backgroundColor="white" layout="grid {3,3} {50,10}">
+<view frame="fullscreen" backgroundColor="white" layout="grid {3,3} {50,10}">
     
     <label text="1" textAlignment="center" backgroundColor="green" />
     <label text="2" textAlignment="center" backgroundColor="red" />

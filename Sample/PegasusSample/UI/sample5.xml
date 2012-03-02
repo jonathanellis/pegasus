@@ -21,7 +21,7 @@
  -->
 
 
-<tableview frame="fullscreen">
+<tableview frame="fullscreen" style="grouped">
     
     <tableviewcell text="Alpha" image="alpha.png" />
     <tableviewcell text="Beta" image="beta.png" />

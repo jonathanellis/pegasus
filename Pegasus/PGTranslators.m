@@ -44,7 +44,9 @@
     if ([type isEqualToString:@"UITextFieldViewMode"]) return @selector(textFieldViewModeWithString:);
     if ([type isEqualToString:@"UIScrollViewIndicatorStyle"]) return @selector(scrollViewIndicatorStyleWithString:);
     if ([type isEqualToString:@"UIProgressViewStyle"]) return @selector(progressViewStyleWithString:);
+    // if ([type isEqualToString:@"UITableViewStyle"]) return @selector(tableViewStyleWithString:);
     if ([type isEqualToString:@"UITableViewCellSeparatorStyle"]) return @selector(tableViewCellSeparatorStyleWithString:);
+    // if ([type isEqualToString:@"UIButtonType"]) return @selector(buttonTypeWithString:);
     
     // Objects:
     if ([type isEqualToString:@"NSString"]) return @selector(stringWithString:);
@@ -182,10 +184,26 @@
     return 0;
 }
 
++ (UITableViewStyle)tableViewStyleWithString:(NSString *)string {
+    if ([string isEqualToString:@"plain"]) return UITableViewStylePlain;
+    if ([string isEqualToString:@"grouped"]) return UITableViewStyleGrouped;
+    return 0;
+}
+
 + (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyleWithString:(NSString *)string {
     if ([string isEqualToString:@"none"]) return UITableViewCellSeparatorStyleNone;
     if ([string isEqualToString:@"single-line"]) return UITableViewCellSeparatorStyleSingleLine;
     if ([string isEqualToString:@"single-line-etched"]) return UITableViewCellSeparatorStyleSingleLineEtched;
+    return 0;
+}
+
++ (UIButtonType)buttonTypeWithString:(NSString *)string {
+    if ([string isEqualToString:@"custom"]) return UIButtonTypeCustom;
+    if ([string isEqualToString:@"rounded-rect"]) return UIButtonTypeRoundedRect;
+    if ([string isEqualToString:@"detail-disclosure"]) return UIButtonTypeDetailDisclosure;
+    if ([string isEqualToString:@"info-light"]) return UIButtonTypeInfoLight;
+    if ([string isEqualToString:@"info-dark"]) return UIButtonTypeInfoDark;
+    if ([string isEqualToString:@"contact-add"]) return UIButtonTypeContactAdd;
     return 0;
 }
 

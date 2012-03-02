@@ -21,6 +21,10 @@
 
 @implementation PGTextField
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UITextField alloc] init];
+}
+
 + (NSString *)name {
     return @"textfield";
 }
@@ -44,10 +48,6 @@
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
-}
-
-+ (Class)underlyingClass {
-    return [UITextField class];
 }
 
 

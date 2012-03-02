@@ -23,9 +23,9 @@
 
 @protocol PGAdapter <NSObject>
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes;
 + (NSString *)name;
 + (NSDictionary *)properties;
-+ (Class)underlyingClass;
 
 @optional
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName;

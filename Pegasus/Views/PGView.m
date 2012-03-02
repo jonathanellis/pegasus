@@ -76,16 +76,23 @@
 - (id)initWithElement:(CXMLElement *)element {
     if (self = [super init]) {
         
-        Class underlyingClass = [[self class] underlyingClass];
-        view = [[underlyingClass alloc] init];
-        subviews = [NSMutableArray array];
-
-        NSDictionary *properties = [[self class] properties];
+        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
                 
         for (CXMLNode *attribute in element.attributes) {
-            NSString *propertyName = attribute.name;
-            NSString *propertyValue = attribute.stringValue;       
-            NSString *propertyType = [properties objectForKey:propertyName];
+            [attributes setObject:attribute.stringValue forKey:attribute.name];
+        }
+
+        view = [[self class] internalViewWithAttributes:attributes];
+        subviews = [NSMutableArray array];
+
+        
+        NSDictionary *propertyTypes = [[self class] properties];
+        
+        for (NSString *attribute in attributes) {
+        
+            NSString *propertyName = attribute;
+            NSString *propertyValue = [attributes objectForKey:attribute];       
+            NSString *propertyType = [propertyTypes objectForKey:propertyName];            
             
             // Convert to lowercase if not a string/virtual:         
             if (![propertyType isEqualToString:@"NSString"] && ![propertyType isEqualToString:@"#"]) {
@@ -97,11 +104,10 @@
             } else {
                 if ([propertyType isEqualToString:@"#"]) { // Virtual property
                     [self setValue:propertyValue forVirtualProperty:propertyName];
-                } else {
+                } else if (![propertyType isEqualToString:@"*"]) {
                     [self setValue:propertyValue ofType:propertyType forProperty:propertyName];
                 }
             }
-
         }
         
         // Finalize layout:
@@ -177,6 +183,10 @@
 
 #pragma mark - PGViewAdapter methods
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UIView alloc] init];
+}
+
 + (NSString *)name {
     return @"view";
 }
@@ -209,9 +219,6 @@
             nil];
 }
 
-+ (Class)underlyingClass {
-    return [UIView class];
-}
 
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName {
     if ([propertyName isEqualToString:@"id"]) {

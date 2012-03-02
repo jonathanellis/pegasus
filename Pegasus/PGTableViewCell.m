@@ -21,6 +21,10 @@
 
 @implementation PGTableViewCell
 
++ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
+    return [[UITableViewCell alloc] init];
+}
+
 + (NSString *)name {
     return @"tableviewcell";
 }
@@ -41,10 +45,6 @@
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
-}
-
-+ (Class)underlyingClass {
-    return [UITableViewCell class];
 }
 
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)property {
