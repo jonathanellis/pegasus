@@ -1,8 +1,8 @@
 <!--
  
-    PEGASUS SAMPLE 5
+    PEGASUS SAMPLE 6
 
-    This sample is for an iPhone view demonstrating a tableview.
+    This sample is for an iPhone view demonstrating a toolbar.
 
     Copyright 2012 Jonathan Ellis
 
@@ -21,11 +21,13 @@
  -->
 
 
-<tableview frame="fullscreen" style="grouped">
+<view frame="fullscreen">
     
-    <tableviewcell text="Alpha" image="alpha.png" />
-    <tableviewcell text="Beta" image="beta.png" />
-    <tableviewcell text="Gamma" image="gamma.png"  />
-    <tableviewcell text="Delta" image="delta.png"  />
+    <toolbar frame="{{0,420}, {320, 40}}">
+        <barbuttonitem title="one" style="bordered" />
+        <barbuttonitem title="two" style="bordered" />
+        <barbuttonitem title="three" style="bordered" />
+        <barbuttonitem title="four" style="bordered" />
+    </toolbar>
     
-</tableview>
+</view>

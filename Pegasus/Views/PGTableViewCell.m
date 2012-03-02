@@ -21,7 +21,7 @@
 
 @implementation PGTableViewCell
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
     return [[UITableViewCell alloc] init];
 }
 

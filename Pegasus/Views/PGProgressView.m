@@ -21,7 +21,7 @@
 
 @implementation PGProgressView
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
     return [[UIProgressView alloc] init];
 }
 

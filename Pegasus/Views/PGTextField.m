@@ -21,7 +21,7 @@
 
 @implementation PGTextField
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
     return [[UITextField alloc] init];
 }
 

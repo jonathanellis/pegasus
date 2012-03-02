@@ -21,8 +21,8 @@
 
 @implementation PGTableView
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
-    NSString *tableViewStyleStr = [attributes objectForKey:@"style"];
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
+    NSString *tableViewStyleStr = [[attributes objectForKey:@"style"] lowercaseString];
     UITableViewStyle tableViewStyle = [PGTranslators tableViewStyleWithString:tableViewStyleStr];      
     return [[UITableView alloc] initWithFrame:CGRectZero style:tableViewStyle];
 }

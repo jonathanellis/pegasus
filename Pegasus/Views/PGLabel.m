@@ -21,7 +21,7 @@
 
 @implementation PGLabel
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
     return [[UILabel alloc] init];
 }
 

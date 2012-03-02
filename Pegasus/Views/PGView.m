@@ -57,6 +57,8 @@
                              @"PGProgressView",
                              @"PGTableView",
                              @"PGTableViewCell",
+                             @"PGToolbar",
+                             @"PGBarButtonItem",
                              nil];
     
     // Search for class matching the tag name
@@ -110,26 +112,32 @@
             }
         }
         
-        // Finalize layout:
-        if (!layout) layout = [[PGLayout alloc] init];
-        layout.size = view.frame.size;
-        
-        // Subviews:
-        for (CXMLElement *childElement in element.children) {
-            if ([childElement isKindOfClass:[CXMLElement class]]) {
-                PGView *subview = [PGView viewWithElement:childElement];
-                
-                if (subview) {
-                    [self addSubview:subview];
-                } else {
-                    NSLog(@"Pegasus Error: No corresponding class for element '%@'. Ignoring!", childElement.name);
-                }
+        // If this is a view (as opposed to a barbutton item, for instance):
+        if ([view isKindOfClass:[UIView class]]) {
+            
+            // Finalize layout:
+            if (!layout) layout = [[PGLayout alloc] init];
 
+            layout.size = ((UIView *)view).frame.size;
+            
+            // Subviews:
+            for (CXMLElement *childElement in element.children) {
+                if ([childElement isKindOfClass:[CXMLElement class]]) {
+                    PGView *subview = [PGView viewWithElement:childElement];
+                    
+                    if (subview) {
+                        [self addSubview:subview];
+                    } else {
+                        NSLog(@"Pegasus Error: No corresponding class for element '%@'. Ignoring!", childElement.name);
+                    }
+
+                }
             }
+            
+            // Add views according to layout:
+            [layout addViewsToSuperview:view];
+                
         }
-        
-        // Add views according to layout:
-        [layout addViewsToSuperview:view];
         
     }
     return self;
@@ -183,7 +191,7 @@
 
 #pragma mark - PGViewAdapter methods
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
     return [[UIView alloc] init];
 }
 
@@ -229,13 +237,13 @@
     } else if ([propertyName isEqualToString:@"layout"]) {
         layout = [PGLayout layoutWithString:string];
     } else if ([propertyName isEqualToString:@"size"]) {
-        CGRect frame = view.frame;
+        CGRect frame = ((UIView *)view).frame;
         frame.size = CGSizeFromString(string);
-        view.frame = frame;
+        ((UIView *)view).frame = frame;
     } else if ([propertyName isEqualToString:@"origin"]) {
-        CGRect frame = view.frame;
+        CGRect frame = ((UIView *)view).frame;
         frame.origin = CGPointFromString(string);
-        view.frame = frame;
+        ((UIView *)view).frame = frame;
     }
 }
 

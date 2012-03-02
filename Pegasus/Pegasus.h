@@ -43,6 +43,8 @@
 #import "PGSwitch.h"
 #import "PGTableView.h"
 #import "PGTableViewCell.h"
+#import "PGToolbar.h"
+#import "PGBarButtonItem.h"
 
 // Layouts
 #import "PGLayout.h"

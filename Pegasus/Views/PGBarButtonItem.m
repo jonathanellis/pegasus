@@ -1,5 +1,5 @@
 //
-//  PGSwitch.m
+//  PGBarButtonItem.m
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -17,29 +17,26 @@
 //  limitations under the License.
 //
 
-#import "PGSwitch.h"
+#import "PGBarButtonItem.h"
 
-@implementation PGSwitch
+@implementation PGBarButtonItem
 
 + (id)internalViewWithAttributes:(NSDictionary *)attributes {
-    return [[UISwitch alloc] init];
+    return [[UIBarButtonItem alloc] init];
 }
 
 + (NSString *)name {
-    return @"switch";
+    return @"barbuttonitem";
 }
 
 + (NSDictionary *)properties {
     
     NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"BOOL", @"on",
-                                      @"UIColor", @"onTintColor",
+                                      @"NSString", @"title",
+                                      @"UIBarButtonItemStyle", @"style",
                                       nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
 }
-
 
 @end

@@ -21,8 +21,8 @@
 
 @implementation PGButton
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
-    NSString *buttonTypeStr = [attributes objectForKey:@"buttonType"];
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
+    NSString *buttonTypeStr = [[attributes objectForKey:@"buttonType"] lowercaseString];
     UIButtonType buttonType = [PGTranslators buttonTypeWithString:buttonTypeStr];      
     return [UIButton buttonWithType:buttonType];
 }

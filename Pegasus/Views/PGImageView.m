@@ -21,7 +21,7 @@
 
 @implementation PGImageView
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
     return [[UIImageView alloc] init];
 }
 

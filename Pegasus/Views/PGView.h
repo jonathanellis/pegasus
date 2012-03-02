@@ -29,11 +29,11 @@
     NSArray *groups;
     PGLayout *layout;
     
-    UIView *view;
+    id view;
     NSMutableArray *subviews;
 }
 
-@property (nonatomic, strong) UIView *view;
+@property (nonatomic, strong) id view;
 
 + (PGView *)viewWithString:(NSString *)string;
 + (PGView *)viewWithContentsOfFile:(NSString *)file;

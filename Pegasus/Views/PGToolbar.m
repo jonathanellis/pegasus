@@ -1,5 +1,5 @@
 //
-//  PGSwitch.m
+//  UIToolbar.m
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -17,28 +17,43 @@
 //  limitations under the License.
 //
 
-#import "PGSwitch.h"
+#import "PGToolbar.h"
 
-@implementation PGSwitch
+@implementation PGToolbar
 
 + (id)internalViewWithAttributes:(NSDictionary *)attributes {
-    return [[UISwitch alloc] init];
+    return [[UIToolbar alloc] init];
 }
 
 + (NSString *)name {
-    return @"switch";
+    return @"toolbar";
 }
 
 + (NSDictionary *)properties {
     
     NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"BOOL", @"on",
-                                      @"UIColor", @"onTintColor",
+                                      @"UIBarStyle", @"text", 
+                                      @"BOOL", @"translucent",
+                                      @"UIColor", @"tintColor", 
                                       nil];
     
     [properties addEntriesFromDictionary:[PGView properties]];
     
     return properties;
+}
+
+- (void)addSubview:(PGView *)subview {
+    if ([subview isKindOfClass:[PGBarButtonItem class]]) {
+        
+        UIToolbar *toolbar = (UIToolbar *)view;
+        
+        NSMutableArray *items = [NSMutableArray arrayWithArray:toolbar.items];
+        [items addObject:subview.view];
+        toolbar.items = items;
+        
+    } else {
+        [super addSubview:subview];
+    }
 }
 
 

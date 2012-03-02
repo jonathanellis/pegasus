@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		8400EF6314FE4BF1001064F5 /* sample4.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8400EF6114FE4BF0001064F5 /* sample4.xml */; };
 		8400EF6414FE4BF1001064F5 /* sample5.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8400EF6214FE4BF0001064F5 /* sample5.xml */; };
-		8400EF6714FE4C76001064F5 /* PGTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400EF6614FE4C76001064F5 /* PGTableView.m */; };
-		8400EF6A14FE4E77001064F5 /* PGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400EF6914FE4E77001064F5 /* PGTableViewCell.m */; };
 		841DDE5F14FFB4950090D810 /* alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 841DDE5B14FFB4950090D810 /* alpha.png */; };
 		841DDE6014FFB4950090D810 /* beta.png in Resources */ = {isa = PBXBuildFile; fileRef = 841DDE5C14FFB4950090D810 /* beta.png */; };
 		841DDE6114FFB4950090D810 /* delta.png in Resources */ = {isa = PBXBuildFile; fileRef = 841DDE5D14FFB4950090D810 /* delta.png */; };
 		841DDE6214FFB4950090D810 /* gamma.png in Resources */ = {isa = PBXBuildFile; fileRef = 841DDE5E14FFB4950090D810 /* gamma.png */; };
+		841DDE701500F5270090D810 /* PGTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DDE6D1500F5230090D810 /* PGTableView.m */; };
+		841DDE711500F5270090D810 /* PGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DDE6F1500F5260090D810 /* PGTableViewCell.m */; };
+		841DDE741500F53B0090D810 /* PGToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DDE731500F53A0090D810 /* PGToolbar.m */; };
+		841DDE761500F8550090D810 /* sample6.xml in Resources */ = {isa = PBXBuildFile; fileRef = 841DDE751500F8540090D810 /* sample6.xml */; };
+		841DDE7C1500F9A20090D810 /* PGBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 841DDE7B1500F9A10090D810 /* PGBarButtonItem.m */; };
 		84542DD014EAB62C0085FFFA /* sample1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84542DCE14EAB62C0085FFFA /* sample1.xml */; };
 		84542DD114EAB62C0085FFFA /* sample2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84542DCF14EAB62C0085FFFA /* sample2.xml */; };
 		8459711C14EA763F001D985D /* NSObject+Invocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 845970E714EA763F001D985D /* NSObject+Invocation.m */; };
@@ -61,14 +64,19 @@
 /* Begin PBXFileReference section */
 		8400EF6114FE4BF0001064F5 /* sample4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample4.xml; path = UI/sample4.xml; sourceTree = "<group>"; };
 		8400EF6214FE4BF0001064F5 /* sample5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample5.xml; path = UI/sample5.xml; sourceTree = "<group>"; };
-		8400EF6514FE4C76001064F5 /* PGTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTableView.h; sourceTree = "<group>"; };
-		8400EF6614FE4C76001064F5 /* PGTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTableView.m; sourceTree = "<group>"; };
-		8400EF6814FE4E77001064F5 /* PGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTableViewCell.h; sourceTree = "<group>"; };
-		8400EF6914FE4E77001064F5 /* PGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTableViewCell.m; sourceTree = "<group>"; };
 		841DDE5B14FFB4950090D810 /* alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alpha.png; path = UI/Images/alpha.png; sourceTree = "<group>"; };
 		841DDE5C14FFB4950090D810 /* beta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beta.png; path = UI/Images/beta.png; sourceTree = "<group>"; };
 		841DDE5D14FFB4950090D810 /* delta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delta.png; path = UI/Images/delta.png; sourceTree = "<group>"; };
 		841DDE5E14FFB4950090D810 /* gamma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamma.png; path = UI/Images/gamma.png; sourceTree = "<group>"; };
+		841DDE6C1500F5220090D810 /* PGTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTableView.h; path = Views/PGTableView.h; sourceTree = "<group>"; };
+		841DDE6D1500F5230090D810 /* PGTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTableView.m; path = Views/PGTableView.m; sourceTree = "<group>"; };
+		841DDE6E1500F5250090D810 /* PGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTableViewCell.h; path = Views/PGTableViewCell.h; sourceTree = "<group>"; };
+		841DDE6F1500F5260090D810 /* PGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTableViewCell.m; path = Views/PGTableViewCell.m; sourceTree = "<group>"; };
+		841DDE721500F5380090D810 /* PGToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGToolbar.h; path = Views/PGToolbar.h; sourceTree = "<group>"; };
+		841DDE731500F53A0090D810 /* PGToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGToolbar.m; path = Views/PGToolbar.m; sourceTree = "<group>"; };
+		841DDE751500F8540090D810 /* sample6.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample6.xml; path = UI/sample6.xml; sourceTree = "<group>"; };
+		841DDE7A1500F99F0090D810 /* PGBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGBarButtonItem.h; path = Views/PGBarButtonItem.h; sourceTree = "<group>"; };
+		841DDE7B1500F9A10090D810 /* PGBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGBarButtonItem.m; path = Views/PGBarButtonItem.m; sourceTree = "<group>"; };
 		84542DCE14EAB62C0085FFFA /* sample1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample1.xml; path = UI/sample1.xml; sourceTree = "<group>"; };
 		84542DCF14EAB62C0085FFFA /* sample2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample2.xml; path = UI/sample2.xml; sourceTree = "<group>"; };
 		845970E614EA763F001D985D /* NSObject+Invocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Invocation.h"; sourceTree = "<group>"; };
@@ -292,6 +300,7 @@
 				FC1E564514F1BEE0007D9C1B /* sample3.xml */,
 				8400EF6114FE4BF0001064F5 /* sample4.xml */,
 				8400EF6214FE4BF0001064F5 /* sample5.xml */,
+				841DDE751500F8540090D810 /* sample6.xml */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -329,10 +338,14 @@
 				FC1E563114F1B1FF007D9C1B /* PGSwitch.m */,
 				FC1E563214F1B1FF007D9C1B /* PGTextField.h */,
 				FC1E563314F1B1FF007D9C1B /* PGTextField.m */,
-				8400EF6514FE4C76001064F5 /* PGTableView.h */,
-				8400EF6614FE4C76001064F5 /* PGTableView.m */,
-				8400EF6814FE4E77001064F5 /* PGTableViewCell.h */,
-				8400EF6914FE4E77001064F5 /* PGTableViewCell.m */,
+				841DDE6C1500F5220090D810 /* PGTableView.h */,
+				841DDE6D1500F5230090D810 /* PGTableView.m */,
+				841DDE6E1500F5250090D810 /* PGTableViewCell.h */,
+				841DDE6F1500F5260090D810 /* PGTableViewCell.m */,
+				841DDE721500F5380090D810 /* PGToolbar.h */,
+				841DDE731500F53A0090D810 /* PGToolbar.m */,
+				841DDE7A1500F99F0090D810 /* PGBarButtonItem.h */,
+				841DDE7B1500F9A10090D810 /* PGBarButtonItem.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -415,6 +428,7 @@
 				841DDE6014FFB4950090D810 /* beta.png in Resources */,
 				841DDE6114FFB4950090D810 /* delta.png in Resources */,
 				841DDE6214FFB4950090D810 /* gamma.png in Resources */,
+				841DDE761500F8550090D810 /* sample6.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,8 +470,10 @@
 				84C70D9D14F28A810051C13D /* PGLinearLayout.m in Sources */,
 				84C70DA414F297860051C13D /* PGGridLayout.m in Sources */,
 				84CA00D514F6466E00ABBE31 /* PGCenterLayout.m in Sources */,
-				8400EF6714FE4C76001064F5 /* PGTableView.m in Sources */,
-				8400EF6A14FE4E77001064F5 /* PGTableViewCell.m in Sources */,
+				841DDE701500F5270090D810 /* PGTableView.m in Sources */,
+				841DDE711500F5270090D810 /* PGTableViewCell.m in Sources */,
+				841DDE741500F53B0090D810 /* PGToolbar.m in Sources */,
+				841DDE7C1500F9A20090D810 /* PGBarButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

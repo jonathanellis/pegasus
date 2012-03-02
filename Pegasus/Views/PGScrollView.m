@@ -21,7 +21,7 @@
 
 @implementation PGScrollView
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalViewWithAttributes:(NSDictionary *)attributes {
     return [[UIScrollView alloc] init];
 }
 

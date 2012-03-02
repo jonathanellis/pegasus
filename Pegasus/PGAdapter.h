@@ -23,7 +23,7 @@
 
 @protocol PGAdapter <NSObject>
 
-+ (UIView *)internalViewWithAttributes:(NSDictionary *)attributes;
++ (id)internalViewWithAttributes:(NSDictionary *)attributes;
 + (NSString *)name;
 + (NSDictionary *)properties;
 

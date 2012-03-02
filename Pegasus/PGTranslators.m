@@ -47,6 +47,7 @@
     // if ([type isEqualToString:@"UITableViewStyle"]) return @selector(tableViewStyleWithString:);
     if ([type isEqualToString:@"UITableViewCellSeparatorStyle"]) return @selector(tableViewCellSeparatorStyleWithString:);
     // if ([type isEqualToString:@"UIButtonType"]) return @selector(buttonTypeWithString:);
+    if ([type isEqualToString:@"UIBarButtonItemStyle"]) return @selector(buttonItemStyleWithString:);
     
     // Objects:
     if ([type isEqualToString:@"NSString"]) return @selector(stringWithString:);
@@ -204,6 +205,13 @@
     if ([string isEqualToString:@"info-light"]) return UIButtonTypeInfoLight;
     if ([string isEqualToString:@"info-dark"]) return UIButtonTypeInfoDark;
     if ([string isEqualToString:@"contact-add"]) return UIButtonTypeContactAdd;
+    return 0;
+}
+
++ (UIBarButtonItemStyle)buttonItemStyleWithString:(NSString *)string {
+    if ([string isEqualToString:@"plain"]) return UIBarButtonItemStylePlain;
+    if ([string isEqualToString:@"bordered"]) return UIBarButtonItemStyleBordered;
+    if ([string isEqualToString:@"done"]) return UIBarButtonItemStyleDone;
     return 0;
 }
 
