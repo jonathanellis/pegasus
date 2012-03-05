@@ -22,6 +22,12 @@
 @implementation PGBarButtonItem
 
 + (id)internalViewWithAttributes:(NSDictionary *)attributes {
+    NSString *systemItemStr = [[attributes objectForKey:@"systemItem"] lowercaseString];
+    if (systemItemStr) {
+        UIBarButtonSystemItem systemItem = [PGTranslators barButtonSystemItemWithString:systemItemStr];
+        return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:systemItem target:nil action:NULL];
+    }
+    
     return [[UIBarButtonItem alloc] init];
 }
 
@@ -32,6 +38,7 @@
 + (NSDictionary *)properties {
     
     NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                      @"*", @"systemItem",
                                       @"NSString", @"title",
                                       @"UIBarButtonItemStyle", @"style",
                                       nil];

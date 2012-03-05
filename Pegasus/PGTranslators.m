@@ -47,7 +47,8 @@
     // if ([type isEqualToString:@"UITableViewStyle"]) return @selector(tableViewStyleWithString:);
     if ([type isEqualToString:@"UITableViewCellSeparatorStyle"]) return @selector(tableViewCellSeparatorStyleWithString:);
     // if ([type isEqualToString:@"UIButtonType"]) return @selector(buttonTypeWithString:);
-    if ([type isEqualToString:@"UIBarButtonItemStyle"]) return @selector(buttonItemStyleWithString:);
+    if ([type isEqualToString:@"UIBarButtonItemStyle"]) return @selector(barButtonItemStyleWithString:);
+    //if ([type isEqualToString:@"UIBarButtonSystemItem"]) return @selector(barButtonSystemItemWithString:);
     
     // Objects:
     if ([type isEqualToString:@"NSString"]) return @selector(stringWithString:);
@@ -208,10 +209,38 @@
     return 0;
 }
 
-+ (UIBarButtonItemStyle)buttonItemStyleWithString:(NSString *)string {
++ (UIBarButtonItemStyle)barButtonItemStyleWithString:(NSString *)string {
     if ([string isEqualToString:@"plain"]) return UIBarButtonItemStylePlain;
     if ([string isEqualToString:@"bordered"]) return UIBarButtonItemStyleBordered;
     if ([string isEqualToString:@"done"]) return UIBarButtonItemStyleDone;
+    return 0;
+}
+
++ (UIBarButtonSystemItem)barButtonSystemItemWithString:(NSString *)string {
+    if ([string isEqualToString:@"done"]) return UIBarButtonSystemItemDone;
+    if ([string isEqualToString:@"cancel"]) return UIBarButtonSystemItemCancel;
+    if ([string isEqualToString:@"edit"]) return UIBarButtonSystemItemEdit;
+    if ([string isEqualToString:@"save"]) return UIBarButtonSystemItemSave;
+    if ([string isEqualToString:@"add"]) return UIBarButtonSystemItemAdd;
+    if ([string isEqualToString:@"flexible-space"]) return UIBarButtonSystemItemFlexibleSpace;
+    if ([string isEqualToString:@"fixed-space"]) return UIBarButtonSystemItemFixedSpace;
+    if ([string isEqualToString:@"compose"]) return UIBarButtonSystemItemCompose;
+    if ([string isEqualToString:@"reply"]) return UIBarButtonSystemItemReply;
+    if ([string isEqualToString:@"action"]) return UIBarButtonSystemItemAction;
+    if ([string isEqualToString:@"organize"]) return UIBarButtonSystemItemOrganize;
+    if ([string isEqualToString:@"bookmarks"]) return UIBarButtonSystemItemBookmarks;
+    if ([string isEqualToString:@"search"]) return UIBarButtonSystemItemSearch;
+    if ([string isEqualToString:@"refresh"]) return UIBarButtonSystemItemRefresh;
+    if ([string isEqualToString:@"stop"]) return UIBarButtonSystemItemStop;
+    if ([string isEqualToString:@"camera"]) return UIBarButtonSystemItemCamera;
+    if ([string isEqualToString:@"trash"]) return UIBarButtonSystemItemTrash;
+    if ([string isEqualToString:@"play"]) return UIBarButtonSystemItemPlay;
+    if ([string isEqualToString:@"pause"]) return UIBarButtonSystemItemPause;
+    if ([string isEqualToString:@"rewind"]) return UIBarButtonSystemItemRewind;
+    if ([string isEqualToString:@"fast-forward"]) return UIBarButtonSystemItemFastForward;
+    if ([string isEqualToString:@"undo"]) return UIBarButtonSystemItemUndo;
+    if ([string isEqualToString:@"redo"]) return UIBarButtonSystemItemRedo;
+    if ([string isEqualToString:@"page-curl"]) return UIBarButtonSystemItemPageCurl;
     return 0;
 }
 

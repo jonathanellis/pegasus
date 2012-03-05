@@ -48,7 +48,8 @@
 + (UITableViewStyle)tableViewStyleWithString:(NSString *)string;
 + (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyleWithString:(NSString *)string;
 + (UIButtonType)buttonTypeWithString:(NSString *)string;
-+ (UIBarButtonItemStyle)buttonItemStyleWithString:(NSString *)string;
++ (UIBarButtonItemStyle)barButtonItemStyleWithString:(NSString *)string;
++ (UIBarButtonSystemItem)barButtonSystemItemWithString:(NSString *)string;
 
 #pragma mark - Translators (Objects)
 + (NSString *)stringWithString:(NSString *)string;

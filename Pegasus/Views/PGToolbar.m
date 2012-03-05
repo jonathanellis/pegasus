@@ -46,10 +46,9 @@
     if ([subview isKindOfClass:[PGBarButtonItem class]]) {
         
         UIToolbar *toolbar = (UIToolbar *)view;
-        
-        NSMutableArray *items = [NSMutableArray arrayWithArray:toolbar.items];
-        [items addObject:subview.view];
-        toolbar.items = items;
+
+        if (!toolbar.items) toolbar.items = [NSArray array];
+        toolbar.items = [toolbar.items arrayByAddingObject:subview.view];
         
     } else {
         [super addSubview:subview];

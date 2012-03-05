@@ -24,10 +24,12 @@
 <view frame="fullscreen">
     
     <toolbar frame="{{0,420}, {320, 40}}">
+        <barbuttonitem systemItem="flexible-space" /> <!-- add flexible space at start to center items -->
         <barbuttonitem title="one" style="bordered" />
         <barbuttonitem title="two" style="bordered" />
         <barbuttonitem title="three" style="bordered" />
         <barbuttonitem title="four" style="bordered" />
+        <barbuttonitem systemItem="flexible-space" /> <!-- add flexible space at end to center items -->
     </toolbar>
     
 </view>
