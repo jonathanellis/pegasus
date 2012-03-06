@@ -25,13 +25,13 @@
     if (self = [super init]) {
         NSArray *components = [string componentsSeparatedByString:@" "];
         
-        NSArray *dimensions = [PGTranslators componentsForTuple:[components objectAtIndex:1]];
-        rows = [[dimensions objectAtIndex:0] intValue];
-        cols = [[dimensions objectAtIndex:1] intValue];
+        Tuple *dimensionsTuple = [[Tuple alloc] initWithString:[components objectAtIndex:1]];
+        rows = [[dimensionsTuple.children objectAtIndex:0] intValue];
+        cols = [[dimensionsTuple.children objectAtIndex:1] intValue];
         
-        NSArray *paddings = [PGTranslators componentsForTuple:[components objectAtIndex:2]];
-        rowPadding = [[paddings objectAtIndex:0] intValue];
-        colPadding = [[paddings objectAtIndex:1] intValue];
+        Tuple *paddingsTuple = [[Tuple alloc] initWithString:[components objectAtIndex:2]];
+        rowPadding = [[paddingsTuple.children objectAtIndex:0] intValue];
+        colPadding = [[paddingsTuple.children objectAtIndex:1] intValue];
         
     }
     return self;

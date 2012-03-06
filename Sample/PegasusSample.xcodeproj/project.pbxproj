@@ -46,6 +46,7 @@
 		84786DD514EAC19E00FA6043 /* dinosaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 84786DD214EAC19E00FA6043 /* dinosaur.png */; };
 		84786DD614EAC19E00FA6043 /* gameboy.png in Resources */ = {isa = PBXBuildFile; fileRef = 84786DD314EAC19E00FA6043 /* gameboy.png */; };
 		84786DD714EAC19E00FA6043 /* soldier.png in Resources */ = {isa = PBXBuildFile; fileRef = 84786DD414EAC19E00FA6043 /* soldier.png */; };
+		849FC53815064F40004F9F8D /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FC53715064F40004F9F8D /* Tuple.m */; };
 		84C70D9C14F28A810051C13D /* PGLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C70D9914F28A810051C13D /* PGLayout.m */; };
 		84C70D9D14F28A810051C13D /* PGLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C70D9B14F28A810051C13D /* PGLinearLayout.m */; };
 		84C70DA414F297860051C13D /* PGGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C70DA314F297860051C13D /* PGGridLayout.m */; };
@@ -129,6 +130,8 @@
 		84786DD214EAC19E00FA6043 /* dinosaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dinosaur.png; path = UI/Images/dinosaur.png; sourceTree = "<group>"; };
 		84786DD314EAC19E00FA6043 /* gameboy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameboy.png; path = UI/Images/gameboy.png; sourceTree = "<group>"; };
 		84786DD414EAC19E00FA6043 /* soldier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soldier.png; path = UI/Images/soldier.png; sourceTree = "<group>"; };
+		849FC53615064F40004F9F8D /* Tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tuple.h; path = "Data Structures/Tuple.h"; sourceTree = "<group>"; };
+		849FC53715064F40004F9F8D /* Tuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tuple.m; path = "Data Structures/Tuple.m"; sourceTree = "<group>"; };
 		84C70D9814F28A810051C13D /* PGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGLayout.h; path = Layouts/PGLayout.h; sourceTree = "<group>"; };
 		84C70D9914F28A810051C13D /* PGLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGLayout.m; path = Layouts/PGLayout.m; sourceTree = "<group>"; };
 		84C70D9A14F28A810051C13D /* PGLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGLinearLayout.h; path = Layouts/PGLinearLayout.h; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 		845970E514EA763F001D985D /* Pegasus */ = {
 			isa = PBXGroup;
 			children = (
+				849FC53415064F2C004F9F8D /* Data Structures */,
 				845970FC14EA763F001D985D /* TouchXML */,
 				FC1E562514F1B1F4007D9C1B /* Views */,
 				FC1E563B14F1B206007D9C1B /* Layouts */,
@@ -317,6 +321,15 @@
 				84786DD414EAC19E00FA6043 /* soldier.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		849FC53415064F2C004F9F8D /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				849FC53615064F40004F9F8D /* Tuple.h */,
+				849FC53715064F40004F9F8D /* Tuple.m */,
+			);
+			name = "Data Structures";
 			sourceTree = "<group>";
 		};
 		FC1E562514F1B1F4007D9C1B /* Views */ = {
@@ -474,6 +487,7 @@
 				841DDE711500F5270090D810 /* PGTableViewCell.m in Sources */,
 				841DDE741500F53B0090D810 /* PGToolbar.m in Sources */,
 				841DDE7C1500F9A20090D810 /* PGBarButtonItem.m in Sources */,
+				849FC53815064F40004F9F8D /* Tuple.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

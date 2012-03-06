@@ -28,6 +28,9 @@
 #import "NSObject+Invocation.h"
 #import "UIColor+HexString.h"
 
+// Data Structures
+#import "Tuple.h"
+
 // Framework
 #import "PGAdapter.h"
 #import "PGTranslators.h"

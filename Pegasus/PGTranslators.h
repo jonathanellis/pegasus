@@ -19,6 +19,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    PGNumericTypeAbsolute,
+    PGNumericTypeRelative
+} PGNumericType;
+
 @interface PGTranslators : NSObject
 
 + (SEL)translatorForType:(NSString *)type;
@@ -57,6 +62,8 @@
 + (UIImage *)imageWithString:(NSString *)string;
 + (UIFont *)fontWithString:(NSString *)string;
 
-+ (NSArray *)componentsForTuple:(NSString *)string;
+#pragma mark - Helper methods
++ (PGNumericType)numericTypeOfString:(NSString *)string;
++ (float)percentageStrToFloat:(NSString *)string;
 
 @end

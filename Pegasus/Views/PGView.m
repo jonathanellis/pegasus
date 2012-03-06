@@ -238,11 +238,11 @@
         layout = [PGLayout layoutWithString:string];
     } else if ([propertyName isEqualToString:@"size"]) {
         CGRect frame = ((UIView *)view).frame;
-        frame.size = CGSizeFromString(string);
+        frame.size = [PGTranslators sizeWithString:string];;
         ((UIView *)view).frame = frame;
     } else if ([propertyName isEqualToString:@"origin"]) {
         CGRect frame = ((UIView *)view).frame;
-        frame.origin = CGPointFromString(string);
+        frame.origin = [PGTranslators pointWithString:string];
         ((UIView *)view).frame = frame;
     }
 }

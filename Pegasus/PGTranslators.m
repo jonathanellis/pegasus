@@ -82,17 +82,56 @@
 
 + (CGRect)rectWithString:(NSString *)string {
     if ([string isEqualToString:@"fullscreen"]) return [[UIScreen mainScreen] bounds];
-    return CGRectFromString(string);
+
+    Tuple *tuple = [[Tuple alloc] initWithString:string];
+    
+    Tuple *originTuple = [tuple.children objectAtIndex:0];
+    Tuple *sizeTuple = [tuple.children objectAtIndex:1];
+
+    CGPoint origin = [PGTranslators pointWithString:[originTuple description]];
+    CGSize size = [PGTranslators sizeWithString:[sizeTuple description]];
+    
+    CGRect frame;
+    frame.origin = origin;
+    frame.size = size;
+    
+    return frame;
 }
 
 + (CGSize)sizeWithString:(NSString *)string {
     if ([string isEqualToString:@"fullscreen"]) return [[UIScreen mainScreen] bounds].size;
-    return CGSizeFromString(string);
+    
+    CGSize size;
+
+    Tuple *tuple = [[Tuple alloc] initWithString:string];
+    
+    NSString *wStr = [tuple.children objectAtIndex:0];
+    if ([PGTranslators numericTypeOfString:wStr] == PGNumericTypeAbsolute) size.width = [wStr floatValue];
+    else size.width = [PGTranslators percentageStrToFloat:wStr] * [[UIScreen mainScreen] bounds].size.width;
+    
+    NSString *hStr = [tuple.children objectAtIndex:1];
+    if ([PGTranslators numericTypeOfString:hStr] == PGNumericTypeAbsolute) size.height = [hStr floatValue];
+    else size.height = [PGTranslators percentageStrToFloat:hStr] * [[UIScreen mainScreen] bounds].size.height;
+
+    return size;
 }
 
 + (CGPoint)pointWithString:(NSString *)string {
     if ([string isEqualToString:@"origin"]) return CGPointZero;
-    return CGPointFromString(string);
+    
+    CGPoint point;
+    
+    Tuple *tuple = [[Tuple alloc] initWithString:string];
+    
+    NSString *xStr = [tuple.children objectAtIndex:0];
+    if ([PGTranslators numericTypeOfString:xStr] == PGNumericTypeAbsolute) point.x = [xStr floatValue];
+    else point.x = [PGTranslators percentageStrToFloat:xStr] * [[UIScreen mainScreen] bounds].size.width;
+
+    NSString *yStr = [tuple.children objectAtIndex:1];
+    if ([PGTranslators numericTypeOfString:yStr] == PGNumericTypeAbsolute) point.y = [yStr floatValue];
+    else point.y = [PGTranslators percentageStrToFloat:yStr] * [[UIScreen mainScreen] bounds].size.height;
+    
+    return point;
 }
 
 + (CGAffineTransform)affineTransformWithString:(NSString *)string {
@@ -291,10 +330,15 @@
 
 #pragma mark - Helper methods
 
-+ (NSArray *)componentsForTuple:(NSString *)string {
-    NSCharacterSet *curlyBracketsSet = [NSCharacterSet characterSetWithCharactersInString:@"{}"];
-    NSString *bracketlessString = [string stringByTrimmingCharactersInSet:curlyBracketsSet];
-    return [bracketlessString componentsSeparatedByString:@","];
++ (PGNumericType)numericTypeOfString:(NSString *)string {
+    if ([string rangeOfString:@"%"].location != NSNotFound) return PGNumericTypeRelative;
+    return PGNumericTypeAbsolute;
+}
+
++ (float)percentageStrToFloat:(NSString *)string {
+    NSCharacterSet *percentageSet = [NSCharacterSet characterSetWithCharactersInString:@"%"];
+    NSString *trimmedString = [string stringByTrimmingCharactersInSet:percentageSet];
+    return [trimmedString floatValue] / 100.0;
 }
 
 @end

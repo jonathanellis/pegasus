@@ -3,7 +3,8 @@
     PEGASUS SAMPLE 3
 
     This sample is for a view which shows a series of views in a horizontal linear
-    view and then one view below.
+    view and then one view below. This view makes extensive usage of relative
+    positioning and sizing elements by percentage.
 
     Copyright 2012 Jonathan Ellis
 
@@ -25,11 +26,11 @@
 <view frame="fullscreen" backgroundColor="blue">
 
 	<view origin="{0,11}" layout="linear horizontal 11">
-		<label size="{92,92}" text="Green" textAlignment="center" backgroundColor="green" />
-		<label size="{92,92}" text="Red" textAlignment="center" backgroundColor="red" />
-		<label size="{92,92}" text="Orange" textAlignment="center" backgroundColor="orange" />    
+		<label size="{31%,30%}" text="Green" textAlignment="center" backgroundColor="green" />
+		<label size="{31%,30%}" text="Red" textAlignment="center" backgroundColor="red" />
+		<label size="{31%,30%}" text="Orange" textAlignment="center" backgroundColor="orange" />    
 	</view>
 	
-	<label frame="{{0,110}, {320, 100}}" text="White" textAlignment="center" backgroundColor="white" />    
+	<label frame="{{2%,33%}, {96%,30%}}" text="White" textAlignment="center" backgroundColor="white" />    
 	
 </view>
