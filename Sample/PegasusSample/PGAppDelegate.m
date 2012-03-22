@@ -30,7 +30,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-
+  [[UIApplication sharedApplication] setStatusBarHidden:YES];
     self.viewController = [[PGViewController alloc] init];
 
     self.window.rootViewController = self.viewController;
