@@ -62,6 +62,11 @@
 		FC1E564614F1BEE0007D9C1B /* sample3.xml in Resources */ = {isa = PBXBuildFile; fileRef = FC1E564514F1BEE0007D9C1B /* sample3.xml */; };
 		FDA3E373151BA36900BF4AF5 /* PGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3E372151BA36900BF4AF5 /* PGTabBar.m */; };
 		FDA3E376151BA5D500BF4AF5 /* PGTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3E375151BA5D400BF4AF5 /* PGTabBarItem.m */; };
+		FDA3E37B151BAC2800BF4AF5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA3E37A151BAC2800BF4AF5 /* MapKit.framework */; };
+		FDA3E37D151BADA200BF4AF5 /* sample7.xml in Resources */ = {isa = PBXBuildFile; fileRef = FDA3E37C151BADA100BF4AF5 /* sample7.xml */; };
+		FDA3E383151BAE5A00BF4AF5 /* PGMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3E380151BAE5A00BF4AF5 /* PGMapAnnotationView.m */; };
+		FDA3E384151BAE5A00BF4AF5 /* PGMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3E382151BAE5A00BF4AF5 /* PGMapView.m */; };
+		FDA3E389151BB2B600BF4AF5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA3E388151BB2B500BF4AF5 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +168,13 @@
 		FDA3E372151BA36900BF4AF5 /* PGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTabBar.m; path = Views/PGTabBar.m; sourceTree = "<group>"; };
 		FDA3E374151BA5D400BF4AF5 /* PGTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTabBarItem.h; path = Views/PGTabBarItem.h; sourceTree = "<group>"; };
 		FDA3E375151BA5D400BF4AF5 /* PGTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTabBarItem.m; path = Views/PGTabBarItem.m; sourceTree = "<group>"; };
+		FDA3E37A151BAC2800BF4AF5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FDA3E37C151BADA100BF4AF5 /* sample7.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample7.xml; path = UI/sample7.xml; sourceTree = "<group>"; };
+		FDA3E37F151BAE5A00BF4AF5 /* PGMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMapAnnotationView.h; sourceTree = "<group>"; };
+		FDA3E380151BAE5A00BF4AF5 /* PGMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGMapAnnotationView.m; sourceTree = "<group>"; };
+		FDA3E381151BAE5A00BF4AF5 /* PGMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMapView.h; sourceTree = "<group>"; };
+		FDA3E382151BAE5A00BF4AF5 /* PGMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGMapView.m; sourceTree = "<group>"; };
+		FDA3E388151BB2B500BF4AF5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA3E389151BB2B600BF4AF5 /* CoreLocation.framework in Frameworks */,
+				FDA3E37B151BAC2800BF4AF5 /* MapKit.framework in Frameworks */,
 				8464286714EA7546000C0EE3 /* UIKit.framework in Frameworks */,
 				8464286914EA7546000C0EE3 /* Foundation.framework in Frameworks */,
 				8464286B14EA7546000C0EE3 /* CoreGraphics.framework in Frameworks */,
@@ -252,6 +266,8 @@
 		8464285714EA7546000C0EE3 = {
 			isa = PBXGroup;
 			children = (
+				FDA3E388151BB2B500BF4AF5 /* CoreLocation.framework */,
+				FDA3E37A151BAC2800BF4AF5 /* MapKit.framework */,
 				8464286C14EA7546000C0EE3 /* PegasusSample */,
 				8464286514EA7546000C0EE3 /* Frameworks */,
 				8464286314EA7546000C0EE3 /* Products */,
@@ -311,6 +327,7 @@
 				8400EF6114FE4BF0001064F5 /* sample4.xml */,
 				8400EF6214FE4BF0001064F5 /* sample5.xml */,
 				841DDE751500F8540090D810 /* sample6.xml */,
+				FDA3E37C151BADA100BF4AF5 /* sample7.xml */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -349,6 +366,7 @@
 				FC1E562914F1B1FF007D9C1B /* PGImageView.m */,
 				FC1E562A14F1B1FF007D9C1B /* PGLabel.h */,
 				FC1E562B14F1B1FF007D9C1B /* PGLabel.m */,
+				FDA3E37E151BAE5A00BF4AF5 /* MapKit */,
 				FC1E562C14F1B1FF007D9C1B /* PGProgressView.h */,
 				FC1E562D14F1B1FF007D9C1B /* PGProgressView.m */,
 				FC1E562E14F1B1FF007D9C1B /* PGScrollView.h */,
@@ -386,6 +404,18 @@
 				84CA00D414F6466E00ABBE31 /* PGCenterLayout.m */,
 			);
 			name = Layouts;
+			sourceTree = "<group>";
+		};
+		FDA3E37E151BAE5A00BF4AF5 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3E37F151BAE5A00BF4AF5 /* PGMapAnnotationView.h */,
+				FDA3E380151BAE5A00BF4AF5 /* PGMapAnnotationView.m */,
+				FDA3E381151BAE5A00BF4AF5 /* PGMapView.h */,
+				FDA3E382151BAE5A00BF4AF5 /* PGMapView.m */,
+			);
+			name = MapKit;
+			path = Views/MapKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +482,7 @@
 				841DDE6114FFB4950090D810 /* delta.png in Resources */,
 				841DDE6214FFB4950090D810 /* gamma.png in Resources */,
 				841DDE761500F8550090D810 /* sample6.xml in Resources */,
+				FDA3E37D151BADA200BF4AF5 /* sample7.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +531,8 @@
 				849FC53815064F40004F9F8D /* Tuple.m in Sources */,
 				FDA3E373151BA36900BF4AF5 /* PGTabBar.m in Sources */,
 				FDA3E376151BA5D500BF4AF5 /* PGTabBarItem.m in Sources */,
+				FDA3E383151BAE5A00BF4AF5 /* PGMapAnnotationView.m in Sources */,
+				FDA3E384151BAE5A00BF4AF5 /* PGMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

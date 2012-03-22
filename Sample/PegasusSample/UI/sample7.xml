@@ -24,6 +24,9 @@
 
 
 <view frame="fullscreen" backgroundColor="#a36800">
+  <mapview frame="{{0,0}, {320, 431}}">
+    <mapannotationview frame="{{0,0}, {20, 30}}" annotation="{title,{37.331705, -122.030237}}"/>
+  </mapview>
   <tabbar frame="{{0,431}, {320, 49}}" backgroundColor="#a36800">
     <tabbaritem systemItem="more"/>
     <tabbaritem systemItem="mostrecent"/>

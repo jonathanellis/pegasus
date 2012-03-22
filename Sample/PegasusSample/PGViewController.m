@@ -27,13 +27,20 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(id)initWithView:(UIView*)view{
+  if (self = [[PGViewController alloc] init]) {
+    self.view = view;
+  }
+  return self;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    int sample = 1; // *** change this to 2/3/4/5/6 for other samples ***
+    int sample = 7; // *** change this to 2/3/4/5/6 for other samples ***
     
     // Here, we load the XML file (from the UI group):
     NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"sample%d.xml", sample]];

@@ -30,8 +30,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-  [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    self.viewController = [[PGViewController alloc] init];
+  [[UIApplication sharedApplication] setStatusBarHidden:YES];   
+  NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"sample%d.xml", 7]];
+  PGView * pegasusView = [PGView viewWithContentsOfFile:filePath];
+  self.viewController = [[PGViewController alloc] initWithView:pegasusView.view];
 
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

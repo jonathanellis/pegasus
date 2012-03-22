@@ -49,12 +49,15 @@
     // if ([type isEqualToString:@"UIButtonType"]) return @selector(buttonTypeWithString:);
     if ([type isEqualToString:@"UIBarButtonItemStyle"]) return @selector(barButtonItemStyleWithString:);
     //if ([type isEqualToString:@"UIBarButtonSystemItem"]) return @selector(barButtonSystemItemWithString:);
+    if ([type isEqualToString:@"CLLocationCoordinate2D"]) return @selector(coordinateWithString:);
     
     // Objects:
     if ([type isEqualToString:@"NSString"]) return @selector(stringWithString:);
     if ([type isEqualToString:@"UIColor"]) return @selector(colorWithString:);
     if ([type isEqualToString:@"UIImage"]) return @selector(imageWithString:);
     if ([type isEqualToString:@"UIFont"]) return @selector(fontWithString:);
+    if ([type isEqualToString:@"MKPointAnnotation"]) return @selector(annotationWithString:);
+
     
     return NULL;
 }
@@ -140,6 +143,20 @@
 
 + (UIEdgeInsets)edgeInsetsWithString:(NSString *)string {
     return UIEdgeInsetsFromString(string);
+}
+
++ (CLLocationCoordinate2D)coordinateWithString:(Tuple *)llTuple {
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([[llTuple.children objectAtIndex:0] floatValue], [[llTuple.children objectAtIndex:1] floatValue]);
+  return coordinate;
+}
+
++(MKPointAnnotation*) annotationWithString:(NSString*)string {
+  Tuple * tuple = [[Tuple alloc] initWithString:string];
+  MKPointAnnotation * annotation = [[MKPointAnnotation alloc] init];
+  [annotation setTitle:[tuple.children objectAtIndex:0]];
+  CLLocationCoordinate2D coordinate = [PGTranslators coordinateWithString:[tuple.children objectAtIndex:1]];
+  [annotation setCoordinate:coordinate];
+  return annotation;
 }
 
 #pragma mark - Translators (Enums)

@@ -1,6 +1,6 @@
 //
-//  PGViewController.h
-//  PegasusSample
+//  PGMapView.h
+//  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
 //
@@ -17,10 +17,12 @@
 //  limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import "PGView.h"
+#import "PGMapAnnotationView.h"
+#import <MapKit/MapKit.h>
 
-@interface PGViewController : UIViewController {
-    PGView *pegasusView;
+@interface PGMapView : PGView {
+    NSMutableArray *annotations;
 }
--(id)initWithView:(UIView*)view;
+
 @end
