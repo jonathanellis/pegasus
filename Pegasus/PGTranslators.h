@@ -55,6 +55,7 @@ typedef enum {
 + (UIButtonType)buttonTypeWithString:(NSString *)string;
 + (UIBarButtonItemStyle)barButtonItemStyleWithString:(NSString *)string;
 + (UIBarButtonSystemItem)barButtonSystemItemWithString:(NSString *)string;
++ (UITabBarSystemItem)tabBarSystemItemWithString:(NSString *)string;
 
 #pragma mark - Translators (Objects)
 + (NSString *)stringWithString:(NSString *)string;

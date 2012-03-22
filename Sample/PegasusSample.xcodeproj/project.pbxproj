@@ -60,6 +60,8 @@
 		FC1E563A14F1B1FF007D9C1B /* PGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1E563314F1B1FF007D9C1B /* PGTextField.m */; };
 		FC1E563E14F1B265007D9C1B /* PGView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1E563D14F1B265007D9C1B /* PGView.m */; };
 		FC1E564614F1BEE0007D9C1B /* sample3.xml in Resources */ = {isa = PBXBuildFile; fileRef = FC1E564514F1BEE0007D9C1B /* sample3.xml */; };
+		FDA3E373151BA36900BF4AF5 /* PGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3E372151BA36900BF4AF5 /* PGTabBar.m */; };
+		FDA3E376151BA5D500BF4AF5 /* PGTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3E375151BA5D400BF4AF5 /* PGTabBarItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +159,10 @@
 		FC1E563C14F1B265007D9C1B /* PGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGView.h; path = Views/PGView.h; sourceTree = "<group>"; };
 		FC1E563D14F1B265007D9C1B /* PGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGView.m; path = Views/PGView.m; sourceTree = "<group>"; };
 		FC1E564514F1BEE0007D9C1B /* sample3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample3.xml; path = UI/sample3.xml; sourceTree = "<group>"; };
+		FDA3E370151BA35600BF4AF5 /* PGTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTabBar.h; path = Views/PGTabBar.h; sourceTree = "<group>"; };
+		FDA3E372151BA36900BF4AF5 /* PGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTabBar.m; path = Views/PGTabBar.m; sourceTree = "<group>"; };
+		FDA3E374151BA5D400BF4AF5 /* PGTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTabBarItem.h; path = Views/PGTabBarItem.h; sourceTree = "<group>"; };
+		FDA3E375151BA5D400BF4AF5 /* PGTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTabBarItem.m; path = Views/PGTabBarItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +357,10 @@
 				FC1E563114F1B1FF007D9C1B /* PGSwitch.m */,
 				FC1E563214F1B1FF007D9C1B /* PGTextField.h */,
 				FC1E563314F1B1FF007D9C1B /* PGTextField.m */,
+				FDA3E370151BA35600BF4AF5 /* PGTabBar.h */,
+				FDA3E372151BA36900BF4AF5 /* PGTabBar.m */,
+				FDA3E374151BA5D400BF4AF5 /* PGTabBarItem.h */,
+				FDA3E375151BA5D400BF4AF5 /* PGTabBarItem.m */,
 				841DDE6C1500F5220090D810 /* PGTableView.h */,
 				841DDE6D1500F5230090D810 /* PGTableView.m */,
 				841DDE6E1500F5250090D810 /* PGTableViewCell.h */,
@@ -488,6 +498,8 @@
 				841DDE741500F53B0090D810 /* PGToolbar.m in Sources */,
 				841DDE7C1500F9A20090D810 /* PGBarButtonItem.m in Sources */,
 				849FC53815064F40004F9F8D /* Tuple.m in Sources */,
+				FDA3E373151BA36900BF4AF5 /* PGTabBar.m in Sources */,
+				FDA3E376151BA5D500BF4AF5 /* PGTabBarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

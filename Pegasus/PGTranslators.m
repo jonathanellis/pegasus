@@ -283,6 +283,22 @@
     return 0;
 }
 
++ (UITabBarSystemItem)tabBarSystemItemWithString:(NSString *)string {
+  if ([string isEqualToString:@"more"]) return UITabBarSystemItemMore;
+  if ([string isEqualToString:@"favorites"]) return   UITabBarSystemItemFavorites;
+  if ([string isEqualToString:@"featured"]) return   UITabBarSystemItemFeatured;
+  if ([string isEqualToString:@"toprated"]) return UITabBarSystemItemTopRated;
+  if ([string isEqualToString:@"recent"]) return UITabBarSystemItemRecents;
+  if ([string isEqualToString:@"contacts"]) return UITabBarSystemItemContacts;
+  if ([string isEqualToString:@"history"]) return UITabBarSystemItemHistory;
+  if ([string isEqualToString:@"bookmarks"]) return UITabBarSystemItemBookmarks;
+  if ([string isEqualToString:@"search"]) return UITabBarSystemItemSearch;
+  if ([string isEqualToString:@"downloads"]) return UITabBarSystemItemDownloads;
+  if ([string isEqualToString:@"mostrecent"]) return UITabBarSystemItemMostRecent;
+  if ([string isEqualToString:@"mostviewed"]) return UITabBarSystemItemMostViewed;
+  return 0;
+}
+
 #pragma mark - Translators (Objects)
 
 + (NSString *)stringWithString:(NSString *)string {

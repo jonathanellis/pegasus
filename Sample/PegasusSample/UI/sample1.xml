@@ -34,5 +34,9 @@
 	<textfield size="{240,27}" placeholder="Enter text" borderStyle="rounded-rect" />
     
 	<button size="{50,40}" title="OK" buttonType="rounded-rect" />
-    
+  <tabbar frame="{{0,420}, {320, 40}}" backgroundColor="#a36800">
+    <tabbaritem systemItem="more"/>
+    <tabbaritem systemItem="mostrecent"/>
+    <tabbaritem systemItem="mostviewed"/>
+  </tabbar>
 </view>

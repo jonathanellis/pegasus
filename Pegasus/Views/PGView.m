@@ -59,6 +59,8 @@
                              @"PGTableViewCell",
                              @"PGToolbar",
                              @"PGBarButtonItem",
+                             @"PGTabBar",
+                             @"PGTabBarItem",
                              nil];
     
     // Search for class matching the tag name
