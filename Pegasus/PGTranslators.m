@@ -29,9 +29,9 @@
     if ([type isEqualToString:@"BOOL"]) return @selector(boolWithString:);
     
     // Structs:
-    if ([type isEqualToString:@"CGRect"]) return @selector(rectWithString:);
-    if ([type isEqualToString:@"CGSize"]) return @selector(sizeWithString:);
-    if ([type isEqualToString:@"CGPoint"]) return @selector(pointWithString:);
+    // if ([type isEqualToString:@"CGRect"]) return @selector(rectWithString:);
+    // if ([type isEqualToString:@"CGSize"]) return @selector(sizeWithString:);
+    // if ([type isEqualToString:@"CGPoint"]) return @selector(pointWithString:);
     if ([type isEqualToString:@"CGAffineTransform"]) return @selector(affineTransformWithString:);
     if ([type isEqualToString:@"UIEdgeInsets"]) return @selector(edgeInsetsWithString:);
     
@@ -80,16 +80,16 @@
 
 #pragma mark - Translators (Structs)
 
-+ (CGRect)rectWithString:(NSString *)string {
++ (CGRect)rectWithString:(NSString *)string withParentRect:(CGRect)parentRect {
     if ([string isEqualToString:@"fullscreen"]) return [[UIScreen mainScreen] bounds];
-
+    
     Tuple *tuple = [[Tuple alloc] initWithString:string];
     
     Tuple *originTuple = [tuple.children objectAtIndex:0];
     Tuple *sizeTuple = [tuple.children objectAtIndex:1];
 
-    CGPoint origin = [PGTranslators pointWithString:[originTuple description]];
-    CGSize size = [PGTranslators sizeWithString:[sizeTuple description]];
+    CGPoint origin = [PGTranslators pointWithString:[originTuple description] withParentSize:parentRect.size];
+    CGSize size = [PGTranslators sizeWithString:[sizeTuple description] withParentSize:parentRect.size];
     
     CGRect frame;
     frame.origin = origin;
@@ -98,7 +98,7 @@
     return frame;
 }
 
-+ (CGSize)sizeWithString:(NSString *)string {
++ (CGSize)sizeWithString:(NSString *)string withParentSize:(CGSize)parentSize {
     if ([string isEqualToString:@"fullscreen"]) return [[UIScreen mainScreen] bounds].size;
     
     CGSize size;
@@ -107,16 +107,16 @@
     
     NSString *wStr = [tuple.children objectAtIndex:0];
     if ([PGTranslators numericTypeOfString:wStr] == PGNumericTypeAbsolute) size.width = [wStr floatValue];
-    else size.width = [PGTranslators percentageStrToFloat:wStr] * [[UIScreen mainScreen] bounds].size.width;
+    else size.width = [PGTranslators percentageStrToFloat:wStr] * parentSize.width;
     
     NSString *hStr = [tuple.children objectAtIndex:1];
     if ([PGTranslators numericTypeOfString:hStr] == PGNumericTypeAbsolute) size.height = [hStr floatValue];
-    else size.height = [PGTranslators percentageStrToFloat:hStr] * [[UIScreen mainScreen] bounds].size.height;
+    else size.height = [PGTranslators percentageStrToFloat:hStr] * parentSize.height;
 
     return size;
 }
 
-+ (CGPoint)pointWithString:(NSString *)string {
++ (CGPoint)pointWithString:(NSString *)string withParentSize:(CGSize)parentSize {
     if ([string isEqualToString:@"origin"]) return CGPointZero;
     
     CGPoint point;
@@ -125,11 +125,11 @@
     
     NSString *xStr = [tuple.children objectAtIndex:0];
     if ([PGTranslators numericTypeOfString:xStr] == PGNumericTypeAbsolute) point.x = [xStr floatValue];
-    else point.x = [PGTranslators percentageStrToFloat:xStr] * [[UIScreen mainScreen] bounds].size.width;
+    else point.x = [PGTranslators percentageStrToFloat:xStr] * parentSize.width;
 
     NSString *yStr = [tuple.children objectAtIndex:1];
     if ([PGTranslators numericTypeOfString:yStr] == PGNumericTypeAbsolute) point.y = [yStr floatValue];
-    else point.y = [PGTranslators percentageStrToFloat:yStr] * [[UIScreen mainScreen] bounds].size.height;
+    else point.y = [PGTranslators percentageStrToFloat:yStr] * parentSize.height;
     
     return point;
 }

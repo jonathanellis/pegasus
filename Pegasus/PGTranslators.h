@@ -35,9 +35,9 @@ typedef enum {
 + (BOOL)boolWithString:(NSString *)string;
 
 #pragma mark - Translators (Structs)
-+ (CGRect)rectWithString:(NSString *)string;
-+ (CGSize)sizeWithString:(NSString *)string;
-+ (CGPoint)pointWithString:(NSString *)string;
++ (CGRect)rectWithString:(NSString *)string withParentRect:(CGRect)parentRect;
++ (CGSize)sizeWithString:(NSString *)string withParentSize:(CGSize)parentSize;
++ (CGPoint)pointWithString:(NSString *)string withParentSize:(CGSize)parentSize;
 + (CGAffineTransform)affineTransformWithString:(NSString *)string;
 + (UIEdgeInsets)edgeInsetsWithString:(NSString *)string;
 

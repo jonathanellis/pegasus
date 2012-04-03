@@ -22,6 +22,7 @@
 @implementation PGView
 
 @synthesize view;
+@synthesize superview;
 
 + (PGView *)viewWithString:(NSString *)string {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -37,14 +38,14 @@
     CXMLDocument *doc = [[CXMLDocument alloc] initWithData:data options:0 error:nil];
     CXMLElement *rootElement = doc.rootElement;
     
-    PGView *view = [PGView viewWithElement:rootElement];
+    PGView *view = [PGView viewWithElement:rootElement superview:nil];
     if (view) return view;
     
     NSLog(@"Pegasus Error: No corresponding class for root element '%@'. Ignoring and returning nil!", rootElement.name);
     return nil;
 }
 
-+ (PGView *)viewWithElement:(CXMLElement *)element {
++ (PGView *)viewWithElement:(CXMLElement *)element superview:(PGView *)aSuperview {
     
     NSArray *adapters = [NSArray arrayWithObjects:
                              @"PGView",
@@ -67,7 +68,7 @@
         NSString *name = [class name];
         
         if ([name isEqualToString:element.name]) {
-            PGView *view = [[(Class)class alloc] initWithElement:element];    
+            PGView *view = [[(Class)class alloc] initWithElement:element superview:aSuperview];    
             return view;
         }
     }
@@ -75,8 +76,9 @@
     return nil;
 }
 
-- (id)initWithElement:(CXMLElement *)element {
+- (id)initWithElement:(CXMLElement *)element superview:(PGView *)aSuperview {
     if (self = [super init]) {
+        superview = aSuperview;
         
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
                 
@@ -87,7 +89,6 @@
         view = [[self class] internalViewWithAttributes:attributes];
         subviews = [NSMutableArray array];
 
-        
         NSDictionary *propertyTypes = [[self class] properties];
         
         for (NSString *attribute in attributes) {
@@ -106,6 +107,8 @@
             } else {
                 if ([propertyType isEqualToString:@"#"]) { // Virtual property
                     [self setValue:propertyValue forVirtualProperty:propertyName];
+                } else if ([propertyType isEqualToString:@"CGRect"] || [propertyType isEqualToString:@"CGSize"] || [propertyType isEqualToString:@"CGPoint"]) {
+                    [self setValue:propertyValue ofSpecialType:propertyType forProperty:propertyName];
                 } else if (![propertyType isEqualToString:@"*"]) {
                     [self setValue:propertyValue ofType:propertyType forProperty:propertyName];
                 }
@@ -123,7 +126,7 @@
             // Subviews:
             for (CXMLElement *childElement in element.children) {
                 if ([childElement isKindOfClass:[CXMLElement class]]) {
-                    PGView *subview = [PGView viewWithElement:childElement];
+                    PGView *subview = [PGView viewWithElement:childElement superview:self];
                     
                     if (subview) {
                         [self addSubview:subview];
@@ -143,7 +146,7 @@
     return self;
 }
 
-- (void)setValue:(NSString *)string ofType:(NSString *)type forProperty:(NSString *)property {
+- (void)setValue:(NSString *)string ofType:(NSString *)type forProperty:(NSString *)propertyName {
     // STEP 1 - Get Translator
     SEL translatorSelector = [PGTranslators translatorForType:type];
     
@@ -151,12 +154,28 @@
     void *value = [PGTranslators performSelector:translatorSelector withValue:&string];
     
     // STEP 3 - Get property setter selector
-    SEL setPropertySelector = [self selectorForProperty:property];
+    SEL setPropertySelector = [self selectorForProperty:propertyName];
         
     // STEP 4 - Set property
     [view performSelector:setPropertySelector withValue:value];
     
     free(value);
+}
+
+- (void)setValue:(NSString *)string ofSpecialType:(NSString *)type forProperty:(NSString *)propertyName {
+    SEL setPropertySelector = [self selectorForProperty:propertyName];
+    
+    UIView *castedSuperviewView = superview.view;
+    if ([type isEqualToString:@"CGRect"]) {
+        CGRect rect = [PGTranslators rectWithString:string withParentRect:castedSuperviewView.frame];
+        [view performSelector:setPropertySelector withValue:&rect];
+    } else if ([type isEqualToString:@"CGSize"]) {
+        CGSize size = [PGTranslators sizeWithString:string withParentSize:castedSuperviewView.frame.size];
+        [view performSelector:setPropertySelector withValue:&size];
+    } else if ([type isEqualToString:@"CGPoint"]) {
+        CGPoint point = [PGTranslators pointWithString:string withParentSize:castedSuperviewView.frame.size];
+        [view performSelector:setPropertySelector withValue:&point];
+    }
 }
 
 - (SEL)selectorForProperty:(NSString *)propertyName {
@@ -230,6 +249,7 @@
 
 
 - (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName {
+    UIView *castedView = view;
     if ([propertyName isEqualToString:@"id"]) {
         _id = [string lowercaseString];
     } else if ([propertyName isEqualToString:@"group"]) {
@@ -237,13 +257,13 @@
     } else if ([propertyName isEqualToString:@"layout"]) {
         layout = [PGLayout layoutWithString:string];
     } else if ([propertyName isEqualToString:@"size"]) {
-        CGRect frame = ((UIView *)view).frame;
-        frame.size = [PGTranslators sizeWithString:string];;
-        ((UIView *)view).frame = frame;
+        CGRect frame = castedView.frame;
+        frame.size = [PGTranslators sizeWithString:string withParentSize:castedView.superview.frame.size];
+        castedView.frame = frame;
     } else if ([propertyName isEqualToString:@"origin"]) {
-        CGRect frame = ((UIView *)view).frame;
-        frame.origin = [PGTranslators pointWithString:string];
-        ((UIView *)view).frame = frame;
+        CGRect frame = castedView.frame;
+        frame.origin = [PGTranslators pointWithString:string withParentSize:castedView.superview.frame.size];
+        castedView.frame = frame;
     }
 }
 

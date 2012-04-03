@@ -31,19 +31,22 @@
     
     id view;
     NSMutableArray *subviews;
+    PGView *superview;
 }
 
 @property (nonatomic, strong) id view;
+@property (nonatomic, readonly) PGView *superview;
 
 + (PGView *)viewWithString:(NSString *)string;
 + (PGView *)viewWithContentsOfFile:(NSString *)file;
 + (PGView *)viewWithData:(NSData *)data;
 
-+ (PGView *)viewWithElement:(CXMLElement *)element;
++ (PGView *)viewWithElement:(CXMLElement *)element superview:(PGView *)aSuperview;
 
-- (id)initWithElement:(CXMLElement *)element;
+- (id)initWithElement:(CXMLElement *)element superview:(PGView *)aSuperview;
 
-- (void)setValue:(NSString *)string ofType:(NSString *)type forProperty:(NSString *)propertyValue;
+- (void)setValue:(NSString *)string ofType:(NSString *)type forProperty:(NSString *)propertyName;
+- (void)setValue:(NSString *)string ofSpecialType:(NSString *)type forProperty:(NSString *)propertyName;
 - (SEL)selectorForProperty:(NSString *)propertyName;
 
 - (UIView *)findViewWithID:(NSString *)viewID;
