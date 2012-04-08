@@ -1,6 +1,6 @@
 //
-//  PGViewController.h
-//  PegasusSample
+//  PGTabBarItem.h
+//  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
 //
@@ -17,10 +17,8 @@
 //  limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import "PGView.h"
 
-@interface PGViewController : UIViewController {
-    PGView *pegasusView;
-}
--(id)initWithView:(UIView*)view;
+@interface PGTabBarItem : PGView
+
 @end

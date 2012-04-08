@@ -18,6 +18,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 typedef enum {
     PGNumericTypeAbsolute,
@@ -40,6 +41,7 @@ typedef enum {
 + (CGPoint)pointWithString:(NSString *)string;
 + (CGAffineTransform)affineTransformWithString:(NSString *)string;
 + (UIEdgeInsets)edgeInsetsWithString:(NSString *)string;
++ (CLLocationCoordinate2D)coordinateWithString:(NSString *)string;
 
 #pragma mark - Translators (Enums)
 + (UITextAlignment)textAlignmentWithString:(NSString *)string;
@@ -55,12 +57,14 @@ typedef enum {
 + (UIButtonType)buttonTypeWithString:(NSString *)string;
 + (UIBarButtonItemStyle)barButtonItemStyleWithString:(NSString *)string;
 + (UIBarButtonSystemItem)barButtonSystemItemWithString:(NSString *)string;
++ (UITabBarSystemItem)tabBarSystemItemWithString:(NSString *)string;
 
 #pragma mark - Translators (Objects)
 + (NSString *)stringWithString:(NSString *)string;
 + (UIColor *)colorWithString:(NSString *)string;
 + (UIImage *)imageWithString:(NSString *)string;
 + (UIFont *)fontWithString:(NSString *)string;
++ (MKPointAnnotation*) annotationWithString:(NSString*)string;
 
 #pragma mark - Helper methods
 + (PGNumericType)numericTypeOfString:(NSString *)string;
