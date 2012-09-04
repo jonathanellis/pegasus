@@ -72,17 +72,17 @@
 		841DDE5C14FFB4950090D810 /* beta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beta.png; path = UI/Images/beta.png; sourceTree = "<group>"; };
 		841DDE5D14FFB4950090D810 /* delta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delta.png; path = UI/Images/delta.png; sourceTree = "<group>"; };
 		841DDE5E14FFB4950090D810 /* gamma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamma.png; path = UI/Images/gamma.png; sourceTree = "<group>"; };
-		841DDE6C1500F5220090D810 /* PGTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTableView.h; path = Views/PGTableView.h; sourceTree = "<group>"; };
-		841DDE6D1500F5230090D810 /* PGTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTableView.m; path = Views/PGTableView.m; sourceTree = "<group>"; };
-		841DDE6E1500F5250090D810 /* PGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTableViewCell.h; path = ../Views/PGTableViewCell.h; sourceTree = "<group>"; };
-		841DDE6F1500F5260090D810 /* PGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTableViewCell.m; path = ../Views/PGTableViewCell.m; sourceTree = "<group>"; };
-		841DDE721500F5380090D810 /* PGToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGToolbar.h; path = Views/PGToolbar.h; sourceTree = "<group>"; };
-		841DDE731500F53A0090D810 /* PGToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGToolbar.m; path = Views/PGToolbar.m; sourceTree = "<group>"; };
+		841DDE6C1500F5220090D810 /* PGTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTableView.h; sourceTree = "<group>"; };
+		841DDE6D1500F5230090D810 /* PGTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTableView.m; sourceTree = "<group>"; };
+		841DDE6E1500F5250090D810 /* PGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTableViewCell.h; sourceTree = "<group>"; };
+		841DDE6F1500F5260090D810 /* PGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTableViewCell.m; sourceTree = "<group>"; };
+		841DDE721500F5380090D810 /* PGToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGToolbar.h; sourceTree = "<group>"; };
+		841DDE731500F53A0090D810 /* PGToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGToolbar.m; sourceTree = "<group>"; };
 		841DDE751500F8540090D810 /* sample6.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample6.xml; path = UI/sample6.xml; sourceTree = "<group>"; };
-		841DDE7A1500F99F0090D810 /* PGBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGBarButtonItem.h; path = ../Views/PGBarButtonItem.h; sourceTree = "<group>"; };
-		841DDE7B1500F9A10090D810 /* PGBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGBarButtonItem.m; path = ../Views/PGBarButtonItem.m; sourceTree = "<group>"; };
-		842ACF1815E2570600573DF7 /* PGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGView.h; path = Views/PGView.h; sourceTree = "<group>"; };
-		842ACF1915E2570700573DF7 /* PGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGView.m; path = Views/PGView.m; sourceTree = "<group>"; };
+		841DDE7A1500F99F0090D810 /* PGBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGBarButtonItem.h; sourceTree = "<group>"; };
+		841DDE7B1500F9A10090D810 /* PGBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGBarButtonItem.m; sourceTree = "<group>"; };
+		842ACF1815E2570600573DF7 /* PGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGView.h; sourceTree = "<group>"; };
+		842ACF1915E2570700573DF7 /* PGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGView.m; sourceTree = "<group>"; };
 		8437DFC315EE182100B33DF9 /* PGFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGFloat.h; path = "Data Structures/PGFloat.h"; sourceTree = "<group>"; };
 		8437DFC415EE182100B33DF9 /* PGFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGFloat.m; path = "Data Structures/PGFloat.m"; sourceTree = "<group>"; };
 		8437DFC615EE19FF00B33DF9 /* PGTuple.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PGTuple.h; path = "Data Structures/PGTuple.h"; sourceTree = "<group>"; };
@@ -140,30 +140,30 @@
 		84786DD414EAC19E00FA6043 /* soldier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soldier.png; path = UI/Images/soldier.png; sourceTree = "<group>"; };
 		8494997015121CAC007CB360 /* sample7.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample7.xml; path = UI/sample7.xml; sourceTree = "<group>"; };
 		849FC53715064F40004F9F8D /* PGTuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTuple.m; path = "Data Structures/PGTuple.m"; sourceTree = "<group>"; };
-		84C70D9814F28A810051C13D /* PGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGLayout.h; path = Layouts/PGLayout.h; sourceTree = "<group>"; };
-		84C70D9914F28A810051C13D /* PGLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGLayout.m; path = Layouts/PGLayout.m; sourceTree = "<group>"; };
-		84C70D9A14F28A810051C13D /* PGLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGLinearLayout.h; path = Layouts/PGLinearLayout.h; sourceTree = "<group>"; };
-		84C70D9B14F28A810051C13D /* PGLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGLinearLayout.m; path = Layouts/PGLinearLayout.m; sourceTree = "<group>"; };
-		84C70DA214F297860051C13D /* PGGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGGridLayout.h; path = Layouts/PGGridLayout.h; sourceTree = "<group>"; };
-		84C70DA314F297860051C13D /* PGGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGGridLayout.m; path = Layouts/PGGridLayout.m; sourceTree = "<group>"; };
+		84C70D9814F28A810051C13D /* PGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGLayout.h; sourceTree = "<group>"; };
+		84C70D9914F28A810051C13D /* PGLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGLayout.m; sourceTree = "<group>"; };
+		84C70D9A14F28A810051C13D /* PGLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGLinearLayout.h; sourceTree = "<group>"; };
+		84C70D9B14F28A810051C13D /* PGLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGLinearLayout.m; sourceTree = "<group>"; };
+		84C70DA214F297860051C13D /* PGGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGGridLayout.h; sourceTree = "<group>"; };
+		84C70DA314F297860051C13D /* PGGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGGridLayout.m; sourceTree = "<group>"; };
 		84CA00D314F6466D00ABBE31 /* PGCenterLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGCenterLayout.h; sourceTree = "<group>"; };
 		84CA00D414F6466E00ABBE31 /* PGCenterLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGCenterLayout.m; sourceTree = "<group>"; };
-		FC1E562614F1B1FF007D9C1B /* PGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGButton.h; path = ../Views/PGButton.h; sourceTree = "<group>"; };
-		FC1E562714F1B1FF007D9C1B /* PGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGButton.m; path = ../Views/PGButton.m; sourceTree = "<group>"; };
-		FC1E562814F1B1FF007D9C1B /* PGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGImageView.h; path = Views/PGImageView.h; sourceTree = "<group>"; };
-		FC1E562914F1B1FF007D9C1B /* PGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGImageView.m; path = Views/PGImageView.m; sourceTree = "<group>"; };
-		FC1E562A14F1B1FF007D9C1B /* PGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGLabel.h; path = Views/PGLabel.h; sourceTree = "<group>"; };
-		FC1E562B14F1B1FF007D9C1B /* PGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGLabel.m; path = Views/PGLabel.m; sourceTree = "<group>"; };
-		FC1E562C14F1B1FF007D9C1B /* PGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGProgressView.h; path = Views/PGProgressView.h; sourceTree = "<group>"; };
-		FC1E562D14F1B1FF007D9C1B /* PGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGProgressView.m; path = Views/PGProgressView.m; sourceTree = "<group>"; };
-		FC1E562E14F1B1FF007D9C1B /* PGScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGScrollView.h; path = Views/PGScrollView.h; sourceTree = "<group>"; };
-		FC1E562F14F1B1FF007D9C1B /* PGScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGScrollView.m; path = Views/PGScrollView.m; sourceTree = "<group>"; };
-		FC1E563014F1B1FF007D9C1B /* PGSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGSwitch.h; path = ../Views/PGSwitch.h; sourceTree = "<group>"; };
-		FC1E563114F1B1FF007D9C1B /* PGSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGSwitch.m; path = ../Views/PGSwitch.m; sourceTree = "<group>"; };
-		FC1E563214F1B1FF007D9C1B /* PGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGTextField.h; path = Views/PGTextField.h; sourceTree = "<group>"; };
-		FC1E563314F1B1FF007D9C1B /* PGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGTextField.m; path = Views/PGTextField.m; sourceTree = "<group>"; };
-		FC1E563C14F1B265007D9C1B /* PGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGObject.h; path = ../Views/PGObject.h; sourceTree = "<group>"; };
-		FC1E563D14F1B265007D9C1B /* PGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PGObject.m; path = ../Views/PGObject.m; sourceTree = "<group>"; };
+		FC1E562614F1B1FF007D9C1B /* PGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGButton.h; sourceTree = "<group>"; };
+		FC1E562714F1B1FF007D9C1B /* PGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGButton.m; sourceTree = "<group>"; };
+		FC1E562814F1B1FF007D9C1B /* PGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGImageView.h; sourceTree = "<group>"; };
+		FC1E562914F1B1FF007D9C1B /* PGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGImageView.m; sourceTree = "<group>"; };
+		FC1E562A14F1B1FF007D9C1B /* PGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGLabel.h; sourceTree = "<group>"; };
+		FC1E562B14F1B1FF007D9C1B /* PGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGLabel.m; sourceTree = "<group>"; };
+		FC1E562C14F1B1FF007D9C1B /* PGProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGProgressView.h; sourceTree = "<group>"; };
+		FC1E562D14F1B1FF007D9C1B /* PGProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGProgressView.m; sourceTree = "<group>"; };
+		FC1E562E14F1B1FF007D9C1B /* PGScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGScrollView.h; sourceTree = "<group>"; };
+		FC1E562F14F1B1FF007D9C1B /* PGScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGScrollView.m; sourceTree = "<group>"; };
+		FC1E563014F1B1FF007D9C1B /* PGSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSwitch.h; sourceTree = "<group>"; };
+		FC1E563114F1B1FF007D9C1B /* PGSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGSwitch.m; sourceTree = "<group>"; };
+		FC1E563214F1B1FF007D9C1B /* PGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTextField.h; sourceTree = "<group>"; };
+		FC1E563314F1B1FF007D9C1B /* PGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTextField.m; sourceTree = "<group>"; };
+		FC1E563C14F1B265007D9C1B /* PGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGObject.h; sourceTree = "<group>"; };
+		FC1E563D14F1B265007D9C1B /* PGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGObject.m; sourceTree = "<group>"; };
 		FC1E564514F1BEE0007D9C1B /* sample3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample3.xml; path = UI/sample3.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,24 +181,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		842ACF1B15E257BE00573DF7 /* Objects */ = {
+		842ACF1B15E257BE00573DF7 /* Hierarchy */ = {
 			isa = PBXGroup;
 			children = (
 				FC1E563C14F1B265007D9C1B /* PGObject.h */,
 				FC1E563D14F1B265007D9C1B /* PGObject.m */,
-				842ACF1C15E257FD00573DF7 /* Widgets */,
+				842ACF1C15E257FD00573DF7 /* Objects */,
 				FC1E562514F1B1F4007D9C1B /* Views */,
 				FC1E563B14F1B206007D9C1B /* Layouts */,
 			);
-			name = Objects;
-			path = TouchXML;
+			path = Hierarchy;
 			sourceTree = "<group>";
 		};
-		842ACF1C15E257FD00573DF7 /* Widgets */ = {
+		842ACF1C15E257FD00573DF7 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				FC1E562614F1B1FF007D9C1B /* PGButton.h */,
-				FC1E562714F1B1FF007D9C1B /* PGButton.m */,
 				FC1E563014F1B1FF007D9C1B /* PGSwitch.h */,
 				FC1E563114F1B1FF007D9C1B /* PGSwitch.m */,
 				841DDE7A1500F99F0090D810 /* PGBarButtonItem.h */,
@@ -206,23 +203,20 @@
 				841DDE6E1500F5250090D810 /* PGTableViewCell.h */,
 				841DDE6F1500F5260090D810 /* PGTableViewCell.m */,
 			);
-			name = Widgets;
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		845970E514EA763F001D985D /* Pegasus */ = {
 			isa = PBXGroup;
 			children = (
+				847B324515F65955008298F3 /* Categories */,
 				849FC53415064F2C004F9F8D /* Data Structures */,
 				845970FC14EA763F001D985D /* TouchXML */,
-				842ACF1B15E257BE00573DF7 /* Objects */,
+				842ACF1B15E257BE00573DF7 /* Hierarchy */,
 				845970E814EA763F001D985D /* Pegasus.h */,
-				845970E614EA763F001D985D /* NSObject+Invocation.h */,
-				845970E714EA763F001D985D /* NSObject+Invocation.m */,
 				845970E914EA763F001D985D /* PGAdapter.h */,
 				845970F814EA763F001D985D /* PGTranslators.h */,
 				845970F914EA763F001D985D /* PGTranslators.m */,
-				8459711A14EA763F001D985D /* UIColor+HexString.h */,
-				8459711B14EA763F001D985D /* UIColor+HexString.m */,
 			);
 			name = Pegasus;
 			path = ../../Pegasus;
@@ -359,6 +353,17 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		847B324515F65955008298F3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8459711A14EA763F001D985D /* UIColor+HexString.h */,
+				8459711B14EA763F001D985D /* UIColor+HexString.m */,
+				845970E614EA763F001D985D /* NSObject+Invocation.h */,
+				845970E714EA763F001D985D /* NSObject+Invocation.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		849FC53415064F2C004F9F8D /* Data Structures */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +378,8 @@
 		FC1E562514F1B1F4007D9C1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FC1E562614F1B1FF007D9C1B /* PGButton.h */,
+				FC1E562714F1B1FF007D9C1B /* PGButton.m */,
 				842ACF1815E2570600573DF7 /* PGView.h */,
 				842ACF1915E2570700573DF7 /* PGView.m */,
 				FC1E562814F1B1FF007D9C1B /* PGImageView.h */,
@@ -390,8 +397,7 @@
 				841DDE721500F5380090D810 /* PGToolbar.h */,
 				841DDE731500F53A0090D810 /* PGToolbar.m */,
 			);
-			name = Views;
-			path = ..;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FC1E563B14F1B206007D9C1B /* Layouts */ = {
@@ -406,8 +412,7 @@
 				84CA00D314F6466D00ABBE31 /* PGCenterLayout.h */,
 				84CA00D414F6466E00ABBE31 /* PGCenterLayout.m */,
 			);
-			name = Layouts;
-			path = ..;
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
