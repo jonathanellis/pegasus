@@ -66,6 +66,8 @@
                [string isEqualToString:@"v"] ||
                [string isEqualToString:@"portrait"]) {
         orientation = PGLinearLayoutOrientationVertical;
+    } else {
+        NSLog(@"Pegasus Error: You have not specified a valid orientation. Valid options for are: horizontal | vertical | landscape | portrait | h | v.");
     }
 }
 

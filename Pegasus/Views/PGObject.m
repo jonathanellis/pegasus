@@ -69,7 +69,9 @@
         Class <PGAdapter> class = NSClassFromString(adapter);
         NSString *name = [class name];
         
-        if ([name isEqualToString:element.name]) {
+        NSString *elementName = [element.name lowercaseString];
+    
+        if ([name isEqualToString:elementName]) {
             PGObject *object = [[(Class)class alloc] initWithElement:element parent:aSuperview];
             return object;
         }
@@ -81,24 +83,27 @@
 - (id)initWithElement:(CXMLElement *)element parent:(PGObject *)aParent {
     if (self = [super init]) {
         parent = aParent;
-                
+        
         properties = [NSMutableDictionary dictionary];
         dependencies = [NSMutableDictionary dictionary];
         
         [self setUp];
         
+        // Build attributes dictionary:
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-                
         for (CXMLNode *attribute in element.attributes) {
-            [attributes setObject:attribute.stringValue forKey:attribute.name];
+            NSString *attributeName = [self casedPropertyName:attribute.name];
+            [attributes setObject:[attribute.stringValue lowercaseString] forKey:attributeName];
         }
 
+        // Instantiate internal object:
         internalObject = [[self class] internalObjectWithAttributes:attributes];
         
+        // Iterate over attributes:
         for (NSString *attribute in attributes) {
         
             NSString *propertyName = attribute;
-            NSString *propertyValue = [attributes objectForKey:attribute];       
+            NSString *propertyValue = [attributes objectForKey:attribute];
             NSString *propertyType = [properties objectForKey:propertyName];
             
             // Convert to lowercase if not a string/virtual:         
@@ -144,6 +149,14 @@
         
     }
     return self;
+}
+
+- (NSString *)casedPropertyName:(NSString *)uncasedPropertyName {
+    for (NSString *propertyName in properties) {
+        if ([[propertyName lowercaseString] isEqualToString:[uncasedPropertyName lowercaseString]]) return propertyName;
+    }
+    NSLog(@"Unable to case property name: %@", uncasedPropertyName);
+    return nil;
 }
 
 - (void)setValue:(NSString *)string ofType:(NSString *)type forProperty:(NSString *)propertyName {
