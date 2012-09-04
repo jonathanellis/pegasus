@@ -37,11 +37,14 @@
     
     // Here, we load the XML file (from the UI group):
     NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"sample%d.xml", sample]];
-    pegasusView = [PGView viewWithContentsOfFile:filePath];
-
-    [self.view addSubview:pegasusView.view]; // pegasusView.view is the actual underlying UIView view
+    pegasusObject = [PGObject viewWithContentsOfFile:filePath];
+    UIView *view = pegasusObject.internalObject;
+        
+    [self.view addSubview:pegasusObject.internalObject]; // pegasusView.view is the actual underlying UIView view
     
-    if (sample == 1) {
+    NSLog(@"Finished loading file!");
+    
+/*    if (sample == 1) {
         // We will now show how you can dynamically alter the view at runtime. We will change the image and then
         // change the text "dinosaur" to "soldier" in the prompt (comment this out to see the original view).
         
@@ -57,7 +60,7 @@
         // And now we change the label text:
         UILabel *promptLabel = (UILabel *)[pegasusView findViewWithID:@"prompt"];
         promptLabel.text = [promptLabel.text stringByReplacingOccurrencesOfString:@"dinosaur" withString:@"soldier"];
-    }
+    }*/
     
 }
 

@@ -17,8 +17,8 @@
 //  limitations under the License.
 //
 
-#import "PGView.h"
+#import "PGObject.h"
 
-@interface PGBarButtonItem : PGView
+@interface PGBarButtonItem : PGObject
 
 @end

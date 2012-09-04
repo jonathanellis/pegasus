@@ -22,21 +22,13 @@
  -->
 
 
-<view frame="fullscreen" backgroundColor="red">
+<view frame="{{25%,25%},{50%,50%}}" backgroundColor="green">
     
-    <view frame="{{25%,25%},{50%,50%}}" backgroundColor="blue">
-        
-        <view frame="{{25%,25%},{50%,50%}}" backgroundColor="green">
-      
-            <view frame="{{25%,25%},{50%,50%}}" backgroundColor="gray" layout="grid {2,2} {20%,20%}">
-                <view size="{20%,20%}" backgroundColor="orange" />
-                <view size="{20%,20%}" backgroundColor="orange" />
-                <view size="{20%,20%}" backgroundColor="orange" />
-                <view size="{20%,20%}" backgroundColor="orange" />
-            </view>
-            
-        </view>
-            
-    </view>
+    <gridlayout frame="{{25%,25%},{50%,50%}}" backgroundColor="gray" cols="2" rows="2" hPadding="20%" vPadding="20%">
+        <view size="{20%,20%}" backgroundColor="orange" />
+        <view size="{20%,20%}" backgroundColor="blue" />
+        <view size="{20%,20%}" backgroundColor="orange" />
+        <view size="{20%,20%}" backgroundColor="blue" />
+    </gridlayout>
     
 </view>

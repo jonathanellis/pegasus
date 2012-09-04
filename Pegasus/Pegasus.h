@@ -17,23 +17,22 @@
 //  limitations under the License.
 //
 
-// Vendor
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
 // Third Party
 #import "TouchXML.h"
+
 
 // Categories
 #import "NSObject+Invocation.h"
 #import "UIColor+HexString.h"
 
 // Data Structures
-#import "Tuple.h"
+#import "PGTuple.h"
+#import "PGFloat.h"
 
 // Framework
 #import "PGAdapter.h"
 #import "PGTranslators.h"
+#import "PGObject.h"
 
 // Views
 #import "PGView.h"

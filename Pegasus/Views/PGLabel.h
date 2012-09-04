@@ -17,7 +17,7 @@
 //  limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import "PGView.h"
 
 @interface PGLabel : PGView
 

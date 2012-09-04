@@ -17,9 +17,9 @@
 //  limitations under the License.
 //
 
-#import "PGView.h"
+#import "PGScrollView.h"
 
-@interface PGTableView : PGView <UITableViewDataSource> {
+@interface PGTableView : PGScrollView <UITableViewDataSource> {
     NSMutableArray *cells;
 }
 

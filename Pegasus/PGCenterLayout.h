@@ -29,6 +29,6 @@ typedef enum {
     PGCenterLayoutOrientation orientation;
 }
 
-- (id)initWithString:(NSString *)string;
+- (id)initWithSuperview:(UIView *)aSuperview string:(NSString *)string;
 
 @end

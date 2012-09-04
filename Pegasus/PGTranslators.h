@@ -38,6 +38,7 @@ typedef enum {
 + (CGRect)rectWithString:(NSString *)string withParentRect:(CGRect)parentRect;
 + (CGSize)sizeWithString:(NSString *)string withParentSize:(CGSize)parentSize;
 + (CGPoint)pointWithString:(NSString *)string withParentSize:(CGSize)parentSize;
++ (CGFloat)floatWithString:(NSString *)string withParentFloat:(CGFloat)parentFloat;
 + (CGAffineTransform)affineTransformWithString:(NSString *)string;
 + (UIEdgeInsets)edgeInsetsWithString:(NSString *)string;
 

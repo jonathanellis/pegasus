@@ -21,4 +21,6 @@
 
 @interface PGButton : PGView
 
+@property (nonatomic, readonly) UIButton *internalObject;
+
 @end

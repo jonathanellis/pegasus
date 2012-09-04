@@ -19,16 +19,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class PGView;
+@class PGObject;
 
 @protocol PGAdapter <NSObject>
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes;
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes;
 + (NSString *)name;
-+ (NSDictionary *)properties;
+- (void)setUp;
 
 @optional
-- (void)setValue:(NSString *)string forVirtualProperty:(NSString *)propertyName;
-- (void)addSubview:(PGView *)subview;
+- (void)addChild:(PGObject *)childObject;
 
 @end

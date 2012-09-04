@@ -21,7 +21,9 @@
 
 @implementation PGTableViewCell
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
+@dynamic internalObject;
+
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UITableViewCell alloc] init];
 }
 
@@ -29,39 +31,38 @@
     return @"tableviewcell";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                       @"#", @"text",
-                                       @"#", @"text-font",
-                                    //   @"#", @"detail-text",
-                                       @"#", @"image",
+    [self addVirtualProperty:@"text" dependencies:nil];
+    [self addVirtualProperty:@"textFont" dependencies:nil];
+    [self addVirtualProperty:@"detailText" dependencies:nil];
+    [self addVirtualProperty:@"image" dependencies:nil];
+
+    
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
                                        @"BOOL", @"editing",
                                        @"BOOL", @"showsReorderControl",
                                        @"int", @"indentationLevel",
                                        @"float", @"indentationWidth",
-                                       nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+                                       nil]];
+
 }
 
-- (void)setValue:(NSString *)string forVirtualProperty:(NSString *)property {
-    [super setValue:string forVirtualProperty:property];
-    
-    UITableViewCell *tableViewCell = (UITableViewCell *)view;
-    
-    if ([property isEqualToString:@"text"]) {
-        tableViewCell.textLabel.text = string;
-    } else if ([property isEqualToString:@"text-font"]) {
-        tableViewCell.textLabel.font = [PGTranslators fontWithString:string];
-    } else if ([property isEqualToString:@"detail-text"]) {
-        tableViewCell.detailTextLabel.text = string;
-    } else if ([property isEqualToString:@"image"]) {
-        tableViewCell.imageView.image = [PGTranslators imageWithString:string];
-    }
-    
+- (void)setText:(NSString *)string {
+    self.internalObject.textLabel.text = string;
+}
+
+- (void)setTextFont:(NSString *)string {
+    self.internalObject.textLabel.font = [PGTranslators fontWithString:string];
+}
+
+- (void)detailText:(NSString *)string {
+    self.internalObject.detailTextLabel.text = string;
+}
+
+- (void)setImage:(NSString *)string {
+    self.internalObject.imageView.image = [PGTranslators imageWithString:string];
 }
 
 @end

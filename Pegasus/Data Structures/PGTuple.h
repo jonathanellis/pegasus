@@ -20,13 +20,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Tuple : NSObject {
+@interface PGTuple : NSObject {
     NSMutableArray *children;
 }
 
-@property (nonatomic, readonly) NSMutableArray *children;
-
 - (id)initWithString:(NSString *)string;
 - (id)initWithScanner:(NSScanner *)scanner;
+- (id)objectAtIndex:(int)index;
 
 @end

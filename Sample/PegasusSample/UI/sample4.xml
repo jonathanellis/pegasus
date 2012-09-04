@@ -21,7 +21,7 @@
  -->
 
 
-<view frame="fullscreen" backgroundColor="white" layout="grid {3,3} {50,10}">
+<gridlayout frame="fill_parent" backgroundColor="white" rows="3" cols="3" hPadding="50" vPadding="50">
     
     <label text="1" textAlignment="center" backgroundColor="green" />
     <label text="2" textAlignment="center" backgroundColor="red" />
@@ -33,4 +33,4 @@
     <label text="8" textAlignment="center" backgroundColor="yellow" />
     <label text="9" textAlignment="center" backgroundColor="brown" />
 
-</view>
+</gridlayout>

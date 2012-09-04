@@ -19,15 +19,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PGLayout : NSObject {
-    NSMutableArray *views;
-    CGSize size;
+#import "PGView.h"
+
+@interface PGLayout : PGView {
+
 }
 
-@property (nonatomic, assign) CGSize size;
-
-+ (PGLayout *)layoutWithString:(NSString *)string;
-- (void)addViewsToSuperview:(UIView *)superview;
-- (void)addView:(UIView *)view;
 
 @end

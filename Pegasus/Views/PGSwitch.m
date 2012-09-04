@@ -21,7 +21,7 @@
 
 @implementation PGSwitch
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UISwitch alloc] init];
 }
 
@@ -29,17 +29,13 @@
     return @"switch";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"BOOL", @"on",
-                                      @"UIColor", @"onTintColor",
-                                      nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"BOOL", @"on",
+                                       @"UIColor", @"onTintColor",
+                                       nil]];
 }
-
 
 @end

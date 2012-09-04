@@ -21,7 +21,9 @@
 
 @implementation PGButton
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
+@dynamic internalObject;
+
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     NSString *buttonTypeStr = [[attributes objectForKey:@"buttonType"] lowercaseString];
     UIButtonType buttonType = [PGTranslators buttonTypeWithString:buttonTypeStr];      
     return [UIButton buttonWithType:buttonType];
@@ -31,34 +33,30 @@
     return @"button";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"*", @"buttonType",
-                                      @"#", @"title",
-                                      @"#", @"backgroundImage",
-                                      @"UIColor", @"tintColor",
-                                      @"UIEdgeInsets", @"contentEdgeInsets",
-                                      @"UIEdgeInsets", @"titleEdgeInsets",
-                                      @"UIEdgeInsets", @"imageEdgeInsets",
-                                      nil];
+    [self addVirtualProperty:@"title" dependencies:nil];
+    [self addVirtualProperty:@"backgroundImage" dependencies:nil];
     
-    [properties addEntriesFromDictionary:[PGView properties]];
     
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"*", @"buttonType",
+                                       @"UIEdgeInsets", @"contentEdgeInsets",
+                                       @"UIEdgeInsets", @"titleEdgeInsets",
+                                       @"UIEdgeInsets", @"imageEdgeInsets",
+                                       nil]];
+
 }
 
-- (void)setValue:(NSString *)string forVirtualProperty:(NSString *)property {
-    [super setValue:string forVirtualProperty:property];
-    
-    UIButton *button = (UIButton *)view;
-    
-    if ([property isEqualToString:@"title"]) {
-        [button setTitle:string forState:UIControlStateNormal];
-    } else if ([property isEqualToString:@"backgroundImage"]) {
-        [button setBackgroundImage:[UIImage imageNamed:string] forState:UIControlStateNormal];
-    }
-    
+#pragma mark - Virtual Properties
+
+- (void)setTitle:(NSString *)string {
+    [self.internalObject setTitle:string forState:UIControlStateNormal];
+}
+
+- (void)setBackgroundImage:(NSString *)string {
+    [self.internalObject setBackgroundImage:[UIImage imageNamed:string] forState:UIControlStateNormal];
 }
 
 @end

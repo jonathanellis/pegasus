@@ -26,9 +26,9 @@ typedef enum {
 
 @interface PGLinearLayout : PGLayout {
     PGLinearLayoutOrientation orientation;
-    int padding;
+    CGFloat padding;
 }
 
-- (id)initWithString:(NSString *)string;
+- (id)initWithSuperview:(UIView *)aSuperview string:(NSString *)string;
 
 @end

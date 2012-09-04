@@ -17,11 +17,10 @@
 //  limitations under the License.
 //
 
-#import "Tuple.h"
+#import "PGTuple.h"
 
-@implementation Tuple
+@implementation PGTuple
 
-@synthesize children;
 
 - (id)initWithString:(NSString *)string {
     NSScanner *scanner = [NSScanner scannerWithString:string];
@@ -36,7 +35,7 @@
         
         while (![scanner isAtEnd]) {
             if ([scanner scanString:@"{" intoString:NULL]) { // New sub-tuple
-                Tuple *t = [[Tuple alloc] initWithScanner:scanner];
+                PGTuple *t = [[PGTuple alloc] initWithScanner:scanner];
                 [children addObject:t];
             } else if ([scanner scanString:@"}" intoString:NULL]) { // End of sub-tuple
                 [scanner scanString:@"," intoString:NULL]; // consume comma if comma follows
@@ -52,12 +51,13 @@
     return self;
 }
 
+- (id)objectAtIndex:(int)index {
+    return [children objectAtIndex:index];
+}
+
 // Useful for debugging:
 - (NSString *)description {
-    NSMutableString *result = [NSMutableString stringWithString:@"{"];
-    [result appendString:[children componentsJoinedByString:@", "]];
-    [result appendString:@"}"];
-    return result;
+    return [NSString stringWithFormat:@"{%@}", [children componentsJoinedByString:@", "]];
 }
 
 @end

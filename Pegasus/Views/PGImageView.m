@@ -21,7 +21,7 @@
 
 @implementation PGImageView
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UIImageView alloc] init];
 }
 
@@ -29,17 +29,13 @@
     return @"imageview";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"UIImage", @"image", 
-                                      @"UIImage", @"highlightedImage",
-                                      nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"UIImage", @"image",
+                                       @"UIImage", @"highlightedImage",
+                                       nil]];
 }
-
 
 @end

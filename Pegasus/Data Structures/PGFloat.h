@@ -1,5 +1,5 @@
 //
-//  PGTableViewCell.h
+//  PGFloat.h
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -17,10 +17,20 @@
 //  limitations under the License.
 //
 
-#import "PGObject.h"
+#import <Foundation/Foundation.h>
 
-@interface PGTableViewCell : PGObject
+@interface PGFloat : NSObject {
+    float absoluteValue;
+    
+    float fraction;
+    float relativeTo;
+    
+    BOOL isRelative;
+}
 
-@property (nonatomic, readonly) UITableViewCell *internalObject;
+@property (nonatomic, readonly) float value;
+@property (nonatomic, readonly) BOOL isRelative;
+
+- (id)initWithString:(NSString *)string relativeTo:(float)aRelativeTo;
 
 @end

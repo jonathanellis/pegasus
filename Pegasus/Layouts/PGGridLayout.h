@@ -22,10 +22,8 @@
 @interface PGGridLayout : PGLayout {
     int rows;
     int cols;
-    int rowPadding;
-    int colPadding;
+    CGFloat vPadding;
+    CGFloat hPadding;
 }
-
-- (id)initWithString:(NSString *)string;
 
 @end

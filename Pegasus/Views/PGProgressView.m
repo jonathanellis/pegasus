@@ -21,7 +21,7 @@
 
 @implementation PGProgressView
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UIProgressView alloc] init];
 }
 
@@ -29,20 +29,17 @@
     return @"progressview";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"float", @"progress",
-                                      @"UIProgressViewStyle", @"progressViewStyle",
-                                      @"UIColor", @"progressTintColor",
-                                      @"UIImage", @"progressImage",
-                                      @"UIColor", @"trackTintColor",
-                                      @"UIImage", @"trackImage",
-                                      nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                        @"float", @"progress",
+                                        @"UIProgressViewStyle", @"progressViewStyle",
+                                        @"UIColor", @"progressTintColor",
+                                        @"UIImage", @"progressImage",
+                                        @"UIColor", @"trackTintColor",
+                                        @"UIImage", @"trackImage",
+                                        nil]];
 }
 
 @end

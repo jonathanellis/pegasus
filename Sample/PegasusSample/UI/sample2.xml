@@ -21,7 +21,7 @@
 
 -->
 
-<scrollview frame="fullscreen" contentSize="{768,2048}" backgroundColor="gray">
+<scrollview frame="fill_parent" contentSize="{768,2048}" backgroundColor="gray">
 
     <label frame="{{10, 10}, {748, 50}}" font="system-bold 30" text="Pegasus Sample 2" textAlignment="center" backgroundColor="clear" />
 

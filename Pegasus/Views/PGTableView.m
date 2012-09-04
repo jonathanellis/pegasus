@@ -21,7 +21,7 @@
 
 @implementation PGTableView
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     NSString *tableViewStyleStr = [[attributes objectForKey:@"style"] lowercaseString];
     UITableViewStyle tableViewStyle = [PGTranslators tableViewStyleWithString:tableViewStyleStr];      
     return [[UITableView alloc] initWithFrame:CGRectZero style:tableViewStyle];
@@ -31,48 +31,47 @@
     return @"tableview";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"*", @"style",
-                                      @"float", @"rowHeight",
-                                      @"UITableViewCellSeparatorStyle", @"separatorStyle", 
-                                      @"UITextAlignment", @"textAlignment",
-                                      @"UIColor", @"separatorColor",
-                                   //   @"UIView", @"backgroundView",
-                                   //   @"UIView", @"tableHeaderView",
-                                   //   @"UIView", @"tableFooterView",
-                                      @"float", @"sectionHeaderHeight",
-                                      @"float", @"sectionFooterHeight",
-                                      @"int", @"sectionIndexMinimumDisplayRowCount", 
-                                      @"BOOL", @"allowsSelection",
-                                      @"BOOL", @"allowsMultipleSelection",
-                                      @"BOOL", @"allowsSelectionDuringEditing",
-                                      @"BOOL", @"allowsMultipleSelectionDuringEditing",
-                                      @"BOOL", @"editing",
-                                      nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"*", @"style",
+                                       @"float", @"rowHeight",
+                                       @"UITableViewCellSeparatorStyle", @"separatorStyle",
+                                       @"UITextAlignment", @"textAlignment",
+                                       @"UIColor", @"separatorColor",
+                                       //   @"UIView", @"backgroundView",
+                                       //   @"UIView", @"tableHeaderView",
+                                       //   @"UIView", @"tableFooterView",
+                                       @"float", @"sectionHeaderHeight",
+                                       @"float", @"sectionFooterHeight",
+                                       @"int", @"sectionIndexMinimumDisplayRowCount",
+                                       @"BOOL", @"allowsSelection",
+                                       @"BOOL", @"allowsMultipleSelection",
+                                       @"BOOL", @"allowsSelectionDuringEditing",
+                                       @"BOOL", @"allowsMultipleSelectionDuringEditing",
+                                       @"BOOL", @"editing",
+                                       nil]];
 }
 
-- (void)addSubview:(PGView *)subview {
+
+- (void)addChild:(PGObject *)subview {
     if ([subview isKindOfClass:[PGTableViewCell class]]) {
         if (!cells) {
             cells = [NSMutableArray array];
-            UITableView *tableView = (UITableView *)view;
+            UITableView *tableView = (UITableView *)internalObject;
             tableView.dataSource = self;
         }
-        [cells addObject:subview.view];
+        [cells addObject:subview.internalObject];
     } else {
-        [super addSubview:subview];
+        [super addChild:subview];
     }
 }
 
 #pragma mark - UITableViewDataSource methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     return [cells objectAtIndex:indexPath.row];
 }
 

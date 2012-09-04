@@ -21,7 +21,7 @@
 
 @implementation PGLabel
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UILabel alloc] init];
 }
 
@@ -29,28 +29,26 @@
     return @"label";
 }
 
-+ (NSDictionary *)properties {
+
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                     @"NSString", @"text", 
-                                     @"UIFont", @"font",
-                                     @"UIColor", @"textColor", 
-                                     @"UITextAlignment", @"textAlignment",
-                                     @"UILineBreakMode", @"lineBreakMode",
-                                     @"BOOL", @"enabled",
-                                     @"BOOL", @"adjustsFontSizeToFitWidth",
-                                     @"float", @"minimumFontSize",
-                                     @"int", @"numberOfLines",
-                                     @"UIColor", @"highlightedTextColor",
-                                     @"BOOL", @"highlighted", 
-                                     @"UIColor", @"shadowColor",
-                                     @"CGSize", @"shadowOffset",
-                                     @"BOOL", @"userInteractionEnabled",
-                                     nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                        @"NSString", @"text",
+                                        @"UIFont", @"font",
+                                        @"UIColor", @"textColor",
+                                        @"UITextAlignment", @"textAlignment",
+                                        @"UILineBreakMode", @"lineBreakMode",
+                                        @"BOOL", @"enabled",
+                                        @"BOOL", @"adjustsFontSizeToFitWidth",
+                                        @"float", @"minimumFontSize",
+                                        @"int", @"numberOfLines",
+                                        @"UIColor", @"highlightedTextColor",
+                                        @"BOOL", @"highlighted",
+                                        @"UIColor", @"shadowColor",
+                                        @"CGSize", @"shadowOffset",
+                                        @"BOOL", @"userInteractionEnabled",
+                                        nil]];
 }
 
 @end

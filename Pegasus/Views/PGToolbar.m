@@ -21,7 +21,7 @@
 
 @implementation PGToolbar
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UIToolbar alloc] init];
 }
 
@@ -29,29 +29,26 @@
     return @"toolbar";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"UIBarStyle", @"text", 
-                                      @"BOOL", @"translucent",
-                                      @"UIColor", @"tintColor", 
-                                      nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"UIBarStyle", @"text",
+                                       @"BOOL", @"translucent",
+                                       @"UIColor", @"tintColor",
+                                       nil]];
 }
 
-- (void)addSubview:(PGView *)subview {
+- (void)addChild:(PGObject *)subview {
     if ([subview isKindOfClass:[PGBarButtonItem class]]) {
         
-        UIToolbar *toolbar = (UIToolbar *)view;
+        UIToolbar *toolbar = (UIToolbar *)internalObject;
 
         if (!toolbar.items) toolbar.items = [NSArray array];
-        toolbar.items = [toolbar.items arrayByAddingObject:subview.view];
+        toolbar.items = [toolbar.items arrayByAddingObject:subview.internalObject];
         
     } else {
-        [super addSubview:subview];
+        [super addChild:subview];
     }
 }
 

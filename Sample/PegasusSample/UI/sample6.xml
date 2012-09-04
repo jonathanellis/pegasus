@@ -21,7 +21,7 @@
  -->
 
 
-<view frame="fullscreen">
+<view frame="fill_parent">
     
     <toolbar frame="{{0,420}, {320, 40}}">
         <barbuttonitem systemItem="flexible-space" /> <!-- add flexible space at start to center items -->

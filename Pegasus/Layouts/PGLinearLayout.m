@@ -21,38 +21,60 @@
 
 @implementation PGLinearLayout
 
-- (id)initWithString:(NSString *)string {
-    if (self = [super init]) {
-        NSArray *components = [string componentsSeparatedByString:@" "];
-        NSString *orientationStr = [components objectAtIndex:1];
-        if ([orientationStr isEqualToString:@"horizontal"]) {
-            orientation = PGLinearLayoutOrientationHorizontal;
-        } else if ([orientationStr isEqualToString:@"vertical"]) {
-            orientation = PGLinearLayoutOrientationVertical;
-        }
-        if ([components count] > 2) {
-            padding = [[components objectAtIndex:2] intValue];
-        }
-    }
-    return self;
++ (NSString *)name {
+    return @"linearlayout";
 }
 
-- (void)addView:(UIView *)view {
-    
-    CGRect frame = view.frame;
-    
-    UIView *lastView = [views lastObject];
-    CGPoint origin;
-    if (orientation == PGLinearLayoutOrientationHorizontal) {
-        origin.x = lastView.frame.origin.x + lastView.frame.size.width + padding;
-    } else { // PGLinearLayoutOrientationVertical
-        origin.y = lastView.frame.origin.y + lastView.frame.size.height + padding;
-    }
-    frame.origin = origin;
-
-    
-    view.frame = frame;
-    [super addView:view];
+- (void)setUp {
+    [super setUp];
+    [self addVirtualProperty:@"orientation" dependencies:nil];
+    [self addVirtualProperty:@"padding" dependencies:[NSArray arrayWithObjects:@"frame.size", @"orientation", nil]];
 }
+
+
+- (void)addChild:(PGObject *)childObject {
+    
+    PGObject *prevChild = [children lastObject];
+    
+    CGPoint p;
+    
+    if (!prevChild) {
+        if (orientation == PGLinearLayoutOrientationVertical) p.y = padding;
+        else if (orientation == PGLinearLayoutOrientationHorizontal) p.x = padding;
+    } else {
+        UIView *prevChildView = prevChild.internalObject;
+        if (orientation == PGLinearLayoutOrientationVertical) p.y = prevChildView.frame.origin.y + prevChildView.frame.size.height + padding;
+        else if (orientation == PGLinearLayoutOrientationHorizontal) p.x = prevChildView.frame.origin.x + prevChildView.frame.size.width + padding;
+    }
+    
+    UIView *childView = childObject.internalObject;
+    CGRect childFrame = childView.frame;
+    childFrame.origin = p;
+    childView.frame = childFrame;
+    
+    [super addChild:childObject];
+}
+
+#pragma mark - Virtual Properties
+
+- (void)setOrientation:(NSString *)string {
+    if ([string isEqualToString:@"horizontal"] ||
+        [string isEqualToString:@"h"] ||
+        [string isEqualToString:@"landscape"]) {
+        orientation = PGLinearLayoutOrientationHorizontal;
+    } else if ([string isEqualToString:@"vertical"] ||
+               [string isEqualToString:@"v"] ||
+               [string isEqualToString:@"portrait"]) {
+        orientation = PGLinearLayoutOrientationVertical;
+    }
+}
+
+- (void)setPadding:(NSString *)string {
+    CGFloat parentFloat = 0.0f;
+    if (orientation == PGLinearLayoutOrientationHorizontal) parentFloat = self.internalObject.frame.size.width;
+    else if (orientation == PGLinearLayoutOrientationVertical) parentFloat = self.internalObject.frame.size.height;
+    padding = [PGTranslators floatWithString:string withParentFloat:parentFloat];
+}
+
 
 @end

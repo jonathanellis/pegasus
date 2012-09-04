@@ -21,53 +21,71 @@
 
 @implementation PGGridLayout
 
-- (id)initWithString:(NSString *)string {
-    if (self = [super init]) {
-        NSArray *components = [string componentsSeparatedByString:@" "];
-        
-        Tuple *dimensionsTuple = [[Tuple alloc] initWithString:[components objectAtIndex:1]];
-        rows = [[dimensionsTuple.children objectAtIndex:0] intValue];
-        cols = [[dimensionsTuple.children objectAtIndex:1] intValue];
-        
-        Tuple *paddingsTuple = [[Tuple alloc] initWithString:[components objectAtIndex:2]];
-        rowPadding = [[paddingsTuple.children objectAtIndex:0] intValue];
-        colPadding = [[paddingsTuple.children objectAtIndex:1] intValue];
-        
-    }
-    return self;
++ (NSString *)name {
+    return @"gridlayout";
 }
 
-- (void)addView:(UIView *)view {
+- (void)setUp {
+    [super setUp];
     
-    CGRect frame = view.frame;
+    [self addVirtualProperty:@"rows" dependencies:nil];
+    [self addVirtualProperty:@"cols" dependencies:nil];
+    [self addVirtualProperty:@"hPadding" dependencies:[NSArray arrayWithObject:@"^.frame.size.height"]];
+    [self addVirtualProperty:@"vPadding" dependencies:[NSArray arrayWithObject:@"^.frame.size.width"]];
     
-    int cellColPadding = (float)(cols+1)/cols * colPadding;
-    int cellWidth = (size.width/cols) - cellColPadding;
+}
 
+- (void)addChild:(PGObject *)childObject {
+    UIView *internalView = internalObject;
+    UIView *childView = childObject.internalObject;
     
-    int rowColPadding = (float)(rows+1)/rows * rowPadding;
-    int cellHeight = (size.height/rows) - rowColPadding;
+    CGRect childFrame = childView.frame;
+    
+    int cellColPadding = (float)(cols+1)/cols * vPadding;
+    int cellWidth = (internalView.frame.size.width/cols) - cellColPadding;
+    
+    int rowColPadding = (float)(rows+1)/rows * hPadding;
+    int cellHeight = (internalView.frame.size.height/rows) - rowColPadding;
     
     CGSize cellSize = CGSizeMake(cellWidth, cellHeight);
-    frame.size = cellSize;
+    childFrame.size = cellSize;
     
-    int n = [views count];
+    int n = [children count];
     
     if (n == 0) {
-        frame.origin = CGPointMake(colPadding, rowPadding);
+        childFrame.origin = CGPointMake(vPadding, hPadding);
     } else {
         int nx = (n % cols); // number on the x axis
-        int x = (nx * cellSize.width) + ((nx+1) * colPadding);
+        int x = (nx * cellSize.width) + ((nx+1) * vPadding);
         
         int ny = (n / cols); // number on the y axis
-        int y = (ny * cellSize.height) + ((ny+1) * rowPadding);
+        int y = (ny * cellSize.height) + ((ny+1) * hPadding);
         
         
-        frame.origin = CGPointMake(x, y);
+        childFrame.origin = CGPointMake(x, y);
     }
     
-    view.frame = frame;
-    [super addView:view];
+    childView.frame = childFrame;
+    
+    [super addChild:childObject];
+}
+
+#pragma mark - Virtual Properties
+
+- (void)setRows:(NSString *)string {
+    rows = [string intValue];
+}
+
+- (void)setCols:(NSString *)string {
+    cols = [string intValue];
+}
+
+- (void)setVPadding:(NSString *)string {
+    vPadding = [PGTranslators floatWithString:string withParentFloat:self.internalObject.frame.size.height];
+}
+
+- (void)setHPadding:(NSString *)string {
+    hPadding = [PGTranslators floatWithString:string withParentFloat:self.internalObject.frame.size.width];
 }
 
 @end

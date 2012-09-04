@@ -21,7 +21,7 @@
 
 @implementation PGScrollView
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UIScrollView alloc] init];
 }
 
@@ -29,36 +29,32 @@
     return @"scrollview";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties =[NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"CGPoint", @"contentOffset", 
-                                      @"CGSize", @"contentSize",
-                                      @"UIEdgeInsets", @"contentInset", 
-                                      @"BOOL", @"scrollEnabled",
-                                      @"BOOL", @"directionalLockEnabled", 
-                                      @"BOOL", @"scrollsToTop",
-                                      @"BOOL", @"pagingEnabled", 
-                                      @"BOOL", @"bounces",
-                                      @"BOOL", @"alwaysBounceVertical", 
-                                      @"BOOL", @"alwaysBounceHorizontal",
-                                      @"BOOL", @"canCancelContentTouches",
-                                      @"BOOL", @"delaysContentTouches",
-                                      @"float", @"decelerationRate",
-                                      @"UIScrollViewIndicatorStyle", @"indicatorStyle",
-                                      @"UIEdgeInsets", @"scrollIndicatorInsets",
-                                      @"BOOL", @"showsHorizontalScrollIndicator",
-                                      @"BOOL", @"showsVerticalScrollIndicator",
-                                      @"float", @"zoomScale",
-                                      @"float", @"maximumZoomScale",
-                                      @"float", @"minimumZoomScale",
-                                      @"BOOL", @"bouncesZoom",
-                                      nil];
-    
-
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                        @"CGPoint", @"contentOffset",
+                                        @"CGSize", @"contentSize",
+                                        @"UIEdgeInsets", @"contentInset",
+                                        @"BOOL", @"scrollEnabled",
+                                        @"BOOL", @"directionalLockEnabled",
+                                        @"BOOL", @"scrollsToTop",
+                                        @"BOOL", @"pagingEnabled",
+                                        @"BOOL", @"bounces",
+                                        @"BOOL", @"alwaysBounceVertical",
+                                        @"BOOL", @"alwaysBounceHorizontal",
+                                        @"BOOL", @"canCancelContentTouches",
+                                        @"BOOL", @"delaysContentTouches",
+                                        @"float", @"decelerationRate",
+                                        @"UIScrollViewIndicatorStyle", @"indicatorStyle",
+                                        @"UIEdgeInsets", @"scrollIndicatorInsets",
+                                        @"BOOL", @"showsHorizontalScrollIndicator",
+                                        @"BOOL", @"showsVerticalScrollIndicator",
+                                        @"float", @"zoomScale",
+                                        @"float", @"maximumZoomScale",
+                                        @"float", @"minimumZoomScale",
+                                        @"BOOL", @"bouncesZoom",
+                                        nil]];
 }
 
 @end

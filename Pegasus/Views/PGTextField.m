@@ -21,7 +21,7 @@
 
 @implementation PGTextField
 
-+ (id)internalViewWithAttributes:(NSDictionary *)attributes {
++ (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     return [[UITextField alloc] init];
 }
 
@@ -29,25 +29,22 @@
     return @"textfield";
 }
 
-+ (NSDictionary *)properties {
+- (void)setUp {
+    [super setUp];
     
-    NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                      @"NSString", @"text", 
-                                      @"NSString", @"placeholder",
-                                      @"UIFont", @"font", 
-                                      @"UIColor", @"textColor",
-                                      @"UITextAlignment", @"textAlignment", 
-                                      @"BOOL", @"adjustsFontSizeToFitWidth",
-                                      @"float", @"minimumFontSize", 
-                                      @"BOOL", @"editing",
-                                      @"UITextBorderStyle", @"borderStyle", 
-                                      @"UITextFieldViewMode", @"clearButtonMode",
-                                      @"UIImage", @"disabledBackground",
-                                      nil];
-    
-    [properties addEntriesFromDictionary:[PGView properties]];
-    
-    return properties;
+    [self addPropertiesFromDictionary:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                        @"NSString", @"text", 
+                                        @"NSString", @"placeholder",
+                                        @"UIFont", @"font", 
+                                        @"UIColor", @"textColor",
+                                        @"UITextAlignment", @"textAlignment",
+                                        @"BOOL", @"adjustsFontSizeToFitWidth",
+                                        @"float", @"minimumFontSize",
+                                        @"BOOL", @"editing",
+                                        @"UITextBorderStyle", @"borderStyle",
+                                        @"UITextFieldViewMode", @"clearButtonMode",
+                                        @"UIImage", @"disabledBackground",
+                                        nil]];
 }
 
 

@@ -20,9 +20,9 @@
 #import "PGCenterLayout.h"
 
 @implementation PGCenterLayout
-
-- (id)initWithString:(NSString *)string {
-    if (self = [super init]) {
+/*
+- (id)initWithSuperview:(UIView *)aSuperview string:(NSString *)string {
+    if (self = [super initWithSuperview:aSuperview]) {
         NSArray *components = [string componentsSeparatedByString:@" "];
         NSString *orientationStr = [components objectAtIndex:1];
         if ([orientationStr isEqualToString:@"horizontal"]) {
@@ -50,7 +50,9 @@
 
     view.center = center;
     
+    NSLog(@"view center = %@", NSStringFromCGPoint(center));
+    
     [super addView:view];
-}
+}*/
 
 @end

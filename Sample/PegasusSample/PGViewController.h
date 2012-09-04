@@ -19,8 +19,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PGObject;
+
 @interface PGViewController : UIViewController {
-    PGView *pegasusView;
+    PGObject *pegasusObject;
 }
 
 @end

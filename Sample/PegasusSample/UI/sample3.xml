@@ -23,14 +23,13 @@
  -->
 
 
-<view frame="fullscreen" backgroundColor="blue">
+<view frame="fill_parent" backgroundColor="white">
 
-	<view origin="{0,11}" layout="linear horizontal 11">
+	<linearlayout origin="{0,11}" size="{90%, 90%}" orientation="horizontal" padding="11">
 		<label size="{31%,30%}" text="Green" textAlignment="center" backgroundColor="green" />
 		<label size="{31%,30%}" text="Red" textAlignment="center" backgroundColor="red" />
 		<label size="{31%,30%}" text="Orange" textAlignment="center" backgroundColor="orange" />    
-	</view>
+	</linearlayout>
 	
 	<label frame="{{2%,33%}, {96%,30%}}" text="White" textAlignment="center" backgroundColor="white" />    
-	
 </view>
