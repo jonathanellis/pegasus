@@ -81,11 +81,11 @@
 }
 
 - (void)setVPadding:(NSString *)string {
-    vPadding = [PGTranslators floatWithString:string withParentFloat:self.internalObject.frame.size.height];
+    vPadding = [PGTransformers floatWithString:string withParentFloat:self.internalObject.frame.size.height];
 }
 
 - (void)setHPadding:(NSString *)string {
-    hPadding = [PGTranslators floatWithString:string withParentFloat:self.internalObject.frame.size.width];
+    hPadding = [PGTransformers floatWithString:string withParentFloat:self.internalObject.frame.size.width];
 }
 
 @end

@@ -31,7 +31,7 @@
 
 // Framework
 #import "PGAdapter.h"
-#import "PGTranslators.h"
+#import "PGTransformers.h"
 #import "PGObject.h"
 
 // Views

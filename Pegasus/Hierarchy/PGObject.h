@@ -51,7 +51,7 @@
 - (void)setValue:(NSString *)string ofSpecialType:(NSString *)type forProperty:(NSString *)propertyName;
 - (SEL)selectorForProperty:(NSString *)propertyName;
 
-- (UIView *)findViewWithID:(NSString *)viewID;
+- (UIView *)findViewById:(NSString *)viewID;
 - (NSArray *)findViewsInGroup:(NSString *)subviewGroup;
 - (void)addVirtualProperty:(NSString *)propertyName dependencies:(NSArray *)dependencies;
 - (void)addProperty:(NSString *)propertyName ofType:(NSString *)type;

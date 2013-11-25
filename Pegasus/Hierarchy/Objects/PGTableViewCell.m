@@ -54,7 +54,7 @@
 }
 
 - (void)setTextFont:(NSString *)string {
-    self.internalObject.textLabel.font = [PGTranslators fontWithString:string];
+    self.internalObject.textLabel.font = [PGTransformers fontWithString:string];
 }
 
 - (void)detailText:(NSString *)string {
@@ -62,7 +62,7 @@
 }
 
 - (void)setImage:(NSString *)string {
-    self.internalObject.imageView.image = [PGTranslators imageWithString:string];
+    self.internalObject.imageView.image = [PGTransformers imageWithString:string];
 }
 
 @end

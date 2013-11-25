@@ -1,5 +1,5 @@
 //
-//  PGTranslators.m
+//  PGTransformers.m
 //  Pegasus
 //
 //  Copyright 2012 Jonathan Ellis
@@ -17,11 +17,11 @@
 //  limitations under the License.
 //
 
-#import "PGTranslators.h"
+#import "PGTransformers.h"
 
-@implementation PGTranslators
+@implementation PGTransformers
 
-+ (SEL)translatorForType:(NSString *)type {
++ (SEL)transformerForType:(NSString *)type {
     // Primitives:
     if ([type isEqualToString:@"int"]) return @selector(intWithString:);
     if ([type isEqualToString:@"double"]) return @selector(doubleWithString:);
@@ -88,8 +88,8 @@
     PGTuple *originTuple = [tuple objectAtIndex:0];
     PGTuple *sizeTuple = [tuple objectAtIndex:1];
 
-    CGPoint origin = [PGTranslators pointWithString:[originTuple description] withParentSize:parentRect.size];
-    CGSize size = [PGTranslators sizeWithString:[sizeTuple description] withParentSize:parentRect.size];
+    CGPoint origin = [PGTransformers pointWithString:[originTuple description] withParentSize:parentRect.size];
+    CGSize size = [PGTransformers sizeWithString:[sizeTuple description] withParentSize:parentRect.size];
     
     CGRect frame;
     frame.origin = origin;
@@ -106,12 +106,12 @@
     PGTuple *tuple = [[PGTuple alloc] initWithString:string];
     
     NSString *wStr = [tuple objectAtIndex:0];
-    if ([PGTranslators numericTypeOfString:wStr] == PGNumericTypeAbsolute) size.width = [wStr floatValue];
-    else size.width = [PGTranslators percentageStrToFloat:wStr] * parentSize.width;
+    if ([PGTransformers numericTypeOfString:wStr] == PGNumericTypeAbsolute) size.width = [wStr floatValue];
+    else size.width = [PGTransformers percentageStrToFloat:wStr] * parentSize.width;
     
     NSString *hStr = [tuple objectAtIndex:1];
-    if ([PGTranslators numericTypeOfString:hStr] == PGNumericTypeAbsolute) size.height = [hStr floatValue];
-    else size.height = [PGTranslators percentageStrToFloat:hStr] * parentSize.height;
+    if ([PGTransformers numericTypeOfString:hStr] == PGNumericTypeAbsolute) size.height = [hStr floatValue];
+    else size.height = [PGTransformers percentageStrToFloat:hStr] * parentSize.height;
 
     return size;
 }
@@ -124,20 +124,20 @@
     PGTuple *tuple = [[PGTuple alloc] initWithString:string];
     
     NSString *xStr = [tuple objectAtIndex:0];
-    if ([PGTranslators numericTypeOfString:xStr] == PGNumericTypeAbsolute) point.x = [xStr floatValue];
-    else point.x = [PGTranslators percentageStrToFloat:xStr] * parentSize.width;
+    if ([PGTransformers numericTypeOfString:xStr] == PGNumericTypeAbsolute) point.x = [xStr floatValue];
+    else point.x = [PGTransformers percentageStrToFloat:xStr] * parentSize.width;
 
     NSString *yStr = [tuple objectAtIndex:1];
-    if ([PGTranslators numericTypeOfString:yStr] == PGNumericTypeAbsolute) point.y = [yStr floatValue];
-    else point.y = [PGTranslators percentageStrToFloat:yStr] * parentSize.height;
+    if ([PGTransformers numericTypeOfString:yStr] == PGNumericTypeAbsolute) point.y = [yStr floatValue];
+    else point.y = [PGTransformers percentageStrToFloat:yStr] * parentSize.height;
     
     return point;
 }
 
 + (CGFloat)floatWithString:(NSString *)string withParentFloat:(CGFloat)parentFloat {
     if ([string isEqualToString:@"fill_parent"]) return parentFloat;
-    if ([PGTranslators numericTypeOfString:string] == PGNumericTypeAbsolute) return [string floatValue];
-    return [PGTranslators percentageStrToFloat:string] * parentFloat;
+    if ([PGTransformers numericTypeOfString:string] == PGNumericTypeAbsolute) return [string floatValue];
+    return [PGTransformers percentageStrToFloat:string] * parentFloat;
 }
 
 + (CGAffineTransform)affineTransformWithString:(NSString *)string {

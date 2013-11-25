@@ -21,14 +21,6 @@
 
 @implementation PGViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,7 +40,7 @@
         // change the text "dinosaur" to "soldier" in the prompt (comment this out to see the original view).
         
         // Start by changing the picture
-        UIImageView *pictureView = (UIImageView *)[pegasusObject findViewWithID:@"picture"]; // Find the view tagged with "picture". (Notice how a normal UIImageView is returned.)
+        UIImageView *pictureView = (UIImageView *)[pegasusObject findViewById:@"picture"]; // Find the view tagged with "picture". (Notice how a normal UIImageView is returned.)
         UIImage *newImage = [UIImage imageNamed:@"soldier.png"];
         pictureView.image = newImage;
         // We also need to resize the image view for the new image:
@@ -57,47 +49,11 @@
         pictureView.frame = frame;
 
         // And now we change the label text:
-        UILabel *promptLabel = (UILabel *)[pegasusObject findViewWithID:@"prompt"];
+        UILabel *promptLabel = (UILabel *)[pegasusObject findViewById:@"prompt"];
         promptLabel.text = [promptLabel.text stringByReplacingOccurrencesOfString:@"dinosaur" withString:@"soldier"];
     }
     
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
 
 @end

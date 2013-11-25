@@ -34,12 +34,12 @@
 - (void)setUp {
     [super setUp];
     
-    [self addVirtualProperty:@"size" dependencies:[NSArray arrayWithObjects:@"^.frame.size", nil]];
-    [self addVirtualProperty:@"origin" dependencies:[NSArray arrayWithObjects:@"^.frame.size", nil]];
-    [self addVirtualProperty:@"width" dependencies:[NSArray arrayWithObjects:@"^.frame.size.width", nil]];
-    [self addVirtualProperty:@"height" dependencies:[NSArray arrayWithObjects:@"^.frame.size.height", nil]];
-    [self addVirtualProperty:@"x" dependencies:[NSArray arrayWithObjects:@"^.frame.size.width", nil]];
-    [self addVirtualProperty:@"y" dependencies:[NSArray arrayWithObjects:@"^.frame.size.height", nil]];
+    [self addVirtualProperty:@"size" dependencies:@[@"^.frame.size"]];
+    [self addVirtualProperty:@"origin" dependencies:@[@"^.frame.size"]];
+    [self addVirtualProperty:@"width" dependencies:@[@"^.frame.size.width"]];
+    [self addVirtualProperty:@"height" dependencies:@[@"^.frame.size.height"]];
+    [self addVirtualProperty:@"x" dependencies:@[@"^.frame.size.width"]];
+    [self addVirtualProperty:@"y" dependencies:@[@"^.frame.size.height"]];
 
     [self addPropertiesFromDictionary:[NSDictionary dictionaryWithObjectsAndKeys:
                                        @"UIColor", @"backgroundColor",
@@ -73,37 +73,37 @@
 
 - (void)setSize:(NSString *)string {
     CGRect frame = [self internalFrame];
-    frame.size = [PGTranslators sizeWithString:string withParentSize:[self parentFrame].size];
+    frame.size = [PGTransformers sizeWithString:string withParentSize:[self parentFrame].size];
     self.internalObject.frame = frame;
 }
 
 - (void)setOrigin:(NSString *)string {
     CGRect frame = [self internalFrame];
-    frame.origin = [PGTranslators pointWithString:string withParentSize:[self parentFrame].size];
+    frame.origin = [PGTransformers pointWithString:string withParentSize:[self parentFrame].size];
     self.internalObject.frame = frame;
 }
 
 - (void)setWidth:(NSString *)string {
     CGRect frame = [self internalFrame];
-    frame.size.width = [PGTranslators floatWithString:string withParentFloat:[self parentFrame].size.width];
+    frame.size.width = [PGTransformers floatWithString:string withParentFloat:[self parentFrame].size.width];
     self.internalObject.frame = frame;
 }
 
 - (void)setHeight:(NSString *)string {
     CGRect frame = [self internalFrame];
-    frame.size.height = [PGTranslators floatWithString:string withParentFloat:[self parentFrame].size.height];
+    frame.size.height = [PGTransformers floatWithString:string withParentFloat:[self parentFrame].size.height];
     self.internalObject.frame = frame;
 }
 
 - (void)setX:(NSString *)string {
     CGRect frame = [self internalFrame];
-    frame.origin.x = [PGTranslators floatWithString:string withParentFloat:[self parentFrame].size.width];
+    frame.origin.x = [PGTransformers floatWithString:string withParentFloat:[self parentFrame].size.width];
     self.internalObject.frame = frame;
 }
 
 - (void)setY:(NSString *)string {
     CGRect frame = [self internalFrame];
-    frame.origin.y = [PGTranslators floatWithString:string withParentFloat:[self parentFrame].size.height];
+    frame.origin.y = [PGTransformers floatWithString:string withParentFloat:[self parentFrame].size.height];
     self.internalObject.frame = frame;
 }
 

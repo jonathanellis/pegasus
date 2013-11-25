@@ -24,7 +24,7 @@
 + (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     NSString *systemItemStr = [[attributes objectForKey:@"systemItem"] lowercaseString];
     if (systemItemStr) {
-        UIBarButtonSystemItem systemItem = [PGTranslators barButtonSystemItemWithString:systemItemStr];
+        UIBarButtonSystemItem systemItem = [PGTransformers barButtonSystemItemWithString:systemItemStr];
         return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:systemItem target:nil action:NULL];
     }
     

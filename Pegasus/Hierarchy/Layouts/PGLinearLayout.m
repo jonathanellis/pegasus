@@ -28,15 +28,14 @@
 - (void)setUp {
     [super setUp];
     [self addVirtualProperty:@"orientation" dependencies:nil];
-    [self addVirtualProperty:@"padding" dependencies:[NSArray arrayWithObjects:@"frame.size", @"orientation", nil]];
+    [self addVirtualProperty:@"padding" dependencies:@[@"frame.size", @"orientation"]];
 }
 
 
 - (void)addChild:(PGObject *)childObject {
-    
     PGObject *prevChild = [children lastObject];
     
-    CGPoint p;
+    CGPoint p = CGPointZero;
     
     if (!prevChild) {
         if (orientation == PGLinearLayoutOrientationVertical) p.y = padding;
@@ -75,7 +74,7 @@
     CGFloat parentFloat = 0.0f;
     if (orientation == PGLinearLayoutOrientationHorizontal) parentFloat = self.internalObject.frame.size.width;
     else if (orientation == PGLinearLayoutOrientationVertical) parentFloat = self.internalObject.frame.size.height;
-    padding = [PGTranslators floatWithString:string withParentFloat:parentFloat];
+    padding = [PGTransformers floatWithString:string withParentFloat:parentFloat];
 }
 
 

@@ -25,7 +25,7 @@
 
 + (id)internalObjectWithAttributes:(NSDictionary *)attributes {
     NSString *buttonTypeStr = [[attributes objectForKey:@"buttonType"] lowercaseString];
-    UIButtonType buttonType = [PGTranslators buttonTypeWithString:buttonTypeStr];      
+    UIButtonType buttonType = [PGTransformers buttonTypeWithString:buttonTypeStr];      
     return [UIButton buttonWithType:buttonType];
 }
 

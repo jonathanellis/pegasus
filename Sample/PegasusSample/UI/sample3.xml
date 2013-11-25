@@ -25,11 +25,11 @@
 
 <view frame="fill_parent" backgroundColor="white">
 
-	<linearlayout origin="{0,11}" size="{90%, 90%}" orientation="horizontal" padding="11">
-		<label size="{31%,30%}" text="Green" textAlignment="center" backgroundColor="green" />
-		<label size="{31%,30%}" text="Red" textAlignment="center" backgroundColor="red" />
-		<label size="{31%,30%}" text="Orange" textAlignment="center" backgroundColor="orange" />    
+	<linearlayout origin="{5%,5%}" size="{90%, 90%}" orientation="horizontal" padding="5%" backgroundColor="blue">
+		<label size="{30%,30%}" text="Green" textAlignment="center" backgroundColor="green" />
+		<label size="{30%,30%}" text="Red" textAlignment="center" backgroundColor="red" />
+		<label size="{30%,30%}" text="Orange" textAlignment="center" backgroundColor="orange" />
 	</linearlayout>
 	
-	<label frame="{{2%,33%}, {96%,30%}}" text="White" textAlignment="center" backgroundColor="white" />    
+	<label frame="{{25%,33%}, {50%,30%}}" text="White" textAlignment="center" backgroundColor="white" />
 </view>

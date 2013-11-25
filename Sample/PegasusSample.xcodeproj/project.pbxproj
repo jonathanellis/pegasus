@@ -23,7 +23,7 @@
 		84542DD014EAB62C0085FFFA /* sample1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84542DCE14EAB62C0085FFFA /* sample1.xml */; };
 		84542DD114EAB62C0085FFFA /* sample2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84542DCF14EAB62C0085FFFA /* sample2.xml */; };
 		8459711C14EA763F001D985D /* NSObject+Invocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 845970E714EA763F001D985D /* NSObject+Invocation.m */; };
-		8459712414EA763F001D985D /* PGTranslators.m in Sources */ = {isa = PBXBuildFile; fileRef = 845970F914EA763F001D985D /* PGTranslators.m */; };
+		8459712414EA763F001D985D /* PGTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 845970F914EA763F001D985D /* PGTransformers.m */; };
 		8459712614EA763F001D985D /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 845970FF14EA763F001D985D /* CXMLDocument_CreationExtensions.m */; };
 		8459712714EA763F001D985D /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459710114EA763F001D985D /* CXMLNode_CreationExtensions.m */; };
 		8459712814EA763F001D985D /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459710314EA763F001D985D /* CXHTMLDocument.m */; };
@@ -63,6 +63,7 @@
 		FC1E563A14F1B1FF007D9C1B /* PGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1E563314F1B1FF007D9C1B /* PGTextField.m */; };
 		FC1E563E14F1B265007D9C1B /* PGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1E563D14F1B265007D9C1B /* PGObject.m */; };
 		FC1E564614F1BEE0007D9C1B /* sample3.xml in Resources */ = {isa = PBXBuildFile; fileRef = FC1E564514F1BEE0007D9C1B /* sample3.xml */; };
+		FCCEF9521843EA0400190F51 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = FCCEF9511843EA0400190F51 /* Default-568h.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,8 +93,8 @@
 		845970E714EA763F001D985D /* NSObject+Invocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Invocation.m"; sourceTree = "<group>"; };
 		845970E814EA763F001D985D /* Pegasus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pegasus.h; sourceTree = "<group>"; };
 		845970E914EA763F001D985D /* PGAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGAdapter.h; sourceTree = "<group>"; };
-		845970F814EA763F001D985D /* PGTranslators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTranslators.h; sourceTree = "<group>"; };
-		845970F914EA763F001D985D /* PGTranslators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTranslators.m; sourceTree = "<group>"; };
+		845970F814EA763F001D985D /* PGTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTransformers.h; sourceTree = "<group>"; };
+		845970F914EA763F001D985D /* PGTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGTransformers.m; sourceTree = "<group>"; };
 		845970FE14EA763F001D985D /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
 		845970FF14EA763F001D985D /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
 		8459710014EA763F001D985D /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		FC1E563C14F1B265007D9C1B /* PGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGObject.h; sourceTree = "<group>"; };
 		FC1E563D14F1B265007D9C1B /* PGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGObject.m; sourceTree = "<group>"; };
 		FC1E564514F1BEE0007D9C1B /* sample3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sample3.xml; path = UI/sample3.xml; sourceTree = "<group>"; };
+		FCCEF9511843EA0400190F51 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +217,8 @@
 				842ACF1B15E257BE00573DF7 /* Hierarchy */,
 				845970E814EA763F001D985D /* Pegasus.h */,
 				845970E914EA763F001D985D /* PGAdapter.h */,
-				845970F814EA763F001D985D /* PGTranslators.h */,
-				845970F914EA763F001D985D /* PGTranslators.m */,
+				845970F814EA763F001D985D /* PGTransformers.h */,
+				845970F914EA763F001D985D /* PGTransformers.m */,
 			);
 			name = Pegasus;
 			path = ../../Pegasus;
@@ -316,6 +318,7 @@
 		8464286D14EA7546000C0EE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FCCEF9511843EA0400190F51 /* Default-568h.png */,
 				8464286E14EA7546000C0EE3 /* PegasusSample-Info.plist */,
 				8464286F14EA7546000C0EE3 /* InfoPlist.strings */,
 				8464287214EA7546000C0EE3 /* main.m */,
@@ -465,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCEF9521843EA0400190F51 /* Default-568h.png in Resources */,
 				8464287114EA7546000C0EE3 /* InfoPlist.strings in Resources */,
 				84542DD014EAB62C0085FFFA /* sample1.xml in Resources */,
 				84542DD114EAB62C0085FFFA /* sample2.xml in Resources */,
@@ -525,7 +529,7 @@
 				841DDE741500F53B0090D810 /* PGToolbar.m in Sources */,
 				841DDE7C1500F9A20090D810 /* PGBarButtonItem.m in Sources */,
 				849FC53815064F40004F9F8D /* PGTuple.m in Sources */,
-				8459712414EA763F001D985D /* PGTranslators.m in Sources */,
+				8459712414EA763F001D985D /* PGTransformers.m in Sources */,
 				842ACF1A15E2570700573DF7 /* PGView.m in Sources */,
 				8437DFC515EE182100B33DF9 /* PGFloat.m in Sources */,
 			);

@@ -24,9 +24,9 @@ typedef enum {
     PGNumericTypeRelative
 } PGNumericType;
 
-@interface PGTranslators : NSObject
+@interface PGTransformers : NSObject
 
-+ (SEL)translatorForType:(NSString *)type;
++ (SEL)transformerForType:(NSString *)type;
 
 #pragma mark - Translators (Primitives)
 + (int)intWithString:(NSString *)string;

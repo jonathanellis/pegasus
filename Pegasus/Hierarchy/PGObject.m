@@ -47,22 +47,20 @@
 
 + (PGObject *)viewWithElement:(CXMLElement *)element superview:(PGObject *)aSuperview {
     
-    NSArray *adapters = [NSArray arrayWithObjects:
-                             @"PGView",
-                             @"PGScrollView",
-                             @"PGLabel",
-                             @"PGImageView",
-                             @"PGTextField",
-                             @"PGButton",
-                             @"PGSwitch",
-                             @"PGProgressView",
-                             @"PGTableView",
-                             @"PGTableViewCell",
-                             @"PGToolbar",
-                             @"PGBarButtonItem",
-                             @"PGLinearLayout",
-                             @"PGGridLayout",
-                             nil];
+    NSArray *adapters = @[@"PGView",
+                          @"PGScrollView",
+                          @"PGLabel",
+                          @"PGImageView",
+                          @"PGTextField",
+                          @"PGButton",
+                          @"PGSwitch",
+                          @"PGProgressView",
+                          @"PGTableView",
+                          @"PGTableViewCell",
+                          @"PGToolbar",
+                          @"PGBarButtonItem",
+                          @"PGLinearLayout",
+                          @"PGGridLayout"];
     
     // Search for class matching the tag name
     for (NSString *adapter in adapters) {
@@ -93,7 +91,12 @@
         NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
         for (CXMLNode *attribute in element.attributes) {
             NSString *attributeName = [self casedPropertyName:attribute.name];
-            [attributes setObject:[attribute.stringValue lowercaseString] forKey:attributeName];
+            if (attributeName) {
+                NSString *attributeValue = [attribute.stringValue lowercaseString];
+                attributes[attributeName] = attributeValue;
+            } else {
+                NSLog(@"Pegasus Error: No attribute '%@' on class %@. Ignoring!", attribute.name, NSStringFromClass([self class]));
+            }
         }
 
         // Instantiate internal object:
@@ -103,28 +106,25 @@
         for (NSString *attribute in attributes) {
         
             NSString *propertyName = attribute;
-            NSString *propertyValue = [attributes objectForKey:attribute];
-            NSString *propertyType = [properties objectForKey:propertyName];
+            NSString *propertyValue = attributes[attribute];
+            NSString *propertyType = properties[propertyName];
             
-            // Convert to lowercase if not a string/virtual:         
+            // Convert to lowercase if not a string/virtual:
             if (![propertyType isEqualToString:@"NSString"] && ![propertyType isEqualToString:@"#"]) {
                 propertyValue = [propertyValue lowercaseString];
             }
             
-            if (!propertyType) {
-                NSLog(@"Pegasus Error: No attribute '%@' on class %@. Ignoring!", propertyName, NSStringFromClass([self class]));
-            } else {
-                if ([propertyType isEqualToString:@"#"]) { // Virtual property
-                    SEL selector = [self selectorForProperty:propertyName];
-                    [self performSelector:selector withObject:propertyValue];
-                } else if ([propertyType isEqualToString:@"CGRect"] ||
-                           [propertyType isEqualToString:@"CGSize"] ||
-                           [propertyType isEqualToString:@"CGPoint"]) {
-                    [self setValue:propertyValue ofSpecialType:propertyType forProperty:propertyName];
-                } else if (![propertyType isEqualToString:@"*"]) {
-                    [self setValue:propertyValue ofType:propertyType forProperty:propertyName];
-                }
+            if ([propertyType isEqualToString:@"#"]) { // Virtual property
+                SEL selector = [self selectorForProperty:propertyName];
+                [self performSelector:selector withObject:propertyValue];
+            } else if ([propertyType isEqualToString:@"CGRect"] ||
+                       [propertyType isEqualToString:@"CGSize"] ||
+                       [propertyType isEqualToString:@"CGPoint"]) {
+                [self setValue:propertyValue ofSpecialType:propertyType forProperty:propertyName];
+            } else if (![propertyType isEqualToString:@"*"]) {
+                [self setValue:propertyValue ofType:propertyType forProperty:propertyName];
             }
+            
         }
         
         // If this is a view (as opposed to a barbutton item, for instance):
@@ -153,18 +153,18 @@
 
 - (NSString *)casedPropertyName:(NSString *)uncasedPropertyName {
     for (NSString *propertyName in properties) {
-        if ([[propertyName lowercaseString] isEqualToString:[uncasedPropertyName lowercaseString]]) return propertyName;
+        if ([[propertyName lowercaseString] isEqualToString:[uncasedPropertyName lowercaseString]])
+            return propertyName;
     }
-    NSLog(@"Unable to case property name: %@", uncasedPropertyName);
     return nil;
 }
 
 - (void)setValue:(NSString *)string ofType:(NSString *)type forProperty:(NSString *)propertyName {
     // STEP 1 - Get Translator
-    SEL translatorSelector = [PGTranslators translatorForType:type];
+    SEL transformerSelector = [PGTransformers transformerForType:type];
     
     // STEP 2 - Translate value
-    void *value = [PGTranslators performSelector:translatorSelector withValue:&string];
+    void *value = [PGTransformers performSelector:transformerSelector withValue:&string];
     
     // STEP 3 - Get property setter selector
     SEL setPropertySelector = [self selectorForProperty:propertyName];
@@ -181,15 +181,15 @@
     UIView *parentInternalView = parent.internalObject;
     if ([type isEqualToString:@"CGRect"]) {
         CGRect parentRect = parent ? parentInternalView.frame : [[UIScreen mainScreen] bounds];
-        CGRect rect = [PGTranslators rectWithString:string withParentRect:parentRect];
+        CGRect rect = [PGTransformers rectWithString:string withParentRect:parentRect];
         [internalObject performSelector:setPropertySelector withValue:&rect];
     } else if ([type isEqualToString:@"CGSize"]) {
         CGSize parentSize = parent ? parentInternalView.frame.size : [[UIScreen mainScreen] bounds].size;
-        CGSize size = [PGTranslators sizeWithString:string withParentSize:parentSize];
+        CGSize size = [PGTransformers sizeWithString:string withParentSize:parentSize];
         [internalObject performSelector:setPropertySelector withValue:&size];
     } else if ([type isEqualToString:@"CGPoint"]) {
         CGSize parentSize = parent ? parentInternalView.frame.size : [[UIScreen mainScreen] bounds].size;
-        CGPoint point = [PGTranslators pointWithString:string withParentSize:parentSize];
+        CGPoint point = [PGTransformers pointWithString:string withParentSize:parentSize];
         [internalObject performSelector:setPropertySelector withValue:&point];
     }
 }
@@ -203,11 +203,11 @@
 
 }
 
-- (UIView *)findViewWithID:(NSString *)viewID {    
+- (UIView *)findViewById:(NSString *)viewID {    
     if ([_id isEqualToString:viewID]) return self.internalObject;
     
     for (PGObject *subview in children) {
-        UIView *result = [subview findViewWithID:viewID];
+        UIView *result = [subview findViewById:viewID];
         if (result) return result;
     }
     return nil;
