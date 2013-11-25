@@ -25,14 +25,14 @@
 
 <LinearLayout orientation="vertical" padding="20" width="fill_parent" height="fill_parent" backgroundcolor="#a36800">
 
-    <ScrollView size="{100,100}" contentsize="{278,173}">
+    <ScrollView size="{100,100}" contentSize="{278,173}">
         <ImageView id="picture" size="{278,173}" image="dinosaur.png" />
     </ScrollView>
 
-    <Label id="prompt" size="{240, 27}" text="Which part of the dinosaur do you see?" adjustsfontsizetofitwidth="yes" backgroundcolor="clear" textColor="white" />
+    <Label id="prompt" size="{240, 27}" text="Which part of the dinosaur do you see?" adjustsFontSizeToFitWidth="yes" backgroundColor="clear" textColor="white" />
     
-	<TextField size="{240,27}" placeholder="Enter text" borderstyle="rounded-rect" />
+	<TextField size="{240,27}" placeholder="Enter text" borderStyle="rounded_rect" />
     
-	<Button size="{50,40}" title="OK" buttontype="rounded-rect" />
+	<Button size="{50,40}" title="OK" buttontype="rounded_rect" />
 
 </LinearLayout>

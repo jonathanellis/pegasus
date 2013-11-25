@@ -81,7 +81,7 @@
 #pragma mark - Translators (Structs)
 
 + (CGRect)rectWithString:(NSString *)string withParentRect:(CGRect)parentRect {
-    if ([string isEqualToString:@"fill_parent"]) return parentRect;
+    if ([string isEqualToString:@"fill_parent"] || [string isEqualToString:@"match_parent"]) return parentRect;
     
     PGTuple *tuple = [[PGTuple alloc] initWithString:string];
     
@@ -99,7 +99,7 @@
 }
 
 + (CGSize)sizeWithString:(NSString *)string withParentSize:(CGSize)parentSize {
-    if ([string isEqualToString:@"fill_parent"]) return parentSize;
+    if ([string isEqualToString:@"fill_parent"] || [string isEqualToString:@"match_parent"]) return parentSize;
     
     CGSize size;
 
@@ -135,7 +135,7 @@
 }
 
 + (CGFloat)floatWithString:(NSString *)string withParentFloat:(CGFloat)parentFloat {
-    if ([string isEqualToString:@"fill_parent"]) return parentFloat;
+    if ([string isEqualToString:@"fill_parent"] || [string isEqualToString:@"match_parent"]) return parentFloat;
     if ([PGTransformers numericTypeOfString:string] == PGNumericTypeAbsolute) return [string floatValue];
     return [PGTransformers percentageStrToFloat:string] * parentFloat;
 }
@@ -151,17 +151,17 @@
 #pragma mark - Translators (Enums)
 
 + (UITextAlignment)textAlignmentWithString:(NSString *)string {
-    if ([string isEqualToString:@"left"]) return UITextAlignmentLeft;
-    if ([string isEqualToString:@"right"]) return UITextAlignmentRight;
-    if ([string isEqualToString:@"center"]) return UITextAlignmentCenter;
+    if ([string isEqualToString:@"left"] || [string isEqualToString:@"uitextalignmentleft"] || [string isEqualToString:@"nstextalignmentleft"]) return UITextAlignmentLeft;
+    if ([string isEqualToString:@"right"] || [string isEqualToString:@"uitextalignmentright"] || [string isEqualToString:@"nstextalignmentleft"]) return UITextAlignmentRight;
+    if ([string isEqualToString:@"center"] || [string isEqualToString:@"uitextalignmentcenter"] || [string isEqualToString:@"nstextalignmentleft"]) return UITextAlignmentCenter;
     return 0;
 }
 
 + (UITextBorderStyle)textBorderStyleWithString:(NSString *)string {
-    if ([string isEqualToString:@"bezel"]) return UITextBorderStyleBezel;
-    if ([string isEqualToString:@"line"]) return UITextBorderStyleLine;
-    if ([string isEqualToString:@"none"]) return UITextBorderStyleNone;
-    if ([string isEqualToString:@"rounded-rect"]) return UITextBorderStyleRoundedRect;
+    if ([string isEqualToString:@"bezel"] || [string isEqualToString:@"uitextborderstylebezel"]) return UITextBorderStyleBezel;
+    if ([string isEqualToString:@"line"] || [string isEqualToString:@"uitextborderstyleline"]) return UITextBorderStyleLine;
+    if ([string isEqualToString:@"none"] || [string isEqualToString:@"uitextborderstylenone"]) return UITextBorderStyleNone;
+    if ([string isEqualToString:@"rounded_rect"] || [string isEqualToString:@"uitextborderstyleroundedrect"]) return UITextBorderStyleRoundedRect;
     return 0;
 }
 
@@ -169,123 +169,123 @@
     UIViewAutoresizing mask = 0;
     NSArray *chunks = [string componentsSeparatedByString:@" "];
     for (NSString *chunk in chunks) {
-        if ([chunk isEqualToString:@"none"]) mask |= UIViewAutoresizingNone;
-        if ([chunk isEqualToString:@"margin-left"]) mask |= UIViewAutoresizingFlexibleLeftMargin;
-        if ([chunk isEqualToString:@"margin-right"]) mask |= UIViewAutoresizingFlexibleRightMargin;
-        if ([chunk isEqualToString:@"margin-top"]) mask |= UIViewAutoresizingFlexibleTopMargin;
-        if ([chunk isEqualToString:@"margin-bottom"]) mask |= UIViewAutoresizingFlexibleBottomMargin;
-        if ([chunk isEqualToString:@"width"]) mask |= UIViewAutoresizingFlexibleWidth;
-        if ([chunk isEqualToString:@"height"]) mask |= UIViewAutoresizingFlexibleHeight;
+        if ([chunk isEqualToString:@"none"] || [string isEqualToString:@"uiviewautoresizingnone"]) mask |= UIViewAutoresizingNone;
+        if ([chunk isEqualToString:@"margin_left"] || [string isEqualToString:@"uiviewautoresizingflexibleleftmargin"]) mask |= UIViewAutoresizingFlexibleLeftMargin;
+        if ([chunk isEqualToString:@"margin_right"] || [string isEqualToString:@"uiviewautoresizingflexiblerightmargin"]) mask |= UIViewAutoresizingFlexibleRightMargin;
+        if ([chunk isEqualToString:@"margin_top"] || [string isEqualToString:@"uiviewautoresizingflexibletopmargin"]) mask |= UIViewAutoresizingFlexibleTopMargin;
+        if ([chunk isEqualToString:@"margin_bottom"] || [string isEqualToString:@"uiviewautoresizingflexiblebottommargin"]) mask |= UIViewAutoresizingFlexibleBottomMargin;
+        if ([chunk isEqualToString:@"width"] || [string isEqualToString:@"uiviewautoresizingflexiblewidth"]) mask |= UIViewAutoresizingFlexibleWidth;
+        if ([chunk isEqualToString:@"height"] || [string isEqualToString:@"uiviewautoresizingflexibleheight"]) mask |= UIViewAutoresizingFlexibleHeight;
     }
     
     return mask;
 }
 
 + (UIViewContentMode)contentModeWithString:(NSString *)string {
-    if ([string isEqualToString:@"scale-to-fill"]) return UIViewContentModeScaleToFill;
-    if ([string isEqualToString:@"scale-aspect-fit"]) return UIViewContentModeScaleAspectFit;
-    if ([string isEqualToString:@"scale-aspect-fill"]) return UIViewContentModeScaleAspectFill;
-    if ([string isEqualToString:@"redraw"]) return UIViewContentModeRedraw;
-    if ([string isEqualToString:@"center"]) return UIViewContentModeCenter;
-    if ([string isEqualToString:@"top"]) return UIViewContentModeTop;
-    if ([string isEqualToString:@"bottom"]) return UIViewContentModeBottom;
-    if ([string isEqualToString:@"left"]) return UIViewContentModeLeft;
-    if ([string isEqualToString:@"right"]) return UIViewContentModeLeft;
-    if ([string isEqualToString:@"top-left"]) return UIViewContentModeTopLeft;
-    if ([string isEqualToString:@"top-right"]) return UIViewContentModeTopRight;
-    if ([string isEqualToString:@"bottom-left"]) return UIViewContentModeBottomLeft;
-    if ([string isEqualToString:@"bottom-right"]) return UIViewContentModeBottomRight;
+    if ([string isEqualToString:@"scale_to_fill"] || [string isEqualToString:@"uiviewcontentmodescaletofill"]) return UIViewContentModeScaleToFill;
+    if ([string isEqualToString:@"scale_aspect_fit"] || [string isEqualToString:@"uiviewcontentmodescaleaspectfit"]) return UIViewContentModeScaleAspectFit;
+    if ([string isEqualToString:@"scale_aspect_fill"] || [string isEqualToString:@"uiviewcontentmodescaleaspectfit"]) return UIViewContentModeScaleAspectFill;
+    if ([string isEqualToString:@"redraw"] || [string isEqualToString:@"uiviewcontentmoderedraw"]) return UIViewContentModeRedraw;
+    if ([string isEqualToString:@"center"] || [string isEqualToString:@"uiviewcontentmodecenter"]) return UIViewContentModeCenter;
+    if ([string isEqualToString:@"top"] || [string isEqualToString:@"uiviewcontentmodetop"]) return UIViewContentModeTop;
+    if ([string isEqualToString:@"bottom"] || [string isEqualToString:@"uiviewcontentmodebottom"]) return UIViewContentModeBottom;
+    if ([string isEqualToString:@"left"] || [string isEqualToString:@"uiviewcontentmodeleft"]) return UIViewContentModeLeft;
+    if ([string isEqualToString:@"right"] || [string isEqualToString:@"uiviewcontentmoderight"]) return UIViewContentModeRight;
+    if ([string isEqualToString:@"top_left"] || [string isEqualToString:@"uiviewcontentmodetopleft"]) return UIViewContentModeTopLeft;
+    if ([string isEqualToString:@"top_right"] || [string isEqualToString:@"uiviewcontentmodetopright"]) return UIViewContentModeTopRight;
+    if ([string isEqualToString:@"bottom_left"] || [string isEqualToString:@"uiviewcontentmodebottomleft"]) return UIViewContentModeBottomLeft;
+    if ([string isEqualToString:@"bottom_right"] || [string isEqualToString:@"uiviewcontentmodebottomright"]) return UIViewContentModeBottomRight;
     
     return 0;
 }
 
 + (UILineBreakMode)lineBreakModeWithString:(NSString *)string {
-    if ([string isEqualToString:@"word-wrap"]) return UILineBreakModeWordWrap;
-    if ([string isEqualToString:@"character-wrap"]) return UILineBreakModeCharacterWrap;
-    if ([string isEqualToString:@"clip"]) return UILineBreakModeClip;
-    if ([string isEqualToString:@"head-truncation"]) return UILineBreakModeHeadTruncation;
-    if ([string isEqualToString:@"tail-truncation"]) return UILineBreakModeTailTruncation;
-    if ([string isEqualToString:@"middle-truncation"]) return UILineBreakModeTailTruncation;
+    if ([string isEqualToString:@"word_wrap"] || [string isEqualToString:@"uilinebreakmodewordwrap"]) return UILineBreakModeWordWrap;
+    if ([string isEqualToString:@"character_wrap"] || [string isEqualToString:@"uilinebreakmodecharacterwrap"]) return UILineBreakModeCharacterWrap;
+    if ([string isEqualToString:@"clip"] || [string isEqualToString:@"uilinebreakmodeclip"]) return UILineBreakModeClip;
+    if ([string isEqualToString:@"head_truncation"] || [string isEqualToString:@"uilinebreakmodeheadtruncation"]) return UILineBreakModeHeadTruncation;
+    if ([string isEqualToString:@"tail_truncation"] || [string isEqualToString:@"uilinebreakmodetailtruncation"]) return UILineBreakModeTailTruncation;
+    if ([string isEqualToString:@"middle_truncation"] || [string isEqualToString:@"uilinebreakmodemiddletruncation"]) return UILineBreakModeMiddleTruncation;
     return 0;
 }
 
 + (UITextFieldViewMode)textFieldViewModeFromString:(NSString *)string {
-    if ([string isEqualToString:@"always"]) return UITextFieldViewModeAlways;
-    if ([string isEqualToString:@"never"]) return UITextFieldViewModeNever;
-    if ([string isEqualToString:@"unless-editing"]) return UITextFieldViewModeUnlessEditing;
-    if ([string isEqualToString:@"while-editing"]) return UITextFieldViewModeWhileEditing;
+    if ([string isEqualToString:@"always"] || [string isEqualToString:@"uitextfieldviewmodealways"]) return UITextFieldViewModeAlways;
+    if ([string isEqualToString:@"never"] || [string isEqualToString:@"uitextfieldviewmodenever"]) return UITextFieldViewModeNever;
+    if ([string isEqualToString:@"unless_editing"] || [string isEqualToString:@"uitextfieldviewmodeunlessediting"]) return UITextFieldViewModeUnlessEditing;
+    if ([string isEqualToString:@"while_editing"] || [string isEqualToString:@"uitextfieldviewmodewhileediting"]) return UITextFieldViewModeWhileEditing;
 
     return 0;
 }
 
 + (UIScrollViewIndicatorStyle)scrollViewIndicatorStyleWithString:(NSString *)string {
-    if ([string isEqualToString:@"default"]) return UIScrollViewIndicatorStyleDefault;
-    if ([string isEqualToString:@"black"]) return UIScrollViewIndicatorStyleBlack;
-    if ([string isEqualToString:@"white"]) return UIScrollViewIndicatorStyleWhite;
+    if ([string isEqualToString:@"default"] || [string isEqualToString:@"uiscrollviewindicatorstyledefault"]) return UIScrollViewIndicatorStyleDefault;
+    if ([string isEqualToString:@"black"] || [string isEqualToString:@"uiscrollviewindicatorstyleblack"]) return UIScrollViewIndicatorStyleBlack;
+    if ([string isEqualToString:@"white"] || [string isEqualToString:@"uiscrollviewindicatorstylewhite"]) return UIScrollViewIndicatorStyleWhite;
     return 0;
 }
 
 + (UIProgressViewStyle)progressViewStyleWithString:(NSString *)string {
-    if ([string isEqualToString:@"default"]) return UIProgressViewStyleDefault;
-    if ([string isEqualToString:@"bar"]) return UIProgressViewStyleBar;
+    if ([string isEqualToString:@"default"] || [string isEqualToString:@"uiprogressviewstyledefault"]) return UIProgressViewStyleDefault;
+    if ([string isEqualToString:@"bar"] || [string isEqualToString:@"uiprogressviewstylebar"]) return UIProgressViewStyleBar;
     return 0;
 }
 
 + (UITableViewStyle)tableViewStyleWithString:(NSString *)string {
-    if ([string isEqualToString:@"plain"]) return UITableViewStylePlain;
-    if ([string isEqualToString:@"grouped"]) return UITableViewStyleGrouped;
+    if ([string isEqualToString:@"plain"] || [string isEqualToString:@"uitableviewstyleplain"]) return UITableViewStylePlain;
+    if ([string isEqualToString:@"grouped"] || [string isEqualToString:@"uitableviewstylegrouped"]) return UITableViewStyleGrouped;
     return 0;
 }
 
 + (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyleWithString:(NSString *)string {
-    if ([string isEqualToString:@"none"]) return UITableViewCellSeparatorStyleNone;
-    if ([string isEqualToString:@"single-line"]) return UITableViewCellSeparatorStyleSingleLine;
-    if ([string isEqualToString:@"single-line-etched"]) return UITableViewCellSeparatorStyleSingleLineEtched;
+    if ([string isEqualToString:@"none"] || [string isEqualToString:@"uitableviewcellseparatorstylenone"]) return UITableViewCellSeparatorStyleNone;
+    if ([string isEqualToString:@"single_line"] || [string isEqualToString:@"uitableviewcellseparatorstylesingleline"]) return UITableViewCellSeparatorStyleSingleLine;
+    if ([string isEqualToString:@"single_line_etched"] || [string isEqualToString:@"uitableviewcellseparatorstylesinglelineetched"]) return UITableViewCellSeparatorStyleSingleLineEtched;
     return 0;
 }
 
 + (UIButtonType)buttonTypeWithString:(NSString *)string {
-    if ([string isEqualToString:@"custom"]) return UIButtonTypeCustom;
-    if ([string isEqualToString:@"rounded-rect"]) return UIButtonTypeRoundedRect;
-    if ([string isEqualToString:@"detail-disclosure"]) return UIButtonTypeDetailDisclosure;
-    if ([string isEqualToString:@"info-light"]) return UIButtonTypeInfoLight;
-    if ([string isEqualToString:@"info-dark"]) return UIButtonTypeInfoDark;
-    if ([string isEqualToString:@"contact-add"]) return UIButtonTypeContactAdd;
+    if ([string isEqualToString:@"custom"] || [string isEqualToString:@"uibuttontypecustom"]) return UIButtonTypeCustom;
+    if ([string isEqualToString:@"rounded_rect"] || [string isEqualToString:@"uibuttontyperoundedrect"]) return UIButtonTypeRoundedRect;
+    if ([string isEqualToString:@"detail_disclosure"] || [string isEqualToString:@"uibuttontypedetaildisclosure"]) return UIButtonTypeDetailDisclosure;
+    if ([string isEqualToString:@"info_light"] || [string isEqualToString:@"uibuttontypeinfolight"]) return UIButtonTypeInfoLight;
+    if ([string isEqualToString:@"info_dark"] || [string isEqualToString:@"uibuttontypeinfodark"]) return UIButtonTypeInfoDark;
+    if ([string isEqualToString:@"contact_add"] || [string isEqualToString:@"uibuttontypecontactadd"]) return UIButtonTypeContactAdd;
     return 0;
 }
 
 + (UIBarButtonItemStyle)barButtonItemStyleWithString:(NSString *)string {
-    if ([string isEqualToString:@"plain"]) return UIBarButtonItemStylePlain;
-    if ([string isEqualToString:@"bordered"]) return UIBarButtonItemStyleBordered;
-    if ([string isEqualToString:@"done"]) return UIBarButtonItemStyleDone;
+    if ([string isEqualToString:@"plain"] || [string isEqualToString:@"uibarbuttonitemstyleplain"]) return UIBarButtonItemStylePlain;
+    if ([string isEqualToString:@"bordered"] || [string isEqualToString:@"uibarbuttonitemstylebordered"]) return UIBarButtonItemStyleBordered;
+    if ([string isEqualToString:@"done"] || [string isEqualToString:@"uibarbuttonitemstyledone"]) return UIBarButtonItemStyleDone;
     return 0;
 }
 
 + (UIBarButtonSystemItem)barButtonSystemItemWithString:(NSString *)string {
-    if ([string isEqualToString:@"done"]) return UIBarButtonSystemItemDone;
-    if ([string isEqualToString:@"cancel"]) return UIBarButtonSystemItemCancel;
-    if ([string isEqualToString:@"edit"]) return UIBarButtonSystemItemEdit;
-    if ([string isEqualToString:@"save"]) return UIBarButtonSystemItemSave;
-    if ([string isEqualToString:@"add"]) return UIBarButtonSystemItemAdd;
-    if ([string isEqualToString:@"flexible-space"]) return UIBarButtonSystemItemFlexibleSpace;
-    if ([string isEqualToString:@"fixed-space"]) return UIBarButtonSystemItemFixedSpace;
-    if ([string isEqualToString:@"compose"]) return UIBarButtonSystemItemCompose;
-    if ([string isEqualToString:@"reply"]) return UIBarButtonSystemItemReply;
-    if ([string isEqualToString:@"action"]) return UIBarButtonSystemItemAction;
-    if ([string isEqualToString:@"organize"]) return UIBarButtonSystemItemOrganize;
-    if ([string isEqualToString:@"bookmarks"]) return UIBarButtonSystemItemBookmarks;
-    if ([string isEqualToString:@"search"]) return UIBarButtonSystemItemSearch;
-    if ([string isEqualToString:@"refresh"]) return UIBarButtonSystemItemRefresh;
-    if ([string isEqualToString:@"stop"]) return UIBarButtonSystemItemStop;
-    if ([string isEqualToString:@"camera"]) return UIBarButtonSystemItemCamera;
-    if ([string isEqualToString:@"trash"]) return UIBarButtonSystemItemTrash;
-    if ([string isEqualToString:@"play"]) return UIBarButtonSystemItemPlay;
-    if ([string isEqualToString:@"pause"]) return UIBarButtonSystemItemPause;
-    if ([string isEqualToString:@"rewind"]) return UIBarButtonSystemItemRewind;
-    if ([string isEqualToString:@"fast-forward"]) return UIBarButtonSystemItemFastForward;
-    if ([string isEqualToString:@"undo"]) return UIBarButtonSystemItemUndo;
-    if ([string isEqualToString:@"redo"]) return UIBarButtonSystemItemRedo;
-    if ([string isEqualToString:@"page-curl"]) return UIBarButtonSystemItemPageCurl;
+    if ([string isEqualToString:@"done"] || [string isEqualToString:@"uibarbuttonsystemitemdone"]) return UIBarButtonSystemItemDone;
+    if ([string isEqualToString:@"cancel"] || [string isEqualToString:@"uibarbuttonsystemitemcancel"]) return UIBarButtonSystemItemCancel;
+    if ([string isEqualToString:@"edit"] || [string isEqualToString:@"uibarbuttonsystemitemedit"]) return UIBarButtonSystemItemEdit;
+    if ([string isEqualToString:@"save"] || [string isEqualToString:@"uibarbuttonsystemitemsave"]) return UIBarButtonSystemItemSave;
+    if ([string isEqualToString:@"add"] || [string isEqualToString:@"uibarbuttonsystemadd"]) return UIBarButtonSystemItemAdd;
+    if ([string isEqualToString:@"flexible_space"] || [string isEqualToString:@"uibarbuttonsystemitemflexiblespace"]) return UIBarButtonSystemItemFlexibleSpace;
+    if ([string isEqualToString:@"fixed_space"] || [string isEqualToString:@"uibarbuttonsystemitemfixedspace"]) return UIBarButtonSystemItemFixedSpace;
+    if ([string isEqualToString:@"compose"] || [string isEqualToString:@"uibarbuttonsystemitemcompose"]) return UIBarButtonSystemItemCompose;
+    if ([string isEqualToString:@"reply"] || [string isEqualToString:@"uibarbuttonsystemitemreply"]) return UIBarButtonSystemItemReply;
+    if ([string isEqualToString:@"action"] || [string isEqualToString:@"uibarbuttonsystemitemaction"]) return UIBarButtonSystemItemAction;
+    if ([string isEqualToString:@"organize"] || [string isEqualToString:@"uibarbuttonsystemitemorganize"]) return UIBarButtonSystemItemOrganize;
+    if ([string isEqualToString:@"bookmarks"] || [string isEqualToString:@"uibarbuttonsystemitembookmarks"]) return UIBarButtonSystemItemBookmarks;
+    if ([string isEqualToString:@"search"] || [string isEqualToString:@"uibarbuttonsystemitemsearch"]) return UIBarButtonSystemItemSearch;
+    if ([string isEqualToString:@"refresh"] || [string isEqualToString:@"uibarbuttonsystemitemrefresh"]) return UIBarButtonSystemItemRefresh;
+    if ([string isEqualToString:@"stop"] || [string isEqualToString:@"uibarbuttonsystemitemstop"]) return UIBarButtonSystemItemStop;
+    if ([string isEqualToString:@"camera"] || [string isEqualToString:@"uibarbuttonsystemitemcamera"]) return UIBarButtonSystemItemCamera;
+    if ([string isEqualToString:@"trash"] || [string isEqualToString:@"uibarbuttonsystemitemtrash"]) return UIBarButtonSystemItemTrash;
+    if ([string isEqualToString:@"play"] || [string isEqualToString:@"uibarbuttonsystemitemplay"]) return UIBarButtonSystemItemPlay;
+    if ([string isEqualToString:@"pause"] || [string isEqualToString:@"uibarbuttonsystempause"]) return UIBarButtonSystemItemPause;
+    if ([string isEqualToString:@"rewind"] || [string isEqualToString:@"uibarbuttonsystemrewind"]) return UIBarButtonSystemItemRewind;
+    if ([string isEqualToString:@"fast_forward"] || [string isEqualToString:@"uibarbuttonsystemfastforward"]) return UIBarButtonSystemItemFastForward;
+    if ([string isEqualToString:@"undo"] || [string isEqualToString:@"uibarbuttonsystemitemundo"]) return UIBarButtonSystemItemUndo;
+    if ([string isEqualToString:@"redo"] || [string isEqualToString:@"uibarbuttonsystemitemredo"]) return UIBarButtonSystemItemRedo;
+    if ([string isEqualToString:@"page_curl"] || [string isEqualToString:@"uibarbuttonsystemitempagecurl"]) return UIBarButtonSystemItemPageCurl;
     return 0;
 }
 
@@ -301,8 +301,8 @@
     
     // Preset colors:
     if ([string isEqualToString:@"black"]) return [UIColor blackColor];
-    if ([string isEqualToString:@"dark-gray"]) return [UIColor darkGrayColor];
-    if ([string isEqualToString:@"light-gray"]) return [UIColor lightGrayColor];
+    if ([string isEqualToString:@"dark_gray"]) return [UIColor darkGrayColor];
+    if ([string isEqualToString:@"light_gray"]) return [UIColor lightGrayColor];
     if ([string isEqualToString:@"white"]) return [UIColor whiteColor];
     if ([string isEqualToString:@"gray"]) return [UIColor grayColor];
     if ([string isEqualToString:@"red"]) return [UIColor redColor];
@@ -328,8 +328,8 @@
     float size = [[components objectAtIndex:1] floatValue];
     
     if ([name isEqualToString:@"system"]) return [UIFont systemFontOfSize:size];
-    if ([name isEqualToString:@"system-bold"]) return [UIFont boldSystemFontOfSize:size];
-    if ([name isEqualToString:@"system-italic"]) return [UIFont italicSystemFontOfSize:size];
+    if ([name isEqualToString:@"system_bold"]) return [UIFont boldSystemFontOfSize:size];
+    if ([name isEqualToString:@"system_italic"]) return [UIFont italicSystemFontOfSize:size];
 
     return [UIFont fontWithName:name size:size];
 }
